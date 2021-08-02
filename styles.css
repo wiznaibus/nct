@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&family=Noto+Sans+JP:wght@300&family=Noto+Sans+KR:wght@300&display=swap');
+
+@media only screen and (max-width: 767px) {
+
+    .table>tbody>tr>td,
+    .table>tbody>tr>th,
+    .table>tfoot>tr>td,
+    .table>tfoot>tr>th,
+    .table>thead>tr>td,
+    .table>thead>tr>th {
+        display: block;
+        min-width: 100%;
+    }
+
+    .table>thead>tr>th.participating-members {
+        display: none;
+    }
+}
+
+body {
+    font-family: 'Hind Siliguri', 'Noto Sans KR', 'Noto Sans JP', sans-serif;
+}
+
+a {
+    color: #F25892;
+}
+a:hover, a:active {
+    color: #484848;
+}
+
+.album-div {
+    display: none;
+}
+
+.album-cover {
+    height: 100px;
+    width: auto;
+    padding: 1px;
+    border: 1px solid black;
+}
+
+div.artist-nctu-visible,
+div.artist-nct127-visible,
+div.artist-nctdream-visible,
+div.artist-wayv-visible {
+    display: unset;
+}
+
+.track-tr {
+    display: none;
+}
+
+tr.artist-nctu-visible,
+tr.artist-nct127-visible,
+tr.artist-nctdream-visible,
+tr.artist-wayv-visible
+/* ,tr.member-taeil-visible,
+tr.member-johnny-visible,
+tr.member-taeyong-visible,
+tr.member-yuta-visible,
+tr.member-kun-visible,
+tr.member-doyoung-visible,
+tr.member-ten-visible,
+tr.member-jaehyun-visible,
+tr.member-winwin-visible,
+tr.member-jungwoo-visible,
+tr.member-lucas-visible,
+tr.member-mark-visible,
+tr.member-xiaojun-visible,
+tr.member-hendery-visible,
+tr.member-renjun-visible,
+tr.member-jeno-visible,
+tr.member-haechan-visible,
+tr.member-jaemin-visible,
+tr.member-yangyang-visible,
+tr.member-shotaro-visible,
+tr.member-chenle-visible,
+tr.member-sungchan-visible,
+tr.member-jisung-visible */ {
+    display: table-row;
+}
+
+.btn {
+    border-radius: 50rem;
+    margin: 2px;
+}
+
+.badge {
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 3px;
+}
+
+.form-check-input:checked {
+    background-color: #B1DC11;
+    border-color: #B1DC11;
+} 
+.form-select:focus {
+    border-color: #B1DC11;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+.form-check-input:focus {
+    border-color: #B1DC11;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+  .form-switch .form-check-input:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23D6E69C'/%3e%3c/svg%3e");
+  }
+
+.bg-nctu {
+    color: #212529;
+    background-color: #B1DC11;
+}
+
+.bg-nct127 {
+    background-color: #F25892;
+}
+
+.bg-nctdream {
+    color: #212529;
+    background-color: #F2E658;
+}
+
+.bg-wayv {
+    background-color: #484848;
+}
+
+.bg-nonparticipating {
+    color: #212529;
+    background-color: #f8f9fa;
+}
+
+td {
+    padding-top: 5px !important;
+    padding-bottom: 7px !important;
+}
+
+.btn-nct {
+    color: #212529;
+    border-color: #B1DC11;
+    border-radius: 50rem;
+}
+
+.btn-nct:hover {
+    color: #212529;
+    background-color: #B1DC11;
+    border-color: #B1DC11;
+}
+
+.btn-check:focus+.btn-nct,
+.btn-nct:focus {
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.5);
+}
+
+.btn-check:checked+.btn-nct,
+.btn-check:active+.btn-nct,
+.btn-nct:active,
+.btn-nct.active,
+.btn-nct.dropdown-toggle.show {
+    color: #212529;
+    background-color: #B1DC11;
+    border-color: #B1DC11;
+}
+
+.btn-check:checked+.btn-nct:focus,
+.btn-check:active+.btn-nct:focus,
+.btn-nct:active:focus,
+.btn-nct.active:focus,
+.btn-nct.dropdown-toggle.show:focus {
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.5);
+}
+
+.btn-nct:disabled,
+.btn-nct.disabled {
+    color: #B1DC11;
+    background-color: transparent;
+}

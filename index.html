@@ -8,7 +8,6 @@
     <meta name="author" content="wiznaibus">
     <title>NCT Discography</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -16,246 +15,18 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&family=Noto+Sans+JP:wght@300&family=Noto+Sans+KR:wght@300&display=swap');
-
-        @media only screen and (max-width: 767px) {
-
-            .table>tbody>tr>td,
-            .table>tbody>tr>th,
-            .table>tfoot>tr>td,
-            .table>tfoot>tr>th,
-            .table>thead>tr>td,
-            .table>thead>tr>th {
-                display: block;
-                min-width: 100% !important;
-            }
-
-            .table>thead>tr>th {
-                display: none;
-            }
-        }
-
-        body {
-            font-family: 'Hind Siliguri', 'Noto Sans KR', 'Noto Sans JP', sans-serif;
-        }
-
-        .album-div {
-            display: none;
-        }
-
-        div.artist-nctu-visible,
-        div.artist-nct127-visible,
-        div.artist-nctdream-visible,
-        div.artist-wayv-visible {
-            display: unset;
-        }
-
-        .track-tr {
-            display: none;
-        }
-
-        tr.artist-nctu-visible,
-        tr.artist-nct127-visible,
-        tr.artist-nctdream-visible,
-        tr.artist-wayv-visible,
-        tr.member-taeil-visible,
-        tr.member-johnny-visible,
-        tr.member-taeyong-visible,
-        tr.member-yuta-visible,
-        tr.member-kun-visible,
-        tr.member-doyoung-visible,
-        tr.member-ten-visible,
-        tr.member-jaehyun-visible,
-        tr.member-winwin-visible,
-        tr.member-jungwoo-visible,
-        tr.member-lucas-visible,
-        tr.member-mark-visible,
-        tr.member-xiaojun-visible,
-        tr.member-hendery-visible,
-        tr.member-renjun-visible,
-        tr.member-jeno-visible,
-        tr.member-haechan-visible,
-        tr.member-jaemin-visible,
-        tr.member-yangyang-visible,
-        tr.member-shotaro-visible,
-        tr.member-chenle-visible,
-        tr.member-sungchan-visible,
-        tr.member-jisung-visible {
-            display: table-row;
-        }
-
-        .btn {
-            border-radius: 50rem !important;
-            margin: 2px;
-        }
-
-        .badge {
-            margin-left: 2px;
-            margin-right: 2px;
-        }
-
-        .bg-nctu {
-            color: #212529 !important;
-            background-color: #B1DC11 !important;
-        }
-
-        .bg-nct127 {
-            background-color: #F25892 !important;
-        }
-
-        .bg-nctdream {
-            color: #212529 !important;
-            background-color: #F2E658 !important;
-        }
-
-        .bg-wayv {
-            background-color: #484848 !important;
-        }
-
-        .bg-nonparticipating {
-            color: #212529 !important;
-            background-color: #f8f9fa !important;
-        }
-
-        td {
-            padding-top: 5px !important;
-            padding-bottom: 7px !important;
-        }
-
-        .btn-nct {
-            color: #212529 !important;
-            border-color: #B1DC11;
-            border-radius: 50rem !important;
-        }
-
-        .btn-nct:hover {
-            color: #212529 !important;
-            background-color: #B1DC11;
-            border-color: #B1DC11;
-        }
-
-        .btn-check:focus+.btn-nct,
-        .btn-nct:focus {
-            box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.5);
-        }
-
-        .btn-check:checked+.btn-nct,
-        .btn-check:active+.btn-nct,
-        .btn-nct:active,
-        .btn-nct.active,
-        .btn-nct.dropdown-toggle.show {
-            color: #212529 !important;
-            background-color: #B1DC11;
-            border-color: #B1DC11;
-        }
-
-        .btn-check:checked+.btn-nct:focus,
-        .btn-check:active+.btn-nct:focus,
-        .btn-nct:active:focus,
-        .btn-nct.active:focus,
-        .btn-nct.dropdown-toggle.show:focus {
-            box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.5);
-        }
-
-        .btn-nct:disabled,
-        .btn-nct.disabled {
-            color: #B1DC11;
-            background-color: transparent;
-        }
-    </style>
-
+    <script src="data.js"></script>
+    <link href="styles.css" rel="stylesheet" />
 </head>
 
 <body>
-
     <div class="container">
-        <!-- <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block nonparticipating bg-nonparticipating sidebar collapse">
-      <div class="position-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
-              <span data-feather="home"></span>
-              Dashboard
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file"></span>
-              Orders
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart"></span>
-              Products
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              Customers
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Reports
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Integrations
-            </a>
-          </li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Saved reports</span>
-          <a class="link-secondary" href="#" aria-label="Add a new report">
-            <span data-feather="plus-circle"></span>
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Current month
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Last quarter
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Social engagement
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Year-end sale
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav> -->
-
         <main id="main">
-            <div
-                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h2>Filter</h2>
-            </div>
-
-            <div class="row">
-                <div class="col-3">
-                    <h4>Unit</h4>
+            <div class="row pt-3 pb-2 mb-3 border-bottom">
+                <div class="col-12 col-lg-4">
+                    <h4>NCT Discography</h4>
+                    <p>This is an ongoing discography project designed to quickly and conveniently display which members participated in specific songs.</p>
+                    <!-- <h4>Unit</h4>
                     <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3">
                         <input type="checkbox" class="btn-check" id="toggleNctU" autocomplete="off" checked>
                         <label class="btn btn-nct btn-sm" for="toggleNctU">NCT U</label>
@@ -265,11 +36,11 @@
                         <label class="btn btn-nct btn-sm" for="toggleNctDream">NCT DREAM</label>
                         <input type="checkbox" class="btn-check" id="toggleWayv" autocomplete="off" checked>
                         <label class="btn btn-nct btn-sm" for="toggleWayv">WayV</label>
-                    </div>
+                    </div> -->
                 </div>
-                <div class="col-9">
-                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
-                        <h4>Member</h4>
+                <div class="col-12 col-lg-8">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrapalign-items-start">
+                        <h4>Filter</h4>
                         <div>
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" id="toggleNonParticipatingMembers">
@@ -279,34 +50,31 @@
                             </div>
                         </div>
                     </div>
-                    <div id="groupMembers" class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3">
+                    <div id="groupMembers"
+                        class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3">
                         <input type="radio" class="btn-check" name="filterMembers" id="filterMembersAll" value="all"
                             autocomplete="off" checked>
                         <label class="btn btn-nct btn-sm" for="filterMembersAll">All Members</label>
-
-                        <!-- <input type="radio" class="btn-check" name="filterMembers" id="filterMembersTaeil" value="taeil"
-                            autocomplete="off" checked>
-                        <label class="btn btn-nct btn-sm" for="filterMembersTaeil">Taeil</label>
-
-                        <input type="radio" class="btn-check" name="filterMembers" id="filterMembersJohnny" value="johnny"
-                            autocomplete="off">
-                        <label class="btn btn-nct btn-sm" for="filterMembersJohnny">Johnny</label>
-
-                        <input type="radio" class="btn-check" name="filterMembers" id="filterMembersTaeyong" value="taeyong"
-                            autocomplete="off">
-                        <label class="btn btn-nct btn-sm" for="filterMembersTaeyong">Taeyong</label> -->
+                        <!-- Member filters get inserted here -->
                     </div>
                 </div>
             </div>
+            <!-- Main body gets generated here -->
         </main>
+
+        <footer class="mb-4 text-center">
+            <small>Made with love 💚 by <a href="https://twitter.com/wiznaibus/" target="_blank">wiznaibus</a></small>
+        </footer>
     </div>
 </body>
 
 <script type="text/javascript">
-    const data = JSON.parse('[{"name":"NCT RESONANCE Pt. 1","cover_url":"","release_date":"2020/10/12","type":"Full Album","artist":["NCT U","NCT 127","NCT DREAM","WayV"],"language":["Korean","Chinese","Japanese","English"],"participating_members":["Taeil","Johnny","Taeyong","Yuta","Kun","Doyoung","Ten","Jaehyun","Winwin","Jungwoo","Lucas","Mark","Xiaojun","Hendery","Renjun","Jeno","Haechan","Jaemin","Yangyang","Shotaro","Chenle","Sungchan","Jisung"],"tracks":[{"name":"Make A Wish (Birthday Song)","number":"1","artist":"NCT U","language":["Korean"],"participating_members":["Taeyong","Doyoung","Jaehyun","Lucas","Xiaojun","Jaemin","Shotaro"]},{"name":"Misfit","number":"2","artist":"NCT U","language":["Korean"],"participating_members":["Johnny","Taeyong","Mark","Hendery","Jeno","Yangyang","Sungchan"]},{"name":"Volcano","number":"3","artist":"NCT U","language":["Korean"],"participating_members":["Taeyong","Doyoung","Jaehyun","Winwin","Jungwoo","Lucas","Mark"]},{"name":"백열등 (Light Bulb)","number":"4","artist":"NCT U","language":["Korean"],"participating_members":["Taeyong","Kun","Doyoung","Sungchan"]},{"name":"Dancing In The Rain","number":"5","artist":"NCT U","language":["Korean"],"participating_members":["Taeil","Johnny","Yuta","Kun","Jaehyun","Jungwoo","Xiaojun","Chenle"]},{"name":"Interlude: Past to Present","number":"6","artist":"NCT U","language":["Korean"],"participating_members":[]},{"name":"무대로 (Déjà Vu; 舞代路)","number":"7","artist":"NCT DREAM","language":["Korean"],"participating_members":["Mark","Renjun","Jeno","Haechan","Jaemin","Chenle","Jisung"]},{"name":"月之迷 (Nectar)","number":"8","artist":"WayV","language":["Chinese"],"participating_members":["Kun","Ten","Winwin","Lucas","Xiaojun","Hendery","Yangyang"]},{"name":"Music, Dance","number":"9","artist":"NCT 127","language":["Korean"],"participating_members":["Taeil","Johnny","Taeyong","Yuta","Doyoung","Jaehyun","Jungwoo","Mark","Haechan"]},{"name":"피아노 (Faded In My Last Song)","number":"10","artist":"NCT U","language":["Korean"],"participating_members":["Taeil","Johnny","Yuta","Ten","Lucas","Renjun","Haechan","Jisung"]},{"name":"From Home","number":"11","artist":"NCT U","language":["Korean","Chinese","Japanese"],"participating_members":["Taeil","Yuta","Kun","Doyoung","Renjun","Haechan","Chenle"]},{"name":"From Home - Korean Version","number":"12","artist":"NCT U","language":["Korean"],"participating_members":["Taeil","Yuta","Kun","Doyoung","Renjun","Haechan","Chenle"]},{"name":"Make A Wish (Birthday Song) - English Version","number":"13","artist":"NCT U","language":["English"],"participating_members":["Taeyong","Doyoung","Jaehyun","Lucas","Xiaojun","Jaemin","Shotaro"]}]}]');
+    const albums = data.albums;
+    const members = data.members;
 
-    const members = JSON.parse('["Taeil","Johnny","Taeyong","Yuta","Kun","Doyoung","Ten","Jaehyun","Winwin","Jungwoo","Lucas","Mark","Xiaojun","Hendery","Renjun","Jeno","Haechan","Jaemin","Yangyang","Shotaro","Chenle","Sungchan","Jisung"]');
-
+    /*
+    * To-do: Refactor everything
+    */
 
     let membersFilter = document.getElementById("groupMembers");
 
@@ -330,11 +98,15 @@
 
     let content = document.getElementById("main");
     const tableHeaders = ["#", "Track", "Artist", "Language", "Participating Members"];
+    const numberGridClasses = "col-1 col-md-1 col-lg-1";
+    const trackGridClasses = "col-5 col-md-11 col-lg-6";
+    const artistGridClasses = "col-3 col-md-12 col-lg-3";
+    const languageGridClasses = "col-3 col-md-12 col-lg-2";
 
-    data.forEach(album => {
-
+    albums.forEach(album => {
         let albumDiv = document.createElement("div");
         albumDiv.className = "album-div";
+
         album.artist.forEach(artist => {
             let formattedArtist;
             switch (artist) {
@@ -348,21 +120,44 @@
                     formattedArtist = "nctdream";
                     break;
                 case "WayV":
+                case "WayV-KUN&XIAOJUN":
                     formattedArtist = "wayv";
                     break;
             }
             albumDiv.classList.add("artist-" + formattedArtist);
             albumDiv.classList.add("artist-" + formattedArtist + "-visible");
         });
-        albumDiv.classList.add();
+
+        let titleDiv = document.createElement("div");
+        titleDiv.className = "d-flex justify-content-between flex-wrap align-items-center";
+
+        let infoElement = document.createElement("div");
 
         let nameElement = document.createElement("H2");
         nameElement.appendChild(document.createTextNode(album.name));
 
-        albumDiv.appendChild(nameElement);
+        let releaseDateElement = document.createElement("p");
+        releaseDateElement.className = "mb-0";
+        releaseDateElement.appendChild(document.createTextNode("Release Date: " + album.release_date));
+        let typeElement = document.createElement("p");
+        //typeElement.className = "mb-0";
+        typeElement.appendChild(document.createTextNode("Type: " + album.type));
+
+        let albumCoverElement = document.createElement("img");
+        albumCoverElement.src = album.cover_url;
+        albumCoverElement.className = "album-cover";
+
+        infoElement.appendChild(nameElement);
+        infoElement.appendChild(releaseDateElement);
+        infoElement.appendChild(typeElement);
+
+        titleDiv.appendChild(infoElement);
+        titleDiv.appendChild(albumCoverElement);
+
+        albumDiv.appendChild(titleDiv);
 
         let tableDiv = document.createElement("div");
-        tableDiv.className = "table";
+        tableDiv.className = "table mb-5";
 
         let table = document.createElement("table");
         table.className = "table table-sm";
@@ -370,38 +165,50 @@
         let thead = document.createElement("thead");
         let headerRow = document.createElement("tr");
 
+        let th = document.createElement("th");
+        th.scope = "col";
+        th.className = "col-5";
+
+        let thMembers = document.createElement("th");
+        thMembers.scope = "col";
+        thMembers.className = "col-7 participating-members";
+        thMembers.appendChild(document.createTextNode("Participating Members"));
+
+        let headerDiv = document.createElement("div");
+        headerDiv.className = "row";
+
         tableHeaders.forEach(header => {
-            let th = document.createElement("th");
-            th.scope = "col";
+            if (header === "Participating Members") {
+                return;
+            }
+
+            let div = document.createElement("div");
             switch (header) {
                 case "#":
+                    div.className = numberGridClasses;
                     break;
                 case "Track":
-                    th.className = "col-2";
+                    div.className = trackGridClasses;
                     break;
                 case "Artist":
+                    div.className = artistGridClasses;
                     break;
                 case "Language":
-                    th.className = "col-1";
-                    break;
-                case "Participating Members":
-                    th.className = "col-7 col-md-12";
+                    div.className = languageGridClasses;
                     break;
             }
-            th.appendChild(document.createTextNode(header));
-            headerRow.appendChild(th);
+            div.appendChild(document.createTextNode(header));
+            headerDiv.appendChild(div);
         });
+
+        th.appendChild(headerDiv);
+        headerRow.appendChild(th);
+        headerRow.appendChild(thMembers);
 
         thead.appendChild(headerRow);
         table.appendChild(thead);
 
         let tbody = document.createElement("tbody");
-
-        console.log(album);
-
-        album.artist.forEach(artist => {
-            console.log(artist);
-        });
 
         album.tracks.forEach(track => {
 
@@ -420,23 +227,34 @@
                     formattedArtist = "nctdream";
                     break;
                 case "WayV":
+                case "WayV-KUN&XIAOJUN":
                     formattedArtist = "wayv";
                     break;
             }
             bodyRow.classList.add("artist-" + formattedArtist);
             bodyRow.classList.add("artist-" + formattedArtist + "-visible");
 
-            let numberTd = document.createElement("td");
+            let td = document.createElement("td");
+
+            let div = document.createElement("div");
+            div.className = "row";
+
+            let numberTd = document.createElement("div");
             numberTd.appendChild(document.createTextNode(track.number));
 
-            let nameTd = document.createElement("td");
+            let nameTd = document.createElement("div");
             nameTd.appendChild(document.createTextNode(track.name));
 
-            let artistTd = document.createElement("td");
+            let artistTd = document.createElement("div");
             artistTd.appendChild(document.createTextNode(track.artist));
 
-            let languageTd = document.createElement("td");
-            languageTd.appendChild(document.createTextNode(track.language.join("/")));
+            let languageTd = document.createElement("div");
+            languageTd.appendChild(document.createTextNode(track.language.join(", ")));
+
+            numberTd.className = numberGridClasses
+            nameTd.className = trackGridClasses;
+            artistTd.className = artistGridClasses;
+            languageTd.className = languageGridClasses;
 
             let participatingMembersTd = document.createElement("td");
             participatingMembersTd.className = "participating-members-list";
@@ -444,6 +262,8 @@
             participatingMembersDiv.className = "d-flex justify-content-between flex-wrap align-items-center";
 
             album.participating_members.forEach(member => {
+                albumDiv.classList.add("member-" + member.toLowerCase());
+
                 let memberBadge = document.createElement("span");
                 memberBadge.className = "badge rounded-pill";
 
@@ -459,6 +279,7 @@
                             memberBadge.classList.add("bg-nctdream");
                             break;
                         case "WayV":
+                        case "WayV-KUN&XIAOJUN":
                             memberBadge.classList.add("bg-wayv");
                             break;
                     }
@@ -477,10 +298,12 @@
 
             participatingMembersTd.appendChild(participatingMembersDiv);
 
-            bodyRow.appendChild(numberTd);
-            bodyRow.appendChild(nameTd);
-            bodyRow.appendChild(artistTd);
-            bodyRow.appendChild(languageTd);
+            div.appendChild(numberTd);
+            div.appendChild(nameTd);
+            div.appendChild(artistTd);
+            div.appendChild(languageTd);
+            td.appendChild(div);
+            bodyRow.appendChild(td);
             bodyRow.appendChild(participatingMembersTd);
 
             tbody.appendChild(bodyRow);
@@ -492,38 +315,10 @@
         content.appendChild(albumDiv);
     });
 
-
-
-    function getFormattedName(name) {
-        switch (name) {
-            case "NCT U":
-                return "nctu";
-                break;
-            case "NCT 127":
-                return "nct127";
-                break;
-            case "NCT DREAM":
-                return "nctdream";
-                break;
-            case "WayV":
-                return "wayv";
-                break;
-        }
-    }
-
 </script>
 
 
 <script type="text/javascript">
-
-
-
-    function updateStriping() {
-        /* $("tr:visible").each(function (index) {
-            $(this).css("background-color", !!(index & 1) ? "rgba(0, 0, 0, 0.05)" : "rgba(0,0,0,0)");
-        }); */
-    }
-
     $("#toggleNonParticipatingMembers").click(function () {
         if (document.getElementById("toggleNonParticipatingMembers").checked) {
             $(".bg-nonparticipating").hide();
@@ -533,7 +328,19 @@
         }
     });
 
-    $("#toggleNctU").click(function () {
+    $("input[type=radio][name=filterMembers]").on('change', function () {
+        if ($(this).val() === "all") {
+            $(".album-div").show();
+            $("tbody tr").show();
+        }
+        else {
+            $(".member-" + $(this).val()).show();
+            $(".album-div").not(".member-" + $(this).val()).hide();
+            $("tbody tr").not(".member-" + $(this).val()).hide();
+        }
+    });
+
+    /* $("#toggleNctU").click(function () {
         if (document.getElementById("toggleNctU").checked) {
             $(".artist-nctu").addClass("artist-nctu-visible");
         }
@@ -571,17 +378,7 @@
             $(".artist-wayv").removeClass("artist-wayv-visible");
         }
         updateStriping();
-    });
-
-    $("input[type=radio][name=filterMembers]").on('change', function () {
-        if ($(this).val() === "all") {
-            $("tbody tr").show();
-        }
-        else {
-            $(".member-" + $(this).val()).show();
-                $("tbody tr").not(".member-" + $(this).val()).hide();
-        }
-    });
-
+    });*/
 </script>
+
 </html>
