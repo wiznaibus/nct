@@ -1,0 +1,2 @@
+# nct
+NCT Discography Page
