@@ -4,6 +4,366 @@ data = {
     ],
     "albums": [
         {
+            "name": "The 7th Sense",
+            "cover_url": "images/the7thsense.jpeg",
+            "release_date": "2016/04/09",
+            "type": "Digital Single",
+            "artist": [
+                "NCT U"
+            ],
+            "language": [
+                "Korean"
+            ],
+            "links": [
+                {
+                    "type": "Spotify",
+                    "url": "https://open.spotify.com/album/2KqjZihoHmimTaPaC3dNb2"
+                },
+                {
+                    "type": "Apple Music",
+                    "url": "https://itunes.apple.com/us/album/7th-sense-sung-by-taeyong-mark-jaehyun-doyoung-ten/1101139379"
+                }
+            ],
+            "participating_members": [
+                "Taeyong",
+                "Doyoung",
+                "Ten",
+                "Jaehyun",
+                "Mark"
+            ],
+            "tracks": [
+                {
+                    "name": "The 7th Sense",
+                    "number": "1",
+                    "artist": "NCT U",
+                    "language": [
+                        "Korean"
+                    ],
+                    "links": [
+                        {
+                            "type": "YouTube",
+                            "url": "https://youtu.be/3UGMDJ9kZCA"
+                        }
+                    ],
+                    "participating_members": [
+                        "Taeyong",
+                        "Doyoung",
+                        "Ten",
+                        "Jaehyun",
+                        "Mark"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Without You",
+            "cover_url": "images/withoutyou.jpeg",
+            "release_date": "2016/04/10",
+            "type": "Digital Single",
+            "artist": [
+                "NCT U"
+            ],
+            "language": [
+                "Korean", "Chinese"
+            ],
+            "links": [
+                {
+                    "type": "Spotify",
+                    "url": "https://open.spotify.com/album/6sSEBHHEExHgEIvZ11MxBp"
+                },
+                {
+                    "type": "Apple Music",
+                    "url": "https://itunes.apple.com/us/album/without-you-single/1101139429"
+                }
+            ],
+            "participating_members": [
+                "Taeil",
+                "Kun",
+                "Doyoung",
+                "Jaehyun",
+            ],
+            "tracks": [
+                {
+                    "name": "Without You",
+                    "number": "1",
+                    "artist": "NCT U",
+                    "language": [
+                        "Korean"
+                    ],
+                    "links": [
+                        {
+                            "type": "YouTube",
+                            "url": "https://youtu.be/y6OcvS54KYQ"
+                        }
+                    ],
+                    "participating_members": [
+                        "Taeil",
+                        "Doyoung",
+                        "Jaehyun"
+                    ]
+                },
+                {
+                    "name": "Without You (Chinese Version)",
+                    "number": "2",
+                    "artist": "NCT U",
+                    "language": [
+                        "Chinese"
+                    ],
+                    "links": [
+                        {
+                            "type": "YouTube",
+                            "url": "https://youtu.be/kgWdgwukIj8"
+                        }
+                    ],
+                    "participating_members": [
+                        "Taeil",
+                        "Kun",
+                        "Doyoung",
+                        "Jaehyun"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "NCT #127",
+            "cover_url": "images/nct127.jpeg",
+            "release_date": "2016/07/10",
+            "type": "Mini Album",
+            "artist": [
+                "NCT 127",
+                "SR15B"
+            ],
+            "language": [
+                "Korean"
+            ],
+            "links": [
+                {
+                    "type": "Spotify",
+                    "url": "https://open.spotify.com/album/6NMQzdclNuTi6mXiRpoPxB"
+                },
+                {
+                    "type": "Apple Music",
+                    "url": "https://itunes.apple.com/us/album/nct-127-the-1st-mini-album/1132508841"
+                }
+            ],
+            "participating_members": [
+                "Taeil",
+                "Taeyong",
+                "Yuta",
+                "Doyoung",
+                "Jaehyun",
+                "Winwin",
+                "Mark",
+                "Haechan"
+            ],
+            "tracks": [
+                {
+                    "name": "Fire Truck",
+                    "number": "1",
+                    "artist": "NCT 127",
+                    "language": [
+                        "Korean"
+                    ],
+                    "links": [
+                        {
+                            "type": "YouTube",
+                            "url": "https://youtu.be/_psXn_VJ_AE"
+                        }
+                    ],
+                    "participating_members": [
+                        "Taeil",
+                        "Taeyong",
+                        "Yuta",
+                        "Jaehyun",
+                        "Winwin",
+                        "Mark",
+                        "Haechan"
+                    ]
+                },
+                {
+                    "name": "Once Again",
+                    "number": "2",
+                    "artist": "NCT 127",
+                    "language": [
+                        "Korean"
+                    ],
+                    "participating_members": [
+                        "Taeil",
+                        "Taeyong",
+                        "Yuta",
+                        "Jaehyun",
+                        "Winwin",
+                        "Mark",
+                        "Haechan"
+                    ]
+                },
+                {
+                    "name": "Wake Up",
+                    "number": "3",
+                    "artist": "NCT 127",
+                    "language": [
+                        "Korean"
+                    ],
+                    "participating_members": [
+                        "Taeil",
+                        "Taeyong",
+                        "Yuta",
+                        "Jaehyun",
+                        "Winwin",
+                        "Mark",
+                        "Haechan"
+                    ]
+                },
+                {
+                    "name": "Another World",
+                    "number": "4",
+                    "artist": "NCT 127",
+                    "language": [
+                        "Korean"
+                    ],
+                    "participating_members": [
+                        "Taeil",
+                        "Taeyong",
+                        "Yuta",
+                        "Jaehyun",
+                        "Winwin",
+                        "Mark",
+                        "Haechan"
+                    ]
+                },
+                {
+                    "name": "Paradise",
+                    "number": "5",
+                    "artist": "NCT 127",
+                    "language": [
+                        "Korean"
+                    ],
+                    "participating_members": [
+                        "Taeil",
+                        "Taeyong",
+                        "Yuta",
+                        "Jaehyun",
+                        "Winwin",
+                        "Mark",
+                        "Haechan"
+                    ]
+                },
+                {
+                    "name": "Mad City",
+                    "number": "6",
+                    "artist": "NCT 127",
+                    "language": [
+                        "Korean"
+                    ],
+                    "participating_members": [
+                        "Taeyong",
+                        "Jaehyun",
+                        "Mark",
+                    ]
+                },
+                {
+                    "name": "Switch (feat. SR15B)",
+                    "number": "7",
+                    "artist": "NCT 127",
+                    "language": [
+                        "Korean"
+                    ],
+                    "links": [
+                        {
+                            "type": "YouTube",
+                            "url": "https://youtu.be/cVwxC1t19Lc"
+                        }
+                    ],
+                    "participating_members": [
+                        "Taeil",
+                        "Taeyong",
+                        "Doyoung",
+                        "Jaehyun",
+                        "Haechan"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Chewing Gum",
+            "cover_url": "images/chewinggum.jpeg",
+            "release_date": "2016/08/27",
+            "type": "Digital Single",
+            "artist": [
+                "NCT DREAM"
+            ],
+            "language": [
+                "Korean", "Chinese"
+            ],
+            "links": [
+                {
+                    "type": "Spotify",
+                    "url": "https://open.spotify.com/album/53wPhgvCnPI6QMvF7SABkX"
+                },
+                {
+                    "type": "Apple Music",
+                    "url": "https://itunes.apple.com/us/album/chewing-gum-single/1147458439"
+                }
+            ],
+            "participating_members": [
+                "Mark",
+                "Renjun",
+                "Jeno",
+                "Haechan",
+                "Jaemin",
+                "Chenle",
+                "Jisung"
+            ],
+            "tracks": [
+                {
+                    "name": "Chewing Gum",
+                    "number": "1",
+                    "artist": "NCT DREAM",
+                    "language": [
+                        "Korean"
+                    ],
+                    "links": [
+                        {
+                            "type": "YouTube",
+                            "url": "https://youtu.be/fwmvF5ffmhg"
+                        }
+                    ],
+                    "participating_members": [
+                        "Mark",
+                        "Renjun",
+                        "Jeno",
+                        "Haechan",
+                        "Jaemin",
+                        "Chenle",
+                        "Jisung"
+                    ]
+                },
+                {
+                    "name": "Chewing Gum (Chinese Version)",
+                    "number": "2",
+                    "artist": "NCT DREAM",
+                    "language": [
+                        "Chinese"
+                    ],
+                    "links": [
+                        {
+                            "type": "YouTube",
+                            "url": "https://youtu.be/Xuj53F50rv4"
+                        }
+                    ],
+                    "participating_members": [
+                        "Mark",
+                        "Renjun",
+                        "Jeno",
+                        "Haechan",
+                        "Jaemin",
+                        "Chenle",
+                        "Jisung"
+                    ]
+                }
+            ]
+        },
+        {
             "name": "NCT RESONANCE Pt. 1",
             "cover_url": "images/resonancept1.jpeg",
             "release_date": "2020/10/12",
@@ -1461,3 +1821,100 @@ data = {
         }
     ]
 };
+
+
+
+/*
+ {
+            "name": "name",
+            "cover_url": "url",
+            "release_date": "date",
+            "type": "type",
+            "artist": [
+                "NCT U"
+            ],
+            "language": [
+                "Korean"
+            ],
+            "links": [
+                {
+                    "type": "Spotify",
+                    "url": "url"
+                },
+                {
+                    "type": "Apple Music",
+                    "url": "url"
+                },
+                {
+                    "type": "YouTube",
+                    "url": "url"
+                }
+            ],
+            "participating_members": [
+                "Taeil",
+                "Johnny",
+                "Taeyong",
+                "Yuta",
+                "Kun",
+                "Doyoung",
+                "Ten",
+                "Jaehyun",
+                "Winwin",
+                "Jungwoo",
+                "Lucas",
+                "Mark",
+                "Xiaojun",
+                "Hendery",
+                "Renjun",
+                "Jeno",
+                "Haechan",
+                "Jaemin",
+                "Yangyang",
+                "Shotaro",
+                "Sungchan",
+                "Chenle",
+                "Jisung"
+            ],
+            "tracks": [
+                {
+                    "name": "name",
+                    "number": "1",
+                    "artist": "NCT U",
+                    "language": [
+                        "Korean"
+                    ],
+                    "links": [
+                        {
+                            "type": "YouTube",
+                            "url": "url"
+                        }
+                    ],
+                    "participating_members": [
+                        "Taeil",
+                        "Johnny",
+                        "Taeyong",
+                        "Yuta",
+                        "Kun",
+                        "Doyoung",
+                        "Ten",
+                        "Jaehyun",
+                        "Winwin",
+                        "Jungwoo",
+                        "Lucas",
+                        "Mark",
+                        "Xiaojun",
+                        "Hendery",
+                        "Renjun",
+                        "Jeno",
+                        "Haechan",
+                        "Jaemin",
+                        "Yangyang",
+                        "Shotaro",
+                        "Sungchan",
+                        "Chenle",
+                        "Jisung"
+                    ]
+                }
+            ]
+        }
+ */

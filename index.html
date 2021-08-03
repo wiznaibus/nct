@@ -15,6 +15,7 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
     <script src="data.js"></script>
     <link href="styles.css" rel="stylesheet" />
 </head>
@@ -63,7 +64,7 @@
         </main>
 
         <footer class="mb-4 text-center">
-            <small>Made with love 💚 by <a href="https://twitter.com/wiznaibus/" target="_blank">wiznaibus</a></small>
+            <small>Made with love 💚 by <a href="https://github.com/wiznaibus/nct" target="_blank">wiznaibus</a></small>
         </footer>
     </div>
 </body>
@@ -129,19 +130,33 @@
         });
 
         let titleDiv = document.createElement("div");
-        titleDiv.className = "d-flex justify-content-between flex-wrap align-items-center";
+        titleDiv.className = "d-flex justify-content-between flex-wrap align-items-start";
 
         let infoElement = document.createElement("div");
 
         let nameElement = document.createElement("H2");
         nameElement.appendChild(document.createTextNode(album.name));
 
+        //
+
         let releaseDateElement = document.createElement("p");
         releaseDateElement.className = "mb-0";
         releaseDateElement.appendChild(document.createTextNode("Release Date: " + album.release_date));
         let typeElement = document.createElement("p");
-        //typeElement.className = "mb-0";
+        typeElement.className = "mb-0";
         typeElement.appendChild(document.createTextNode("Type: " + album.type));
+        let linksElement = document.createElement("p");
+
+        if (album.links !== undefined) {
+            album.links.forEach(link => {
+                let linkElement = document.createElement("a");
+                linkElement.href = link.url;
+                linkElement.className = "btn btn-nct btn-sm";
+                linkElement.setAttribute("target", "_blank");
+                linkElement.appendChild(document.createTextNode(link.type));
+                linksElement.appendChild(linkElement);
+            });
+        }
 
         let albumCoverElement = document.createElement("img");
         albumCoverElement.src = album.cover_url;
@@ -150,6 +165,7 @@
         infoElement.appendChild(nameElement);
         infoElement.appendChild(releaseDateElement);
         infoElement.appendChild(typeElement);
+        infoElement.appendChild(linksElement);
 
         titleDiv.appendChild(infoElement);
         titleDiv.appendChild(albumCoverElement);
@@ -167,11 +183,11 @@
 
         let th = document.createElement("th");
         th.scope = "col";
-        th.className = "col-5";
+        th.className = "col-6";
 
         let thMembers = document.createElement("th");
         thMembers.scope = "col";
-        thMembers.className = "col-7 participating-members";
+        thMembers.className = "col-6 participating-members";
         thMembers.appendChild(document.createTextNode("Participating Members"));
 
         let headerDiv = document.createElement("div");
@@ -245,6 +261,21 @@
             let nameTd = document.createElement("div");
             nameTd.appendChild(document.createTextNode(track.name));
 
+            if (track.links !== undefined) {
+                track.links.forEach(link => {
+                    //<a href=""><i data-feather="youtube"></i></a>
+                    let linkElement = document.createElement("a");
+                    linkElement.className = "youtube";
+                    linkElement.style = "margin-left: 5px";
+                    linkElement.setAttribute("target", "_blank");
+                    linkElement.href = link.url;
+                    let linkIcon = document.createElement("i");
+                    linkIcon.setAttribute("data-feather", "youtube");
+                    linkElement.appendChild(linkIcon);
+                    nameTd.appendChild(linkElement);
+                });
+            }
+
             let artistTd = document.createElement("div");
             artistTd.appendChild(document.createTextNode(track.artist));
 
@@ -273,7 +304,12 @@
                             memberBadge.classList.add("bg-nctu");
                             break;
                         case "NCT 127":
-                            memberBadge.classList.add("bg-nct127");
+                            if (track.name === "Switch (feat. SR15B)" && member === "Doyoung") {
+                                memberBadge.classList.add("bg-nctu");
+                            }
+                            else {
+                                memberBadge.classList.add("bg-nct127");
+                            }
                             break;
                         case "NCT DREAM":
                             memberBadge.classList.add("bg-nctdream");
@@ -319,6 +355,8 @@
 
 
 <script type="text/javascript">
+    feather.replace();
+
     $("#toggleNonParticipatingMembers").click(function () {
         if (document.getElementById("toggleNonParticipatingMembers").checked) {
             $(".bg-nonparticipating").hide();

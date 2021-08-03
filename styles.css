@@ -24,6 +24,9 @@ body {
 a {
     color: #F25892;
 }
+a.youtube {
+    color: #FF0000;
+}
 a:hover, a:active {
     color: #484848;
 }
