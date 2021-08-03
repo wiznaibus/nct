@@ -111,9 +111,6 @@
         album.artist.forEach(artist => {
             let formattedArtist;
             switch (artist) {
-                case "NCT U":
-                    formattedArtist = "nctu";
-                    break;
                 case "NCT 127":
                     formattedArtist = "nct127";
                     break;
@@ -123,6 +120,12 @@
                 case "WayV":
                 case "WayV-KUN&XIAOJUN":
                     formattedArtist = "wayv";
+                    break;
+                case "NCT":
+                case "NCT U":
+                case "NCT 2018":
+                default:
+                    formattedArtist = "nctu";
                     break;
             }
             albumDiv.classList.add("artist-" + formattedArtist);
@@ -233,9 +236,6 @@
 
             let formattedArtist;
             switch (track.artist) {
-                case "NCT U":
-                    formattedArtist = "nctu";
-                    break;
                 case "NCT 127":
                     formattedArtist = "nct127";
                     break;
@@ -245,6 +245,12 @@
                 case "WayV":
                 case "WayV-KUN&XIAOJUN":
                     formattedArtist = "wayv";
+                    break;
+                case "NCT":
+                case "NCT U":
+                case "NCT 2018":
+                default:
+                    formattedArtist = "nctu";
                     break;
             }
             bodyRow.classList.add("artist-" + formattedArtist);
@@ -280,7 +286,9 @@
             artistTd.appendChild(document.createTextNode(track.artist));
 
             let languageTd = document.createElement("div");
-            languageTd.appendChild(document.createTextNode(track.language.join(", ")));
+            if (track.language !== undefined) {
+                languageTd.appendChild(document.createTextNode(track.language.join(", ")));
+            }
 
             numberTd.className = numberGridClasses
             nameTd.className = trackGridClasses;
@@ -300,9 +308,6 @@
 
                 if (track.participating_members.includes(member)) {
                     switch (track.artist) {
-                        case "NCT U":
-                            memberBadge.classList.add("bg-nctu");
-                            break;
                         case "NCT 127":
                             if (track.name === "Switch (feat. SR15B)" && member === "Doyoung") {
                                 memberBadge.classList.add("bg-nctu");
@@ -317,6 +322,12 @@
                         case "WayV":
                         case "WayV-KUN&XIAOJUN":
                             memberBadge.classList.add("bg-wayv");
+                            break;
+                        case "NCT":
+                        case "NCT U":
+                        case "NCT 2018":
+                        default:
+                            memberBadge.classList.add("bg-nctu");
                             break;
                     }
 

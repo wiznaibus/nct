@@ -49,6 +49,10 @@ div.artist-wayv-visible {
     display: unset;
 }
 
+th {
+    font-size: smaller;
+}
+
 .track-tr {
     display: none;
 }
