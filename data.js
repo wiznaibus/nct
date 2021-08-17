@@ -5944,7 +5944,7 @@ data = {
         {
             "name": "Back To You",
             "cover_url": "images/backtoyou.jpeg",
-            "release_date": "2020/12/04",
+            "release_date": "2021/06/16",
             "type": "Digital Single",
             "artist": [
                 "WayV-KUN&XIAOJUN"
@@ -6304,6 +6304,90 @@ data = {
                         "Jaemin",
                         "Chenle",
                         "Jisung"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "MAXIS BY RYAN JHUN PT. 1",
+            "cover_url": "images/maniac.jpeg",
+            "release_date": "2021/08/12",
+            "type": "Digital Single",
+            "artist": [
+                "NCT U"
+            ],
+            "language": [
+                "Korean"
+            ],
+            "links": [
+                {
+                    "type": "Spotify",
+                    "url": "https://open.spotify.com/album/4WQ05YKNsq42DiHMYCmTXc"
+                }
+            ],
+            "participating_members": [
+                "Doyoung",
+                "Haechan"
+            ],
+            "tracks": [
+                {
+                    "name": "Maniac (Sung by DOYOUNG, HAECHAN) (Prod. RYAN JHUN)",
+                    "number": "1",
+                    "artist": "NCT U",
+                    "language": [
+                        "Korean"
+                    ],
+                    "links": [
+                        {
+                            "type": "YouTube",
+                            "url": "https://www.youtube.com/watch?v=-ffD9Desjcg"
+                        }
+                    ],
+                    "participating_members": [
+                        "Doyoung",
+                        "Haechan"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Low Low",
+            "cover_url": "images/lowlow.jpeg",
+            "release_date": "2021/08/17",
+            "type": "Digital Single",
+            "artist": [
+                "WayV-TEN&YANGYANG"
+            ],
+            "language": [
+                "English"
+            ],
+            "links": [
+                {
+                    "type": "Spotify",
+                    "url": "https://open.spotify.com/album/58Y92GzXpCV5D6WRNqzOYN"
+                }
+            ],
+            "participating_members": [
+                "Ten",
+                "Yangyang"
+            ],
+            "tracks": [
+                {
+                    "name": "Low Low",
+                    "number": "1",
+                    "artist": "WayV-TEN&YANGYANG",
+                    "language": [
+                        "English"
+                    ],
+                    "links": [
+                        {
+                            "type": "YouTube",
+                            "url": "https://www.youtube.com/watch?v=GYB6jfC9A6U"
+                        }
+                    ],
+                    "participating_members": [
+                        "Ten",
+                        "Yangyang"
                     ]
                 }
             ]
