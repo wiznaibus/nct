@@ -1,0 +1,13 @@
+/* ./styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&family=Noto+Sans+JP:wght@300&family=Noto+Sans+KR:wght@300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    body {
+        font-family: 'Hind Siliguri', 'Noto Sans KR', 'Noto Sans JP', sans-serif;
+    }
+}
+

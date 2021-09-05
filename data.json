@@ -1,6 +1,147 @@
-data = {
+{
     "members": [
-        "Taeil", "Johnny", "Taeyong", "Yuta", "Kun", "Doyoung", "Ten", "Jaehyun", "Winwin", "Jungwoo", "Lucas", "Mark", "Xiaojun", "Hendery", "Renjun", "Jeno", "Haechan", "Jaemin", "Yangyang", "Shotaro", "Sungchan", "Chenle", "Jisung"
+        {
+            "name":"Taeil",
+            "slug":"taeil"
+        },
+        {
+            "name":"Johnny",
+            "slug":"johnny"
+        },
+        {
+            "name":"Taeyong",
+            "slug":"taeyong"
+        },
+        {
+            "name":"Yuta",
+            "slug":"yuta"
+        },
+        {
+            "name":"Kun",
+            "slug":"kun"
+        },
+        {
+            "name":"Doyoung",
+            "slug":"doyoung"
+        },
+        {
+            "name":"Ten",
+            "slug":"ten"
+        },
+        {
+            "name":"Jaehyun",
+            "slug":"jaehyun"
+        },
+        {
+            "name":"Winwin",
+            "slug":"winwin"
+        },
+        {
+            "name":"Jungwoo",
+            "slug":"jungwoo"
+        },
+        {
+            "name":"Lucas",
+            "slug":"lucas"
+        },
+        {
+            "name":"Mark",
+            "slug":"mark"
+        },
+        {
+            "name":"Xiaojun",
+            "slug":"xiaojun"
+        },
+        {
+            "name":"Hendery",
+            "slug":"hendery"
+        },
+        {
+            "name":"Renjun",
+            "slug":"renjun"
+        },
+        {
+            "name":"Jeno",
+            "slug":"jeno"
+        },
+        {
+            "name":"Haechan",
+            "slug":"haechan"
+        },
+        {
+            "name":"Jaemin",
+            "slug":"jaemin"
+        },
+        {
+            "name":"Yangyang",
+            "slug":"yangyang"
+        },
+        {
+            "name":"Shotaro",
+            "slug":"shotaro"
+        },
+        {
+            "name":"Sungchan",
+            "slug":"sungchan"
+        },
+        {
+            "name":"Chenle",
+            "slug":"chenle"
+        },
+        {
+            "name":"Jisung",
+            "slug":"jisung"
+        }
+    ],
+    "units": [
+        {
+            "name": "NCT U",
+            "slug": "nct-u",
+            "color": "nctu",
+            "text": "black"
+        },
+        {
+            "name": "NCT 127",
+            "slug": "nct-127",
+            "color": "nct127",
+            "text": "white"
+        },
+        {
+            "name": "NCT DREAM",
+            "slug": "nct-dream",
+            "color": "nctdream",
+            "text": "black"
+        },
+        {
+            "name": "WayV",
+            "slug": "wayv",
+            "color": "wayv",
+            "text": "white"
+        },
+        {
+            "name": "WayV-KUN&XIAOJUN",
+            "slug": "wayv-kunxiaojun",
+            "color": "wayv",
+            "text": "white"
+        },
+        {
+            "name": "WayV-TEN&YANGYANG",
+            "slug": "wayv-tenyangyang",
+            "color": "wayv",
+            "text": "white"
+        },
+        {
+            "name": "SR15B",
+            "slug": "sr15b",
+            "color": "nctu",
+            "text": "black"
+        },
+        {
+            "name": "NCT 2018",
+            "slug": "nct-2018",
+            "color": "nctu",
+            "text": "black"
+        }
     ],
     "albums": [
         {
@@ -80,7 +221,7 @@ data = {
                 "Taeil",
                 "Kun",
                 "Doyoung",
-                "Jaehyun",
+                "Jaehyun"
             ],
             "tracks": [
                 {
@@ -258,7 +399,7 @@ data = {
                     "participating_members": [
                         "Taeyong",
                         "Jaehyun",
-                        "Mark",
+                        "Mark"
                     ]
                 },
                 {
@@ -808,7 +949,7 @@ data = {
                 },
                 {
                     "name": "Cherry Bomb (Performance Version)",
-                    "number": "6",
+                    "number": "7",
                     "artist": "NCT 127",
                     "language": [
                         "Korean"
@@ -976,7 +1117,7 @@ data = {
                         "Chenle",
                         "Jisung"
                     ]
-                },
+                }
             ]
         },
         {
@@ -1108,7 +1249,7 @@ data = {
                         "Jaehyun",
                         "Winwin",
                         "Mark",
-                        "Haechan",
+                        "Haechan"
                     ]
                 },
                 {
@@ -1128,7 +1269,7 @@ data = {
                         "Taeyong",
                         "Doyoung",
                         "Lucas",
-                        "Mark",
+                        "Mark"
                     ]
                 },
                 {
@@ -1149,7 +1290,7 @@ data = {
                         "Yuta",
                         "Lucas",
                         "Mark",
-                        "Jeno",
+                        "Jeno"
                     ]
                 },
                 {
@@ -1245,7 +1386,7 @@ data = {
                         }
                     ],
                     "participating_members": [
-                        "Ten",
+                        "Ten"
                     ]
                 },
                 {
@@ -1274,7 +1415,7 @@ data = {
                         "Lucas",
                         "Mark"
                     ]
-                },
+                }
             ]
         },
         {
@@ -1442,7 +1583,7 @@ data = {
             ],
             "participating_members": [
                 "Taeyong",
-                "Ten",
+                "Ten"
             ],
             "tracks": [
                 {
@@ -1454,7 +1595,7 @@ data = {
                     ],
                     "participating_members": [
                         "Taeyong",
-                        "Ten",
+                        "Ten"
                     ]
                 },
                 {
@@ -1924,7 +2065,7 @@ data = {
                         "Mark",
                         "Haechan"
                     ]
-                },
+                }
             ]
         },
         {
@@ -2250,7 +2391,7 @@ data = {
                         "Mark",
                         "Haechan"
                     ]
-                },
+                }
             ]
         },
         {
@@ -5656,7 +5797,7 @@ data = {
                     "participating_members": [
                         "Kun",
                         "Ten",
-                        "Xiaojun",
+                        "Xiaojun"
                     ]
                 },
                 {
@@ -5709,7 +5850,7 @@ data = {
                         "Hendery",
                         "Yangyang"
                     ]
-                },
+                }
             ]
         },
         {
@@ -5913,7 +6054,7 @@ data = {
                     "participating_members": [
                         "Renjun",
                         "Haechan",
-                        "Chenle",
+                        "Chenle"
                     ]
                 },
                 {
@@ -6280,7 +6421,7 @@ data = {
                     "participating_members": [
                         "Renjun",
                         "Haechan",
-                        "Chenle",
+                        "Chenle"
                     ]
                 },
                 {
@@ -6393,101 +6534,4 @@ data = {
             ]
         }
     ]
-};
-
-
-
-/*
- {
-            "name": "name",
-            "cover_url": "url",
-            "release_date": "date",
-            "type": "type",
-            "artist": [
-                "NCT U"
-            ],
-            "language": [
-                "Korean"
-            ],
-            "links": [
-                {
-                    "type": "Spotify",
-                    "url": "url"
-                },
-                {
-                    "type": "Apple Music",
-                    "url": "url"
-                },
-                {
-                    "type": "YouTube",
-                    "url": "url"
-                }
-            ],
-            "participating_members": [
-                "Taeil",
-                "Johnny",
-                "Taeyong",
-                "Yuta",
-                "Kun",
-                "Doyoung",
-                "Ten",
-                "Jaehyun",
-                "Winwin",
-                "Jungwoo",
-                "Lucas",
-                "Mark",
-                "Xiaojun",
-                "Hendery",
-                "Renjun",
-                "Jeno",
-                "Haechan",
-                "Jaemin",
-                "Yangyang",
-                "Shotaro",
-                "Sungchan",
-                "Chenle",
-                "Jisung"
-            ],
-            "tracks": [
-                {
-                    "name": "name",
-                    "number": "1",
-                    "artist": "NCT U",
-                    "language": [
-                        "Korean"
-                    ],
-                    "links": [
-                        {
-                            "type": "YouTube",
-                            "url": "url"
-                        }
-                    ],
-                    "participating_members": [
-                        "Taeil",
-                        "Johnny",
-                        "Taeyong",
-                        "Yuta",
-                        "Kun",
-                        "Doyoung",
-                        "Ten",
-                        "Jaehyun",
-                        "Winwin",
-                        "Jungwoo",
-                        "Lucas",
-                        "Mark",
-                        "Xiaojun",
-                        "Hendery",
-                        "Renjun",
-                        "Jeno",
-                        "Haechan",
-                        "Jaemin",
-                        "Yangyang",
-                        "Shotaro",
-                        "Sungchan",
-                        "Chenle",
-                        "Jisung"
-                    ]
-                }
-            ]
-        }
- */
+}
