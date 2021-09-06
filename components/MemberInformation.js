@@ -4,7 +4,7 @@ const MemberInformation = ({ member, unit, matchingAlbumCount, matchingTrackCoun
     return (
         <>
             <div className="flex flex-nowrap gap-x-3 mb-5">
-                <img className="h-20 w-20 p-px border border-black" src={`/nct/${member.profile_url}`} alt="The 7th Sense Album Cover" />
+                <img className="h-20 w-20 p-px border border-black" src={`/${member.profile_url}`} alt="The 7th Sense Album Cover" />
                 <div className="w-full grid grid-cols-2 justify-items-stretch gap-x-2">
                     <div>
                         <p className="border-b text-xs text-gray-600">Name</p>

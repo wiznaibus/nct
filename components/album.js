@@ -20,7 +20,7 @@ const Album = ({ id, name, releaseDate, type, links, cover, members, tracks, uni
                         ))}
                     </div>
                 </div>
-                <img className="h-24 w-24 p-px border border-black" src={`/nct/${cover}`} alt="The 7th Sense Album Cover" />
+                <img className="h-24 w-24 p-px border border-black" src={`/${cover}`} alt="The 7th Sense Album Cover" />
             </div>
             <table className="table-fixed w-full">
                 <thead className="text-xs text-gray-600 text-left border-b border-gray-400">
