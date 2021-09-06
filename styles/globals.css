@@ -1,13 +1,26 @@
 /* ./styles/globals.css */
-@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&family=Noto+Sans+JP:wght@300&family=Noto+Sans+KR:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'NCT 127';
+    src: url('./nct127-Regular.woff2') format('woff2'), url('./nct127-Regular.woff') format('woff');
+}
+
 @layer components {
     body {
         font-family: 'Hind Siliguri', 'Noto Sans KR', 'Noto Sans JP', sans-serif;
+    }
+
+    .title {
+        font-family: 'NCT 127', 'Hind Siliguri', 'Noto Sans KR', 'Noto Sans JP', sans-serif;
+    }
+
+    svg {
+        display: inline-block;
     }
 }
 

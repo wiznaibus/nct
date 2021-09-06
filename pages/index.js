@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 function Home() {
     return (
-        <Link href="/discography">Discography</Link>
+        <Link href="/discography"><a>Discography</a></Link>
     )
 }
 
