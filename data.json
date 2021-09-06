@@ -817,7 +817,7 @@
     "albums": [
         {
             "name": "The 7th Sense",
-            "cover_url": "images/the7thsense.jpeg",
+            "cover_url": "images/albums/the7thsense.jpeg",
             "release_date": "2016/04/09",
             "type": "Digital Single",
             "artist": [
@@ -869,7 +869,7 @@
         },
         {
             "name": "Without You",
-            "cover_url": "images/withoutyou.jpeg",
+            "cover_url": "images/albums/withoutyou.jpeg",
             "release_date": "2016/04/10",
             "type": "Digital Single",
             "artist": [
@@ -938,7 +938,7 @@
         },
         {
             "name": "NCT #127",
-            "cover_url": "images/nct127.jpeg",
+            "cover_url": "images/albums/nct127.jpeg",
             "release_date": "2016/07/10",
             "type": "Mini Album",
             "artist": [
@@ -1098,7 +1098,7 @@
         },
         {
             "name": "Chewing Gum",
-            "cover_url": "images/chewinggum.jpeg",
+            "cover_url": "images/albums/chewinggum.jpeg",
             "release_date": "2016/08/27",
             "type": "Digital Single",
             "artist": [
@@ -1177,7 +1177,7 @@
         },
         {
             "name": "NCT #127 LIMITLESS",
-            "cover_url": "images/limitless.jpeg",
+            "cover_url": "images/albums/limitless.jpeg",
             "release_date": "2017/01/06",
             "type": "Mini Album",
             "artist": [
@@ -1336,7 +1336,7 @@
         },
         {
             "name": "The First",
-            "cover_url": "images/thefirst.jpeg",
+            "cover_url": "images/albums/thefirst.jpeg",
             "release_date": "2017/02/09",
             "type": "Single Album",
             "artist": [
@@ -1475,7 +1475,7 @@
         },
         {
             "name": "NCT #127 CHERRY BOMB",
-            "cover_url": "images/cherrybomb.jpeg",
+            "cover_url": "images/albums/cherrybomb.jpeg",
             "release_date": "2017/06/14",
             "type": "Mini Album",
             "artist": [
@@ -1647,7 +1647,7 @@
         },
         {
             "name": "We Young",
-            "cover_url": "images/weyoung.jpeg",
+            "cover_url": "images/albums/weyoung.jpeg",
             "release_date": "2017/08/17",
             "type": "Mini Album",
             "artist": [
@@ -1793,7 +1793,7 @@
         },
         {
             "name": "NCT 2018 Empathy",
-            "cover_url": "images/resonancept1.jpeg",
+            "cover_url": "images/albums/resonancept1.jpeg",
             "release_date": "2018/03/14",
             "type": "Full Album",
             "artist": [
@@ -2091,7 +2091,7 @@
         },
         {
             "name": "Chain",
-            "cover_url": "images/chain.jpeg",
+            "cover_url": "images/albums/chain.jpeg",
             "release_date": "2018/05/23",
             "type": "Japanese Mini Album",
             "artist": [
@@ -2233,7 +2233,7 @@
         },
         {
             "name": "Baby Don't Stop (Special Thai Version)",
-            "cover_url": "images/bdsthai.jpeg",
+            "cover_url": "images/albums/bdsthai.jpeg",
             "release_date": "2018/06/05",
             "type": "Digital Single",
             "artist": [
@@ -2280,7 +2280,7 @@
         },
         {
             "name": "We Go Up",
-            "cover_url": "images/wegoup.jpeg",
+            "cover_url": "images/albums/wegoup.jpeg",
             "release_date": "2018/09/03",
             "type": "Mini Album",
             "artist": [
@@ -2427,7 +2427,7 @@
         },
         {
             "name": "TOUCH (Japanese Version)",
-            "cover_url": "images/touchjp.jpeg",
+            "cover_url": "images/albums/touchjp.jpeg",
             "release_date": "2018/09/16",
             "type": "Digital Single",
             "artist": [
@@ -2481,7 +2481,7 @@
         },
         {
             "name": "NCT #127 Regular-Irregular",
-            "cover_url": "images/regularirregular.jpeg",
+            "cover_url": "images/albums/regularirregular.jpeg",
             "release_date": "2018/10/12",
             "type": "Full Album",
             "artist": [
@@ -2741,7 +2741,7 @@
         },
         {
             "name": "NCT #127 Regulate",
-            "cover_url": "images/regulate.jpeg",
+            "cover_url": "images/albums/regulate.jpeg",
             "release_date": "2018/11/23",
             "type": "Full Album Repackage",
             "artist": [
@@ -2843,6 +2843,12 @@
                     "artist": "NCT 127",
                     "language": [
                         "Korean"
+                    ],
+                    "links": [
+                        {
+                            "type": "YouTube",
+                            "url": "https://youtu.be/H7pEXWm8-yc"
+                        }
                     ],
                     "participating_members": [
                         "Taeil",
@@ -3067,7 +3073,7 @@
         },
         {
             "name": "The Vision",
-            "cover_url": "images/thevision.jpeg",
+            "cover_url": "images/albums/thevision.jpeg",
             "release_date": "2019/01/17",
             "type": "Digital EP",
             "artist": [
@@ -3163,7 +3169,7 @@
         },
         {
             "name": "Awaken",
-            "cover_url": "images/awaken.jpeg",
+            "cover_url": "images/albums/awaken.jpeg",
             "release_date": "2019/04/17",
             "type": "Japanese Full Album",
             "artist": [
@@ -3462,7 +3468,7 @@
         },
         {
             "name": "Take Off",
-            "cover_url": "images/takeoff.jpeg",
+            "cover_url": "images/albums/takeoff.jpeg",
             "release_date": "2019/05/09",
             "type": "Mini Album",
             "artist": [
@@ -3572,11 +3578,17 @@
                     ]
                 },
                 {
-                    "name": "Let me love you",
+                    "name": "Let me love u",
                     "number": "5",
                     "artist": "WayV",
                     "language": [
                         "Chinese"
+                    ],
+                    "links": [
+                        {
+                            "type": "YouTube",
+                            "url": "https://youtu.be/wBr2O6_es2U"
+                        }
                     ],
                     "participating_members": [
                         "Kun",
@@ -3615,7 +3627,7 @@
         },
         {
             "name": "NCT #127 WE ARE SUPERHUMAN",
-            "cover_url": "images/wearesuperhuman.jpeg",
+            "cover_url": "images/albums/wearesuperhuman.jpeg",
             "release_date": "2019/05/24",
             "type": "Mini Album",
             "artist": [
@@ -3776,7 +3788,7 @@
         },
         {
             "name": "Fireflies",
-            "cover_url": "images/fireflies.jpeg",
+            "cover_url": "images/albums/fireflies.jpeg",
             "release_date": "2019/07/15",
             "type": "Digital Single",
             "artist": [
@@ -3830,7 +3842,7 @@
         },
         {
             "name": "Highway To Heaven (English Version)",
-            "cover_url": "images/highwaytoheaveneng.jpeg",
+            "cover_url": "images/albums/highwaytoheaveneng.jpeg",
             "release_date": "2019/07/19",
             "type": "Digital Single",
             "artist": [
@@ -3890,7 +3902,7 @@
         },
         {
             "name": "We Boom",
-            "cover_url": "images/weboom.jpeg",
+            "cover_url": "images/albums/weboom.jpeg",
             "release_date": "2019/07/26",
             "type": "Mini Album",
             "artist": [
@@ -4024,7 +4036,7 @@
         },
         {
             "name": "Take Over the Moon",
-            "cover_url": "images/takeoverthemoon.jpeg",
+            "cover_url": "images/albums/takeoverthemoon.jpeg",
             "release_date": "2019/10/29",
             "type": "Mini Album",
             "artist": [
@@ -4158,7 +4170,7 @@
         },
         {
             "name": "Love Talk (English Version)",
-            "cover_url": "images/lovetalkeng.jpeg",
+            "cover_url": "images/albums/lovetalkeng.jpeg",
             "release_date": "2019/11/05",
             "type": "Digital Single",
             "artist": [
@@ -4194,6 +4206,12 @@
                     "language": [
                         "English"
                     ],
+                    "links": [
+                        {
+                            "type": "YouTube",
+                            "url": "https://youtu.be/N5qWjQ9j6l0"
+                        }
+                    ],
                     "participating_members": [
                         "Kun",
                         "Ten",
@@ -4208,7 +4226,7 @@
         },
         {
             "name": "NCT #127 NEO ZONE",
-            "cover_url": "images/neozone.jpeg",
+            "cover_url": "images/albums/neozone.jpeg",
             "release_date": "2020/03/06",
             "type": "Full Album",
             "artist": [
@@ -4545,7 +4563,7 @@
         },
         {
             "name": "Reload",
-            "cover_url": "images/reload.jpeg",
+            "cover_url": "images/albums/reload.jpeg",
             "release_date": "2020/04/29",
             "type": "Mini Album",
             "artist": [
@@ -4687,7 +4705,7 @@
         },
         {
             "name": "NCT #127 Neo Zone: The Final Round",
-            "cover_url": "images/neozonethefinalround.jpeg",
+            "cover_url": "images/albums/neozonethefinalround.jpeg",
             "release_date": "2020/05/19",
             "type": "Full Album Repackage",
             "artist": [
@@ -5102,7 +5120,7 @@
         },
         {
             "name": "Awaken the World",
-            "cover_url": "images/awakentheworld.jpeg",
+            "cover_url": "images/albums/awakentheworld.jpeg",
             "release_date": "2020/06/09",
             "type": "Full Album",
             "artist": [
@@ -5284,6 +5302,12 @@
                     "language": [
                         "Chinese"
                     ],
+                    "links": [
+                        {
+                            "type": "YouTube",
+                            "url": "https://youtu.be/u-E8pJC6RlU"
+                        }
+                    ],
                     "participating_members": [
                         "Kun",
                         "Ten",
@@ -5298,7 +5322,7 @@
         },
         {
             "name": "Turn Back Time (Korean Version)",
-            "cover_url": "images/turnbacktimekor.jpeg",
+            "cover_url": "images/albums/turnbacktimekor.jpeg",
             "release_date": "2020/06/18",
             "type": "Digital Single",
             "artist": [
@@ -5354,7 +5378,7 @@
         },
         {
             "name": "Bad Alive (English Version)",
-            "cover_url": "images/badaliveeng.jpeg",
+            "cover_url": "images/albums/badaliveeng.jpeg",
             "release_date": "2020/06/18",
             "type": "Digital Single",
             "artist": [
@@ -5410,7 +5434,7 @@
         },
         {
             "name": "NCT RESONANCE Pt. 1",
-            "cover_url": "images/resonancept1.jpeg",
+            "cover_url": "images/albums/resonancept1.jpeg",
             "release_date": "2020/10/12",
             "type": "Full Album",
             "artist": [
@@ -5709,7 +5733,7 @@
         },
         {
             "name": "NCT RESONANCE Pt. 2",
-            "cover_url": "images/resonancept2.jpeg",
+            "cover_url": "images/albums/resonancept2.jpeg",
             "release_date": "2020/11/23",
             "type": "Full Album Repackage",
             "artist": [
@@ -6134,7 +6158,7 @@
         },
         {
             "name": "NCT 2020 RESONANCE",
-            "cover_url": "images/resonance.jpeg",
+            "cover_url": "images/albums/resonance.jpeg",
             "release_date": "2020/12/04",
             "type": "Digital Single",
             "artist": [
@@ -6222,7 +6246,7 @@
         },
         {
             "name": "LOVEHOLIC",
-            "cover_url": "images/loveholic.jpeg",
+            "cover_url": "images/albums/loveholic.jpeg",
             "release_date": "2021/02/17",
             "type": "Mini Album",
             "artist": [
@@ -6383,7 +6407,7 @@
         },
         {
             "name": "Kick Back",
-            "cover_url": "images/kickback.jpeg",
+            "cover_url": "images/albums/kickback.jpeg",
             "release_date": "2021/03/10",
             "type": "Mini Album",
             "artist": [
@@ -6526,7 +6550,7 @@
         },
         {
             "name": "맛 (Hot Sauce)",
-            "cover_url": "images/hotsauce.jpeg",
+            "cover_url": "images/albums/hotsauce.jpeg",
             "release_date": "2021/05/10",
             "type": "Full Album",
             "artist": [
@@ -6755,7 +6779,7 @@
         },
         {
             "name": "Back To You",
-            "cover_url": "images/backtoyou.jpeg",
+            "cover_url": "images/albums/backtoyou.jpeg",
             "release_date": "2021/06/16",
             "type": "Digital Single",
             "artist": [
@@ -6834,7 +6858,7 @@
         },
         {
             "name": "Hello Future",
-            "cover_url": "images/hellofuture.jpeg",
+            "cover_url": "images/albums/hellofuture.jpeg",
             "release_date": "2021/06/28",
             "type": "Full Album Repackage",
             "artist": [
@@ -7122,7 +7146,7 @@
         },
         {
             "name": "MAXIS BY RYAN JHUN PT. 1",
-            "cover_url": "images/maniac.jpeg",
+            "cover_url": "images/albums/maniac.jpeg",
             "release_date": "2021/08/12",
             "type": "Digital Single",
             "artist": [
@@ -7164,7 +7188,7 @@
         },
         {
             "name": "Low Low",
-            "cover_url": "images/lowlow.jpeg",
+            "cover_url": "images/albums/lowlow.jpeg",
             "release_date": "2021/08/17",
             "type": "Digital Single",
             "artist": [

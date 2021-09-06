@@ -1,4 +1,6 @@
 module.exports = {
-  basePath: '/nct',
+  basePath: '',
+  assetPrefix: '',
+  trailingSlash: true,
   reactStrictMode: true,
 }
