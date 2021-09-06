@@ -93,6 +93,677 @@
             "slug":"jisung"
         }
     ],
+    "filterableUnits": [
+        {
+            "name": "NCT U",
+            "slug": "nct-u",
+            "cover_url": "images/units/nct-u.png",
+            "color": "nctu",
+            "text": "black",
+            "members": [
+                {
+                    "name":"Taeil",
+                    "slug":"taeil"
+                },
+                {
+                    "name":"Johnny",
+                    "slug":"johnny"
+                },
+                {
+                    "name":"Taeyong",
+                    "slug":"taeyong"
+                },
+                {
+                    "name":"Yuta",
+                    "slug":"yuta"
+                },
+                {
+                    "name":"Kun",
+                    "slug":"kun"
+                },
+                {
+                    "name":"Doyoung",
+                    "slug":"doyoung"
+                },
+                {
+                    "name":"Ten",
+                    "slug":"ten"
+                },
+                {
+                    "name":"Jaehyun",
+                    "slug":"jaehyun"
+                },
+                {
+                    "name":"Winwin",
+                    "slug":"winwin"
+                },
+                {
+                    "name":"Jungwoo",
+                    "slug":"jungwoo"
+                },
+                {
+                    "name":"Lucas",
+                    "slug":"lucas"
+                },
+                {
+                    "name":"Mark",
+                    "slug":"mark"
+                },
+                {
+                    "name":"Xiaojun",
+                    "slug":"xiaojun"
+                },
+                {
+                    "name":"Hendery",
+                    "slug":"hendery"
+                },
+                {
+                    "name":"Renjun",
+                    "slug":"renjun"
+                },
+                {
+                    "name":"Jeno",
+                    "slug":"jeno"
+                },
+                {
+                    "name":"Haechan",
+                    "slug":"haechan"
+                },
+                {
+                    "name":"Jaemin",
+                    "slug":"jaemin"
+                },
+                {
+                    "name":"Yangyang",
+                    "slug":"yangyang"
+                },
+                {
+                    "name":"Shotaro",
+                    "slug":"shotaro"
+                },
+                {
+                    "name":"Sungchan",
+                    "slug":"sungchan"
+                },
+                {
+                    "name":"Chenle",
+                    "slug":"chenle"
+                },
+                {
+                    "name":"Jisung",
+                    "slug":"jisung"
+                }
+            ]
+        },
+        {
+            "name": "NCT 127",
+            "slug": "nct-127",
+            "cover_url": "images/units/nct-127.png",
+            "color": "nct127",
+            "text": "white",
+            "members": [
+                {
+                    "name":"Taeil",
+                    "slug":"taeil"
+                },
+                {
+                    "name":"Johnny",
+                    "slug":"johnny"
+                },
+                {
+                    "name":"Taeyong",
+                    "slug":"taeyong"
+                },
+                {
+                    "name":"Yuta",
+                    "slug":"yuta"
+                },
+                {
+                    "name":"Doyoung",
+                    "slug":"doyoung"
+                },
+                {
+                    "name":"Jaehyun",
+                    "slug":"jaehyun"
+                },
+                {
+                    "name":"Winwin",
+                    "slug":"winwin"
+                },
+                {
+                    "name":"Jungwoo",
+                    "slug":"jungwoo"
+                },
+                {
+                    "name":"Mark",
+                    "slug":"mark"
+                },
+                {
+                    "name":"Haechan",
+                    "slug":"haechan"
+                }
+            ]
+        },
+        {
+            "name": "NCT DREAM",
+            "slug": "nct-dream",
+            "cover_url": "images/units/nct-dream.png",
+            "color": "nctdream",
+            "text": "black",
+            "members": [
+                {
+                    "name":"Mark",
+                    "slug":"mark"
+                },
+                {
+                    "name":"Renjun",
+                    "slug":"renjun"
+                },
+                {
+                    "name":"Jeno",
+                    "slug":"jeno"
+                },
+                {
+                    "name":"Haechan",
+                    "slug":"haechan"
+                },
+                {
+                    "name":"Jaemin",
+                    "slug":"jaemin"
+                },
+                {
+                    "name":"Chenle",
+                    "slug":"chenle"
+                },
+                {
+                    "name":"Jisung",
+                    "slug":"jisung"
+                }
+            ]
+        },
+        {
+            "name": "WayV",
+            "slug": "wayv",
+            "cover_url": "images/units/wayv.png",
+            "color": "wayv",
+            "text": "white",
+            "members": [
+                {
+                    "name":"Kun",
+                    "slug":"kun"
+                },
+                {
+                    "name":"Ten",
+                    "slug":"ten"
+                },
+                {
+                    "name":"Winwin",
+                    "slug":"winwin"
+                },
+                {
+                    "name":"Lucas",
+                    "slug":"lucas"
+                },
+                {
+                    "name":"Xiaojun",
+                    "slug":"xiaojun"
+                },
+                {
+                    "name":"Hendery",
+                    "slug":"hendery"
+                },
+                {
+                    "name":"Yangyang",
+                    "slug":"yangyang"
+                }
+            ]
+        }
+    ],
+    "filterableMembers": [
+        {
+            "name":"Taeil",
+            "slug":"taeil",
+            "profile_url": "images/members/taeil.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT 127",
+                    "slug": "nct-127",
+                    "color": "nct127",
+                    "text": "white"
+                }
+            ]
+        },
+        {
+            "name":"Johnny",
+            "slug":"johnny",
+            "profile_url": "images/members/johnny.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT 127",
+                    "slug": "nct-127",
+                    "color": "nct127",
+                    "text": "white"
+                }
+            ]
+        },
+        {
+            "name":"Taeyong",
+            "slug":"taeyong",
+            "profile_url": "images/members/taeyong.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT 127",
+                    "slug": "nct-127",
+                    "color": "nct127",
+                    "text": "white"
+                }
+            ]
+        },
+        {
+            "name":"Yuta",
+            "slug":"yuta",
+            "profile_url": "images/members/yuta.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT 127",
+                    "slug": "nct-127",
+                    "color": "nct127",
+                    "text": "white"
+                }
+            ]
+        },
+        {
+            "name":"Kun",
+            "slug":"kun",
+            "profile_url": "images/members/kun.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "WayV",
+                    "slug": "wayv",
+                    "color": "wayv",
+                    "text": "white"
+                }
+            ]
+        },
+        {
+            "name":"Doyoung",
+            "slug":"doyoung",
+            "profile_url": "images/members/doyoung.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT 127",
+                    "slug": "nct-127",
+                    "color": "nct127",
+                    "text": "white"
+                }
+            ]
+        },
+        {
+            "name":"Ten",
+            "slug":"ten",
+            "profile_url": "images/members/ten.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "WayV",
+                    "slug": "wayv",
+                    "color": "wayv",
+                    "text": "white"
+                }
+            ]
+        },
+        {
+            "name":"Jaehyun",
+            "slug":"jaehyun",
+            "profile_url": "images/members/jaehyun.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT 127",
+                    "slug": "nct-127",
+                    "color": "nct127",
+                    "text": "white"
+                }
+            ]
+        },
+        {
+            "name":"Winwin",
+            "slug":"winwin",
+            "profile_url": "images/members/winwin.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT 127",
+                    "slug": "nct-127",
+                    "color": "nct127",
+                    "text": "white"
+                },
+                {
+                    "name": "WayV",
+                    "slug": "wayv",
+                    "color": "wayv",
+                    "text": "white"
+                }
+            ]
+        },
+        {
+            "name":"Jungwoo",
+            "slug":"jungwoo",
+            "profile_url": "images/members/jungwoo.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT 127",
+                    "slug": "nct-127",
+                    "color": "nct127",
+                    "text": "white"
+                }
+            ]
+        },
+        {
+            "name":"Lucas",
+            "slug":"lucas",
+            "profile_url": "images/members/lucas.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "WayV",
+                    "slug": "wayv",
+                    "color": "wayv",
+                    "text": "white"
+                }
+            ]
+        },
+        {
+            "name":"Mark",
+            "slug":"mark",
+            "profile_url": "images/members/mark.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT 127",
+                    "slug": "nct-127",
+                    "color": "nct127",
+                    "text": "white"
+                },
+                {
+                    "name": "NCT DREAM",
+                    "slug": "nct-dream",
+                    "color": "nctdream",
+                    "text": "black"
+                }
+            ]
+        },
+        {
+            "name":"Xiaojun",
+            "slug":"xiaojun",
+            "profile_url": "images/members/xiaojun.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "WayV",
+                    "slug": "wayv",
+                    "color": "wayv",
+                    "text": "white"
+                }
+            ]
+        },
+        {
+            "name":"Hendery",
+            "slug":"hendery",
+            "profile_url": "images/members/hendery.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "WayV",
+                    "slug": "wayv",
+                    "color": "wayv",
+                    "text": "white"
+                }
+            ]
+        },
+        {
+            "name":"Renjun",
+            "slug":"renjun",
+            "profile_url": "images/members/renjun.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT DREAM",
+                    "slug": "nct-dream",
+                    "color": "nctdream",
+                    "text": "black"
+                }
+            ]
+        },
+        {
+            "name":"Jeno",
+            "slug":"jeno",
+            "profile_url": "images/members/jeno.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT DREAM",
+                    "slug": "nct-dream",
+                    "color": "nctdream",
+                    "text": "black"
+                }
+            ]
+        },
+        {
+            "name":"Haechan",
+            "slug":"haechan",
+            "profile_url": "images/members/haechan.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT 127",
+                    "slug": "nct-127",
+                    "color": "nct127",
+                    "text": "white"
+                },
+                {
+                    "name": "NCT DREAM",
+                    "slug": "nct-dream",
+                    "color": "nctdream",
+                    "text": "black"
+                }
+            ]
+        },
+        {
+            "name":"Jaemin",
+            "slug":"jaemin",
+            "profile_url": "images/members/jaemin.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT DREAM",
+                    "slug": "nct-dream",
+                    "color": "nctdream",
+                    "text": "black"
+                }
+            ]
+        },
+        {
+            "name":"Yangyang",
+            "slug":"yangyang",
+            "profile_url": "images/members/yangyang.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "WayV",
+                    "slug": "wayv",
+                    "color": "wayv",
+                    "text": "white"
+                }
+            ]
+        },
+        {
+            "name":"Shotaro",
+            "slug":"shotaro",
+            "profile_url": "images/members/shotaro.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                }
+            ]
+        },
+        {
+            "name":"Sungchan",
+            "slug":"sungchan",
+            "profile_url": "images/members/sungchan.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                }
+            ]
+        },
+        {
+            "name":"Chenle",
+            "slug":"chenle",
+            "profile_url": "images/members/chenle.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT DREAM",
+                    "slug": "nct-dream",
+                    "color": "nctdream",
+                    "text": "black"
+                }
+            ]
+        },
+        {
+            "name":"Jisung",
+            "slug":"jisung",
+            "profile_url": "images/members/jisung.jpg",
+            "units": [
+                {
+                    "name": "NCT U",
+                    "slug": "nct-u",
+                    "color": "nctu",
+                    "text": "black"
+                },
+                {
+                    "name": "NCT DREAM",
+                    "slug": "nct-dream",
+                    "color": "nctdream",
+                    "text": "black"
+                }
+            ]
+        }
+    ],
     "units": [
         {
             "name": "NCT U",
