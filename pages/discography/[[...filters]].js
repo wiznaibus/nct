@@ -1,6 +1,6 @@
 
+import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
 
 import DiscographyHeader from "../../components/DiscographyHeader";
 import Album from "../../components/Album"
@@ -26,6 +26,13 @@ function Discography({ units, filterableUnits, filterableMembers, albums }) {
         }
     }
 
+
+    /**
+     * Generate variables for meta tags
+     */
+    const metaFormattedName = (!currentUnit && !currentMember) ? 'NCT ' 
+        : (currentUnit ? currentUnit.name + ' ' : '') + (currentMember ? currentMember.name + ' ' : '');
+    const metaUrl = 'https://www.nctdiscography.com/' + (currentUnit ? currentUnit.slug + '/' : '') + (currentMember ? currentMember.slug + '/' : '');
 
     /**
      * Filtering list of available units/members based on the current filter values.
@@ -88,6 +95,13 @@ function Discography({ units, filterableUnits, filterableMembers, albums }) {
 
     return (
         <>
+            <Head>
+                <title>{(currentUnit || currentMember) ? metaFormattedName + 'Songs - ' : ''}NCT Discography</title>
+                <meta name="description" content={`${metaFormattedName}has ${matchingAlbumCount} albums and ${matchingTrackCount} songs. View full NCT discography in order with all units. Filter songs by member and unit`} />
+                <meta property="og:title" content={metaFormattedName ? metaFormattedName + 'Songs' : 'NCT Discography'} />
+                <meta property="og:url" content={metaUrl} />
+            </Head>
+
             <DiscographyHeader
                 units={filteredUnits}
                 members={filteredMembers}
