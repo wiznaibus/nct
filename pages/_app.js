@@ -9,7 +9,16 @@ const MyApp = ({ Component, pageProps, router }) => {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>NCT Discography</title>
+        <meta property="og:site_name" content="NCT Discography" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/images/preview.png" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
       </Head>
       <div className="flex flex-col h-screen font-light text-gray-800">
         <div className="flex-grow">

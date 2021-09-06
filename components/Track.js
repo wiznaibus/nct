@@ -10,13 +10,12 @@ const Track = ({ id, number, title, artist, artistColor, language, links, trackM
     albumMembers.forEach(member => {
         filteredMembers.push(
             <span key={`member-${id}`}
-                className={`text-xs font-normal rounded-full px-2 pt-1 pb-0.5
-                    ${title === `Switch (feat. SR15B)` && member === `Doyoung`
-                        ? `bg-nctu text-black`
-                        : trackMembers.includes(member) ? `bg-${artistColor.color} text-${artistColor.text}`
-                            : filtered ? "hidden" : "bg-gray-100"
-                    }
-                `}>
+                className={`text-xs font-normal rounded-full px-2 pt-1 pb-0.5 ${title === `Switch (feat. SR15B)` && member === `Doyoung` 
+                ? `bg-nctu text-black` 
+                : trackMembers.includes(member) 
+                    ? `bg-${artistColor.color} text-${artistColor.text}` 
+                    : filtered ? "hidden" 
+                    : "bg-gray-100" } `}>
                 {member}
             </span>
         );

@@ -7,7 +7,7 @@ const Album = ({ id, name, releaseDate, type, links, cover, members, tracks, uni
         <div key={id} className="container mx-auto lg:px-3 mb-10 lg:mb-12 lg:pt-6">
             <div className="flex flex-nowrap items-start justify-between mb-6">
                 <div className="flex flex-col">
-                    <h2 className="title text-black font-medium text-3xl mb-2">{name}</h2>
+                    <h3 className="title text-black font-medium text-3xl mb-2">{name}</h3>
                     <p>Release Date: {releaseDate}</p>
                     <p>Type: {type}</p>
                     <div className="flex flex-wrap gap-1 mt-2">
