@@ -2,7 +2,6 @@
 import { Switch } from '@headlessui/react'
 import Link from 'next/link'
 import { useContext } from 'react';
-import { useRouter } from 'next/router'
 import { FilterMembersStateContext } from './FilterMembers'
 import { X } from 'react-feather'
 import Information from './Information'
@@ -19,7 +18,7 @@ export default function DiscographyHeader({ units, members, currentUnit, current
               px-1 py-2 mb-4 pb-8
               lg:flex-nowrap lg:px-3">
           <div className="w-full mt-2 lg:mt-0 mb-4 lg:w-1/3 lg:px-3 lg:mb-2">
-            <h1 className="title text-2xl mb-1">Information</h1>
+            <h2 className="title text-2xl mb-1">Information</h2>
             {
               (!currentMember && !currentUnit)
                 ? <Information />
@@ -38,7 +37,7 @@ export default function DiscographyHeader({ units, members, currentUnit, current
           <div className="w-full mt-2 lg:mt-0 mb-4 lg:w-2/3 lg:px-3 lg:mb-2">
             <div className="flex flex-nowrap justify-between items-center border-b mb-3">
               <div className="flex flex-wrap gap-x-2 mb-1">
-                <h1 className="title text-2xl">Filter</h1>
+                <h2 className="title text-2xl">Filter</h2>
                 {currentUnit && <Link href={`/discography/${currentMember ? currentMember.slug : ''}`}><a className="flex items-center text-gray-500 hover:text-red-500 bg-gray-100 hover:bg-gray-200 rounded-full px-2 py-0.5 text-sm">
                   <X strokeWidth={2} size={16} />
                   <span className="text-black">{currentUnit.name}</span>
@@ -57,9 +56,7 @@ export default function DiscographyHeader({ units, members, currentUnit, current
                 >
                   <span className="sr-only">Toggle non-participating members</span>
                   <span
-                    className={`transform transition ease-in-out duration-200
-                  ${filtered ? 'translate-x-6' : 'translate-x-1'}
-                  inline-block w-3 h-3 transform bg-white rounded-full`}
+                    className={`transform transition ease-in-out duration-200 ${filtered ? 'translate-x-6' : 'translate-x-1'} inline-block w-3 h-3 transform bg-white rounded-full`}
                   />
                 </Switch>
                 <span className="">Hide</span>
@@ -69,9 +66,7 @@ export default function DiscographyHeader({ units, members, currentUnit, current
             <div className="flex flex-wrap gap-x-1 gap-y-1 mb-3">
               {units.map((unit) => (
                 <Link key={`unitFilter-${unit.slug}`} href={`/discography/${unit.slug}/${currentMember ? currentMember.slug : ''}`}>
-                  <a className={`cursor-pointer text-sm px-2.5 py-1 rounded-full border border-${unit.color} hover:text-${unit.text} hover:bg-${unit.color}
-                      ${currentUnit && (currentUnit.slug === unit.slug ? `text-${unit.text} bg-${unit.color}` : '')}
-                      `}>
+                  <a className={`cursor-pointer text-sm px-2.5 py-1 rounded-full border border-${unit.color} hover:text-${unit.text} hover:bg-${unit.color} ${currentUnit ? (currentUnit.slug === unit.slug ? `text-${unit.text} bg-${unit.color}` : '') : ''} `}>
                     {unit.name}</a>
                 </Link>
               ))}
@@ -79,9 +74,7 @@ export default function DiscographyHeader({ units, members, currentUnit, current
             <div className="flex flex-wrap justify-between gap-x-1 gap-y-1">
               {members.map((member) => (
                 <Link key={`memberFilter-${member.slug}`} href={`/discography${currentUnit ? ('/' + currentUnit.slug) : ''}/${member.slug}`}>
-                  <a className={`cursor-pointer text-sm px-2.5 py-1 rounded-full border border-nctu hover:bg-nctu
-                      ${currentMember && (currentMember.slug === member.slug ? 'bg-nctu' : '')}
-                      `}>
+                  <a className={`cursor-pointer text-sm px-2.5 py-1 rounded-full border border-nctu hover:bg-nctu ${currentMember ? (currentMember.slug === member.slug ? 'bg-nctu' : '') : ''} `}>
                     {member.name}</a>
                 </Link>
               ))}
