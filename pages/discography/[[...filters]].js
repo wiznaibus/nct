@@ -99,7 +99,11 @@ function Discography({ units, filterableUnits, filterableMembers, albums }) {
                 <title>{(currentUnit || currentMember) ? metaFormattedName + 'Songs - ' : ''}NCT Discography</title>
                 <meta name="description" content={`${metaFormattedName}has ${matchingAlbumCount} albums and ${matchingTrackCount} songs. View full NCT discography in order with all units. Filter songs by member and unit`} />
                 <meta property="og:title" content={metaFormattedName ? metaFormattedName + 'Songs' : 'NCT Discography'} />
+                <meta property="og:description" content={`${metaFormattedName}has ${matchingAlbumCount} albums and ${matchingTrackCount} songs. View full NCT discography in order with all units. Filter songs by member and unit`} />
                 <meta property="og:url" content={metaUrl} />
+                <meta name="twitter:title" content={(currentUnit || currentMember) ? metaFormattedName + 'Songs - ' : ''}NCT Discography />
+                <meta name="twitter:description" content={`${metaFormattedName}has ${matchingAlbumCount} albums and ${matchingTrackCount} songs. View full NCT discography in order with all units. Filter songs by member and unit`} />
+                <meta property="twitter:url" content={metaUrl} />
             </Head>
 
             <DiscographyHeader

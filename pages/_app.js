@@ -9,9 +9,11 @@ const MyApp = ({ Component, pageProps, router }) => {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:site_name" content="NCT Discography" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/images/preview.png" />
+        <meta property="og:image" content="https://nctdiscography.com/images/preview.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="nctdiscography.com" />
+        <meta name="twitter:image" content="https://nctdiscography.com/images/preview.png" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
