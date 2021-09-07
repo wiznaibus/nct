@@ -25,7 +25,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4L2GDDSWMN"></script>
         <script src="/gtag.js"></script>"
       </Head>
-      <div className="flex flex-col h-screen font-light bg-light text-gray-800">
+      <body className="flex flex-col h-screen font-light bg-light text-gray-800">
         <div className="flex-grow">
           <Header />
           <FilterMembersProvider>
@@ -35,11 +35,11 @@ const MyApp = ({ Component, pageProps, router }) => {
           </FilterMembersProvider>
         </div>
         <footer className="pb-8 flex flex-nowrap gap-x-1 justify-center text-sm bottom-0">Made with love 💚 by
-          <Link href="https://github.com/wiznaibus/nct" passHref={true}>
+          <Link href="https://twitter.com/wiznaibus" passHref={true}>
             <a target="_blank" className="text-nct127 underline hover:text-gray-700">wiznaibus</a>
           </Link>
         </footer>
-      </div>
+      </body>
     </>
   )
 };
