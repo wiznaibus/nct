@@ -36,6 +36,7 @@ module.exports = {
         nct127: '#F25892',
         nctdream: '#F2E658',
         wayv: '#484848',
+        light: '#F8F8F8'
       }
     },
   },

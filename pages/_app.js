@@ -25,7 +25,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4L2GDDSWMN"></script>
         <script src="/gtag.js"></script>"
       </Head>
-      <div className="flex flex-col h-screen font-light text-gray-800">
+      <div className="flex flex-col h-screen font-light bg-light text-gray-800">
         <div className="flex-grow">
           <Header />
           <FilterMembersProvider>
