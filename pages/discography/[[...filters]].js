@@ -137,7 +137,15 @@ function Discography({ units, filterableUnits, filterableMembers, albums }) {
 }
 
 export async function getStaticPaths() {
-    const data = await import("/data.json");
+    let data;
+    if(process.env.NEXT_PUBLIC_NODE_ENV == "development") {
+        data = await import("/data.json");
+    }
+    else {
+        const dataFetch = await fetch(`${process.env.API_URL}/data.json`);
+        data = await dataFetch.json();
+    }
+
     const paths = [];
     paths.push({ params: { filters: [] } });
 
@@ -157,7 +165,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
-    const data = await import("/data.json");
+    let data;
+    if(process.env.NEXT_PUBLIC_NODE_ENV == "development") {
+        data = await import("/data.json");
+    }
+    else {
+        const dataFetch = await fetch(`${process.env.API_URL}/data.json`);
+        data = await dataFetch.json();
+    }
 
     return {
         props: {
