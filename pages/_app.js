@@ -10,13 +10,16 @@ const MyApp = ({ Component, pageProps, router }) => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://nctdiscography.com/images/preview.png" />
+        <meta property="og:image" content="https://assets.nctdiscography.com/preview_907384fe22.png?height=530&pad_color=F8F8F8&width=1013" />
+        <meta property="og:image:secure_url" content="https://assets.nctdiscography.com/preview_907384fe22.png?height=530&pad_color=F8F8F8&width=1013" />
+        <meta property="og:image:width" content="1013" />
+        <meta property="og:image:height" content="530" />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="nctdiscography.com" />
         <meta property="twitter:text:title" content="NCT Discography" />
-        <meta property="twitter:image" content="https://nctdiscography.com/images/preview.png" />
+        <meta property="twitter:image" content="https://assets.nctdiscography.com/preview_907384fe22.png" />
         <meta property="msapplication-TileColor" content="#da532c" />
-        <meta property="theme-color" content="#ffffff" />
+        <meta property="theme-color" content="#F8F8F8" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
