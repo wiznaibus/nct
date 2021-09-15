@@ -37,7 +37,7 @@ function Home() {
                         </div>
                     </div>
                     <div className="w-full lg:w-1/2 mb-10">
-                        <img className="p-px border border-black" src="/images/preview.png" />
+                        <img className="p-px border border-black" src="https://assets.nctdiscography.com/preview_907384fe22.png" />
                     </div>
 
                 </div>

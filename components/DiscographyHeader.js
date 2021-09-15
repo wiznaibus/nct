@@ -8,7 +8,16 @@ import Information from './Information'
 import UnitInformation from './UnitInformation'
 import MemberInformation from './MemberInformation'
 
-export default function DiscographyHeader({ units, members, currentUnit, currentMember, matchingAlbumCount, matchingTrackCount }) {
+export default function DiscographyHeader({
+  hasMemberQuery,
+  hasUnitQuery,
+  currentMember,
+  currentUnit,
+  members,
+  units,
+  albumCount,
+  songCount,
+}) {
   const { filtered, setFiltered } = useContext(FilterMembersStateContext);
   return (
     <>
@@ -20,30 +29,36 @@ export default function DiscographyHeader({ units, members, currentUnit, current
           <div className="w-full mt-2 lg:mt-0 mb-4 lg:w-1/3 lg:px-3 lg:mb-2">
             <h2 className="title text-2xl mb-1">Information</h2>
             {
-              (!currentMember && !currentUnit)
-                ? <Information />
-                : currentMember
-                  ? <MemberInformation 
-                      member={currentMember}
-                      unit={currentUnit} 
-                      matchingAlbumCount={matchingAlbumCount} 
-                      matchingTrackCount={matchingTrackCount}/>
-                  : <UnitInformation 
-                      unit={currentUnit} 
-                      matchingAlbumCount={matchingAlbumCount} 
-                      matchingTrackCount={matchingTrackCount}/>
+              (!hasMemberQuery && !hasUnitQuery)
+                ? <UnitInformation
+                  unit={{
+                    name: 'NCT'
+                  }}
+                  albumCount={albumCount}
+                  songCount={songCount} />
+                : hasMemberQuery
+                  ? <MemberInformation
+                    member={currentMember}
+                    hasUnit={hasUnitQuery}
+                    unit={currentUnit}
+                    albumCount={albumCount}
+                    songCount={songCount} />
+                  : <UnitInformation
+                    unit={currentUnit}
+                    albumCount={albumCount}
+                    songCount={songCount} />
             }
           </div>
           <div className="w-full mt-2 lg:mt-0 mb-4 lg:w-2/3 lg:px-3 lg:mb-2">
             <div className="flex flex-nowrap justify-between items-center border-b mb-3">
               <div className="flex flex-wrap gap-x-2 mb-1">
                 <h2 className="title text-2xl">Filter</h2>
-                {currentUnit && <Link href={`/discography/${currentMember ? currentMember.slug : ''}`}><a className="flex items-center text-gray-500 hover:text-red-500 bg-gray-100 hover:bg-gray-200 rounded-full px-2 py-0.5 text-sm">
+                {hasUnitQuery && <Link href={`/discography/${hasMemberQuery ? currentMember.slug : ''}`}><a className="flex items-center text-gray-500 hover:text-red-500 bg-gray-100 hover:bg-gray-200 rounded-full px-2 py-0.5 text-sm">
                   <X strokeWidth={2} size={16} />
                   <span className="text-black">{currentUnit.name}</span>
                 </a></Link>}
-                {currentMember && <Link href={`/discography/${currentUnit ? currentUnit.slug : ''}`}><a className="flex items-center text-gray-500 hover:text-red-500 bg-gray-100 hover:bg-gray-200 rounded-full px-2 py-0.5 text-sm">
-                <X strokeWidth={2} size={16} />
+                {hasMemberQuery && <Link href={`/discography/${hasUnitQuery ? currentUnit.slug : ''}`}><a className="flex items-center text-gray-500 hover:text-red-500 bg-gray-100 hover:bg-gray-200 rounded-full px-2 py-0.5 text-sm">
+                  <X strokeWidth={2} size={16} />
                   <span className="text-black">{currentMember.name}</span>
                 </a></Link>}
               </div>
@@ -65,16 +80,18 @@ export default function DiscographyHeader({ units, members, currentUnit, current
             </div>
             <div className="flex flex-wrap gap-x-1 gap-y-1 mb-3">
               {units.map((unit) => (
-                <Link key={`unitFilter-${unit.slug}`} href={`/discography/${unit.slug}/${currentMember ? currentMember.slug : ''}`}>
-                  <a className={`cursor-pointer text-sm px-2.5 py-1 rounded-full border border-${unit.color} hover:text-${unit.text} hover:bg-${unit.color} ${currentUnit ? (currentUnit.slug === unit.slug ? `text-${unit.text} bg-${unit.color}` : '') : ''} `}>
+                <Link key={`unitFilter-${unit.slug}`} href={`/discography/${unit.slug}/${hasMemberQuery ? currentMember.slug : ''}`}>
+                  <a className={`cursor-pointer text-sm px-2.5 py-1 rounded-full border border-${unit.primary_color} hover:text-${unit.secondary_color} hover:bg-${unit.primary_color} ${hasUnitQuery
+                    ? (currentUnit.id === unit.id ? `text-${unit.secondary_color} bg-${unit.primary_color}` : '') : ''} `}>
                     {unit.name}</a>
                 </Link>
               ))}
             </div>
             <div className="flex flex-wrap justify-between gap-x-1 gap-y-1">
               {members.map((member) => (
-                <Link key={`memberFilter-${member.slug}`} href={`/discography${currentUnit ? ('/' + currentUnit.slug) : ''}/${member.slug}`}>
-                  <a className={`cursor-pointer text-sm px-2.5 py-1 rounded-full border border-nctu hover:bg-nctu ${currentMember ? (currentMember.slug === member.slug ? 'bg-nctu' : '') : ''} `}>
+                <Link key={`memberFilter-${member.slug}`} href={`/discography${hasUnitQuery ? ('/' + currentUnit.slug) : ''}/${member.slug}`}>
+                  <a className={`cursor-pointer text-sm px-2.5 py-1 rounded-full border border-nctu hover:bg-nctu ${hasMemberQuery
+                    ? (currentMember.id === member.id ? 'bg-nctu' : '') : ''} `}>
                     {member.name}</a>
                 </Link>
               ))}

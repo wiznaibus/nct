@@ -1,10 +1,13 @@
 import Link from 'next/link'
 
-const UnitInformation = ({ unit, matchingAlbumCount, matchingTrackCount }) => {
+const UnitInformation = ({ unit, albumCount, songCount }) => {
+    let cover_image = unit.cover_image 
+        ? `https://assets.nctdiscography.com/${unit.cover_image.formats.thumbnail.hash + unit.cover_image.formats.thumbnail.ext}` 
+        : `https://assets.nctdiscography.com/thumbnail_nct_4e154c4e2f.png`
     return (
         <>
             <div className="flex flex-nowrap gap-x-3 mb-5">
-                <img className="h-20 w-20 p-px border border-black" src={`/${unit.cover_url}`} alt="The 7th Sense Album Cover" />
+                <img className="h-20 w-20 p-px border border-black" src={cover_image} alt="The 7th Sense Album Cover" />
                 <div className="w-full grid grid-cols-2 justify-items-stretch gap-x-2">
                     <div className="col-span-2">
                         <p className="border-b text-xs text-gray-600">Name</p>
@@ -12,11 +15,11 @@ const UnitInformation = ({ unit, matchingAlbumCount, matchingTrackCount }) => {
                     </div>
                     <div>
                         <p className="border-b text-xs text-gray-600">Albums</p>
-                        <p className="">{matchingAlbumCount}</p>
+                        <p className="">{albumCount}</p>
                     </div>
                     <div>
                         <p className="border-b text-xs text-gray-600">Tracks</p>
-                        <p className="">{matchingTrackCount}</p>
+                        <p className="">{songCount}</p>
                     </div>
                 </div>
             </div>
