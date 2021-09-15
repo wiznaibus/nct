@@ -3,7 +3,7 @@ module.exports = {
     content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     options: {
       safelist: [
-        'text-white',
+        'text-light',
         'text-nctu',
         'text-nct127',
         'text-nctdream',
@@ -16,7 +16,7 @@ module.exports = {
         'border-nct127',
         'border-nctdream',
         'border-wayv',
-        'hover:text-white',
+        'hover:text-light',
         'hover:bg-nctu',
         'hover:bg-nct127',
         'hover:bg-nctdream',
