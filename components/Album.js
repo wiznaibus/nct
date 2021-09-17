@@ -43,6 +43,13 @@ const Album = ({
     songs = songs.sort((a,b) => (a.track_number > b.track_number) ? 1 : ((b.track_number > a.track_number) ? -1 : 0));
     links = links.sort((a,b) => (a.link_type.id > b.link_type.id) ? 1 : ((b.link_type.id > a.link_type.id) ? -1 : 0));
 
+    /**
+     * Set image for missing covers
+     */
+     coverImage = coverImage 
+     ? `https://assets.nctdiscography.com/${coverImage.formats.thumbnail.hash + coverImage.formats.thumbnail.ext}` 
+     : `https://assets.nctdiscography.com/thumbnail_990638d681.png`
+
     return (
         <div className="container mx-auto lg:px-3 mb-10 lg:mb-12 lg:pt-6">
             <div className="flex flex-nowrap items-start justify-between mb-6">
@@ -60,8 +67,7 @@ const Album = ({
                         ))}
                     </div>
                 </div>
-                <img className="h-24 w-24 p-px border border-black" src={`https://assets.nctdiscography.com/${coverImage.formats.thumbnail.hash 
-                + coverImage.formats.thumbnail.ext}`} alt="The 7th Sense Album Cover" />
+                <img className="h-24 w-24 p-px border border-black" src={coverImage} alt="The 7th Sense Album Cover" />
             </div>
             <table className="table-fixed w-full">
                 <thead className="text-xs text-gray-600 text-left border-b border-gray-400">
