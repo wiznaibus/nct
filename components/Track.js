@@ -61,7 +61,7 @@ const Track = ({
                 </td>
             </tr>
             <tr className="lg:hidden">
-                <td colSpan="4" className="px-1.5 pt-1.5 pb-2 border-b-2 border-gray-300">
+                <td colSpan="5" className="px-1.5 pt-1.5 pb-2 border-b-2 border-gray-300">
                     <div className="flex flex-wrap justify-between gap-1">
                         {filteredMembers}
                     </div>

@@ -19,7 +19,7 @@ function Home() {
                     <div className="w-full lg:w-1/2 mb-6 lg:px-2">
                         <div className="mb-6">
                             <h2 className="title text-black font-medium text-3xl mb-2">About</h2>
-                            <p className="">This website is a discography project for the K-pop group NCT. It was designed to quickly and conveniently show what albums and songs each member participated in with the ability to search and filter results.</p>
+                            <p>This website is a discography project for the K-pop group NCT. It was designed to quickly and conveniently show what albums and songs each member participated in with the ability to search and filter results.</p>
                         </div>
                         <div className="mb-6">
                             <h2 className="title text-black font-medium text-3xl mb-2">Thanks to</h2>
@@ -37,7 +37,7 @@ function Home() {
                         </div>
                     </div>
                     <div className="w-full lg:w-1/2 mb-10">
-                        <img className="p-px border border-black" src="https://assets.nctdiscography.com/preview_907384fe22.png" />
+                        <img className="p-px border border-black" src="https://assets.nctdiscography.com/preview_907384fe22.png" alt="NCT group image" />
                     </div>
 
                 </div>

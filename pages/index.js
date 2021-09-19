@@ -17,7 +17,7 @@ function Home() {
             <div className="container px-3 mx-auto my-48">
                 <div className="mx-auto w-full md:w-2/3 xl:w-1/2 flex flex-nowrap items-center gap-x-1">
                     <p className="text-4xl lg:text-5xl pb-5">The home page is still under construction. Visit the <Link href="/discography"><a className="text-nct127 underline hover:text-gray-700">Discography</a></Link> page?</p>
-                    <img className="h-24 w-24 p-px border border-black object-right" src="https://assets.nctdiscography.com/thumbnail_haechanpeek_180633a969.png" />
+                    <img className="h-24 w-24 p-px border border-black object-right" src="https://assets.nctdiscography.com/thumbnail_haechanpeek_180633a969.png" alt="Haechan peeking through curtains" />
                 </div>
             </div>
         </>

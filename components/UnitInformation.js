@@ -7,7 +7,7 @@ const UnitInformation = ({ unit, albumCount, songCount }) => {
     return (
         <>
             <div className="flex flex-nowrap gap-x-3 mb-5">
-                <img className="h-20 w-20 p-px border border-black" src={cover_image} alt="The 7th Sense Album Cover" />
+                <img className="h-20 w-20 p-px border border-black" src={cover_image} alt={`${unit.name} profile image`} />
                 <div className="w-full grid grid-cols-2 justify-items-stretch gap-x-2">
                     <div className="col-span-2">
                         <p className="border-b text-xs text-gray-600">Name</p>
