@@ -67,7 +67,7 @@ const Album = ({
                         ))}
                     </div>
                 </div>
-                <img className="h-24 w-24 p-px border border-black" src={coverImage} alt={`${title} Album Cover`} />
+                <img className="h-24 w-24 p-px border border-black" src={coverImage} alt={`${title} album cover`} />
             </div>
             <table className="table-fixed w-full">
                 <thead className="text-xs text-gray-600 text-left border-b border-gray-400">
