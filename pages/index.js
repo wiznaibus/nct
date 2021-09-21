@@ -5,12 +5,12 @@ function Home() {
     return (
         <>
             <Head>
-                <title>NCT Discography</title>
+                <title>Home - NCT Discography</title>
                 <meta name="description" content="View full NCT discography in order with all units. Filter songs by member and unit" />
-                <meta property="og:title" content="NCT Discography" />
+                <meta property="og:title" content="Home - NCT Discography" />
                 <meta property="og:description" content="View full NCT discography in order with all units. Filter songs by member and unit" />
                 <meta property="og:url" content="https://www.nctdiscography.com/" />
-                <meta name="twitter:title" content="NCT Discography" />
+                <meta name="twitter:title" content="Home - NCT Discography" />
                 <meta name="twitter:description" content="View full NCT discography in order with all units. Filter songs by member and unit" />
                 <meta property="twitter:url" content="https://www.nctdiscography.com/" />
             </Head>

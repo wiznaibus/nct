@@ -60,7 +60,7 @@ const Album = ({
                     <div className="flex flex-wrap gap-1 mt-2">
                         {links && links.map((link) => (
                             <Link key={`album-${id}-link-${link.id}`} href={link.url} passHref={true}>
-                                <a target="_blank" className="text-sm px-2 py-1.5 rounded-full border border-nctu hover:bg-nctu">
+                                <a target="_blank" rel="noopener noreferrer" className="text-sm px-2 py-1.5 rounded-full border border-nctu hover:bg-nctu">
                                     {link.link_type.name}
                                 </a>
                             </Link>
