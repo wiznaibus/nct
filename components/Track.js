@@ -43,7 +43,7 @@ const Track = ({
                     {links && links.map(link => (
                     <div key={`song-${id}-link-${link.id}`} className="inline-block ml-1">
                         <Link className="" href={link.url} passHref={true}>
-                            <a target="_blank" className="text-red-500 hover:text-gray-700"><Youtube /></a>
+                            <a target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-gray-700"><Youtube /></a>
                         </Link>
                     </div>
                 ))}

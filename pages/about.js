@@ -5,7 +5,7 @@ function Home() {
     return (
         <>
             <Head>
-                <title>NCT Discography</title>
+                <title>About - NCT Discography</title>
                 <meta name="description" content="This website is a discography project for the K-pop group NCT. It was designed to quickly and conveniently show what albums and songs each member participated in with the ability to search and filter results" />
                 <meta property="og:title" content="About - NCT Discography" />
                 <meta property="og:description" content="This website is a discography project for the K-pop group NCT. It was designed to quickly and conveniently show what albums and songs each member participated in with the ability to search and filter results" />
