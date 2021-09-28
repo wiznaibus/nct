@@ -10,7 +10,6 @@ import { FilterMenuVisibilityStateContext } from './Filter/FilterMenuVisibility'
 import { FilterNonparticipatingMembersStateContext } from './Filter/FilterNonparticipatingMembers'
 import { FilterDuplicateTracksStateContext } from './Filter/FilterDuplicateTracks';
 
-import Checkbox from './Checkbox';
 import { FilterReleaseTypeContext, FilterUnitContext, FilterLanguageContext, FilterMemberContext } from './Filter/FilterContexts';
 import FilterMenu from './Filter/FilterMenu';
 import FilterControl from './Filter/FilterControl';
