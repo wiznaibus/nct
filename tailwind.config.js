@@ -30,6 +30,26 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
+    /* customForms: theme => ({
+      default: {
+        input: {
+          borderRadius: theme('borderRadius.lg'),
+          backgroundColor: theme('colors.gray.200'),
+          '&:focus': {
+            backgroundColor: theme('colors.white'),
+          }
+        },
+        select: {
+          borderRadius: theme('borderRadius.lg'),
+          boxShadow: theme('boxShadow.DEFAULT'),
+        },
+        checkbox: {
+          backgroundColor: theme(),
+          width: theme('spacing.6'),
+          height: theme('spacing.6'),
+        },
+      },
+    }), */
     extend: {
       colors: {
         nctu: '#B1DC11',
@@ -41,7 +61,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['checked'],
+      borderColor: ['checked'],
+    },
   },
   plugins: [],
 }

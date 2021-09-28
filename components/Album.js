@@ -1,5 +1,7 @@
 import Link from 'next/link'
-import Track from "./Track";
+import Track from './Track';
+import { useContext } from 'react';
+import { FilterDuplicateTracksStateContext } from './Filter/FilterDuplicateTracks'
 
 const Album = ({
     hasMemberQuery,
@@ -16,8 +18,10 @@ const Album = ({
     members,
     songs,
     languages,
-    links,
+    links
 }) => {
+
+    const { duplicateTracksFilter } = useContext(FilterDuplicateTracksStateContext);
 
     /**
      * Filter and sort participating members
@@ -71,39 +75,43 @@ const Album = ({
             </div>
             <table className="table-fixed w-full">
                 <thead className="text-xs text-gray-600 text-left border-b border-gray-400">
-                    <tr>
-                        <th className="font-light p-1 w-5 lg:w-8">#</th>
-                        <th className="font-light p-1 w-auto">Track</th>
-                        <th className="font-light p-1 w-1/4 lg:w-24 xl:w-32">Artist</th>
-                        <th className="font-light p-1 w-1/4 lg:w-28 xl:w-36">Language</th>
+                    <tr className="w-full">
+                    <th className="font-light p-1 w-5 lg:w-6">#</th>
+                        <th className="font-light p-1 w-1/2 lg:w-auto">Track</th>
+                        <th className="font-light p-1 w-1/4 lg:w-32 xl:w-40">Artist</th>
+                        <th className="font-light p-1 w-1/4 lg:w-24 xl:w-32">Language</th>
                         <th className="font-light hidden lg:table-cell p-1 lg:w-1/2">Participating Members</th>
                     </tr>
                 </thead>
                 <tbody>
                     {songs.map((song) => {
                         return (
-                            (
-                                ((hasUnitQuery && hasMemberQuery) && song.performing_artists.filter(member => (
-                                    member.artist.unit === currentUnit.id && member.member === currentMember.id)).length > 0) ||
-                                ((hasUnitQuery && !hasMemberQuery) && song.artists.filter(artist => 
-                                    artist.unit === currentUnit.id).length > 0) ||
-                                ((!hasUnitQuery && hasMemberQuery) && song.performing_artists.filter(member => 
-                                    member.member === currentMember.id).length > 0) ||
-                                (!hasUnitQuery && !hasMemberQuery)
-                            ) && 
-                        <Track
-                            key={`album-${id}-song-${song.id}`}
-                            albumId={id}
-                            id={song.id}
-                            trackNumber={song.track_number}
-                            title={song.title}
-                            slug={song.slug}
-                            artists={song.artists}
-                            albumMembers={participatingMembers}
-                            trackMembers={song.performing_artists}
-                            languages={song.languages}
-                            links={song.links} />
-                    )})}
+                            /* (
+                                (
+                                    ((hasUnitQuery && hasMemberQuery) && song.performing_artists.filter(member => (
+                                        member.artist.unit === currentUnit.id && member.member === currentMember.id)).length > 0) ||
+                                    ((hasUnitQuery && !hasMemberQuery) && song.artists.filter(artist => 
+                                        artist.unit === currentUnit.id).length > 0) ||
+                                    ((!hasUnitQuery && hasMemberQuery) && song.performing_artists.filter(member => 
+                                        member.member === currentMember.id).length > 0) ||
+                                    (!hasUnitQuery && !hasMemberQuery)
+                                )
+                            )
+                            && */
+                             <Track
+                                key={`album-${id}-song-${song.id}`}
+                                albumId={id}
+                                id={song.id}
+                                trackNumber={song.track_number}
+                                title={song.title}
+                                slug={song.slug}
+                                artists={song.artists}
+                                albumMembers={participatingMembers}
+                                trackMembers={song.performing_artists}
+                                languages={song.languages}
+                                links={song.links} />
+                        )
+                    })}
                 </tbody>
             </table>
         </div>
