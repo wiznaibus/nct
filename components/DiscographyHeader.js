@@ -2,8 +2,8 @@
 import { Switch } from '@headlessui/react'
 import Link from 'next/link'
 import { useContext } from 'react';
-import { FilterMembersStateContext } from './FilterMembers'
-import { X } from 'react-feather'
+import { FilterNonparticipatingMembersStateContext } from './Filter/FilterNonparticipatingMembers'
+import { Info, X } from 'react-feather'
 import Information from './Information'
 import UnitInformation from './UnitInformation'
 import MemberInformation from './MemberInformation'
@@ -18,7 +18,9 @@ export default function DiscographyHeader({
   albumCount,
   songCount,
 }) {
-  const { filtered, setFiltered } = useContext(FilterMembersStateContext);
+
+  const { nonparticipatingMembersFilter, setNonparticipatingMembersFilter } = useContext(FilterNonparticipatingMembersStateContext);
+
   return (
     <>
       <div className="px-2 py-1
@@ -27,7 +29,7 @@ export default function DiscographyHeader({
               px-1 py-2 mb-4 pb-8
               lg:flex-nowrap lg:px-3">
           <div className="w-full mt-2 lg:mt-0 mb-4 lg:w-1/3 lg:px-3 lg:mb-2">
-            <h2 className="title text-2xl mb-1">Information</h2>
+            <h2 className="title text-2xl mb-1"><Info className="" strokeWidth={2} size={16} /> Information</h2>
             {
               (!hasMemberQuery && !hasUnitQuery)
                 ? <UnitInformation
@@ -49,7 +51,7 @@ export default function DiscographyHeader({
                     songCount={songCount} />
             }
           </div>
-          <div className="w-full mt-2 lg:mt-0 mb-4 lg:w-2/3 lg:px-3 lg:mb-2">
+          {/* <div className="w-full mt-2 lg:mt-0 mb-4 lg:w-2/3 lg:px-3 lg:mb-2">
             <div className="flex flex-nowrap justify-between items-center border-b mb-3">
               <div className="flex flex-wrap gap-x-2 mb-1">
                 <h2 className="title text-2xl">Filter</h2>
@@ -63,19 +65,20 @@ export default function DiscographyHeader({
                 </a></Link>}
               </div>
               <div className="flex flex-wrap gap-x-1 items-baseline mb-1">
-                <Switch
-                  checked={filtered}
-                  onChange={setFiltered}
-                  className={`${filtered ? 'bg-nctu' : 'bg-gray-200'
-                    } relative inline-flex items-center h-5 rounded-full w-10 border`}
-                >
-                  <span className="sr-only">Toggle non-participating members</span>
-                  <span
-                    className={`transform transition ease-in-out duration-200 ${filtered ? 'translate-x-6' : 'translate-x-1'} inline-block w-3 h-3 transform bg-white rounded-full`}
-                  />
-                </Switch>
-                <span className="">Hide</span>
-                <span className="hidden md:flex">non-participating members</span>
+                <Switch.Group>
+                  <Switch
+                    checked={nonparticipatingMembersFilter}
+                    onChange={setNonparticipatingMembersFilter}
+                    className={`${nonparticipatingMembersFilter ? 'bg-nctu' : 'bg-gray-200'
+                      } relative inline-flex items-center h-5 rounded-full w-10 border`}
+                  >
+                    <span className="sr-only">Hide non-participating members</span>
+                    <span
+                      className={`transform transition ease-in-out duration-200 ${nonparticipatingMembersFilter ? 'translate-x-6' : 'translate-x-1'} inline-block w-3 h-3 transform bg-white rounded-full`}
+                    />
+                  </Switch>
+                  <Switch.Label className="cursor-pointer">Hide <span className="hidden md:flex">non-participating members</span></Switch.Label>
+                </Switch.Group>
               </div>
             </div>
             <div className="flex flex-wrap gap-x-1 gap-y-1 mb-3">
@@ -96,7 +99,7 @@ export default function DiscographyHeader({
                 </Link>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
