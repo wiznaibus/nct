@@ -25,6 +25,10 @@ module.exports = {
         'hover:border-nct127',
         'hover:border-nctdream',
         'hover:border-wayv',
+        'h-4',
+        'h-5',
+        'w-4',
+        'w-5',
       ],
     }
   },
