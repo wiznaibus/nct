@@ -29,7 +29,7 @@ const FilterMenu = ({
     const { memberFilter } = useContext(FilterMemberContext);
 
     return (
-        <div className="h-screen overflow-y-scroll overscroll-contain bg-gray-100 lg:bg-transparent">
+        <div className="h-screen overflow-y-auto overscroll-contain bg-gray-100 lg:bg-transparent">
             <div className="bg-gray-100 text-sm 2xl:text-base p-6">
             <div className="lg:hidden">
                 <Switch.Group>
