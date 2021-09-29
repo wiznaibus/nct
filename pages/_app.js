@@ -2,9 +2,28 @@ import '../styles/globals.css'
 import Head from 'next/head'
 import Header from '../components/Header'
 import Link from 'next/link'
-import { FilterMembersProvider } from '../components/FilterMembers';
+import { FilterMenuVisibilityProvider } from '../components/Filter/FilterMenuVisibility';
+import { FilterNonparticipatingMembersProvider } from '../components/Filter/FilterNonparticipatingMembers'
+import { FilterDuplicateTracksProvider } from '../components/Filter/FilterDuplicateTracks';
+
+const combineProviders = (providers) => providers.reduce(
+  (Combined, Provider) => ({children}) => (
+    <Combined>
+      <Provider>
+        {children}
+      </Provider>
+    </Combined>
+  )
+);
 
 const MyApp = ({ Component, pageProps, router }) => {
+
+  const Providers = combineProviders([
+    FilterMenuVisibilityProvider,
+    FilterNonparticipatingMembersProvider,
+    FilterDuplicateTracksProvider
+  ]);
+
   return (
     <>
       <Head>
@@ -30,15 +49,15 @@ const MyApp = ({ Component, pageProps, router }) => {
       </Head>
       <div className="flex-grow">
         <Header />
-        <FilterMembersProvider>
+        <Providers>
           <div className="flex flex-col flex-wrap flex-grow">
             <Component {...pageProps} />
           </div>
-        </FilterMembersProvider>
+        </Providers>
       </div>
-      <footer className="pb-8 flex flex-nowrap gap-x-1 justify-center text-sm bottom-0">Made with love 💚 by
+      <footer className="pb-12 flex flex-nowrap gap-x-1 justify-center text-sm bottom-0">Made with love 💚 by
         <Link href="https://twitter.com/wiznaibus" passHref={true}>
-          <a target="_blank" rel="noopener noreferrer" className="text-nct127 underline hover:text-gray-700">wiznaibus</a>
+          <a target="_blank" rel="noreferrer noopener" className="text-nct127 underline hover:text-gray-700">wiznaibus</a>
         </Link>
       </footer>
     </>

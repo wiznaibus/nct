@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { FilterMembersStateContext } from './FilterMembers'
+import { FilterNonparticipatingMembersStateContext } from './Filter/FilterNonparticipatingMembers'
 import Link from 'next/link'
 import { Youtube } from 'react-feather'
 
@@ -15,16 +15,16 @@ const Track = ({
     languages,
     links,
 }) => {
-    const { filtered } = useContext(FilterMembersStateContext);
+    const { nonparticipatingMembersFilter} = useContext(FilterNonparticipatingMembersStateContext);
 
     const filteredMembers = [];
     albumMembers.forEach(albumMember => {
-        let trackMember = trackMembers.find(trackMember => trackMember.member === albumMember.id);
+        let trackMember = trackMembers.find(trackMember => trackMember.member.id === albumMember.id);
         filteredMembers.push(
             <span key={`album-${albumId}-track-${id}-member-${albumMember.id}`}
-                className={`text-xs font-normal rounded-full px-2 pt-1 pb-0.5 ${ trackMember
+                className={`text-xs font-normal rounded-full px-2 pt-1 pb-0.5 ${ trackMember && trackMember.member.id
                     ? `bg-${trackMember.artist.primary_color} text-${trackMember.artist.secondary_color}` 
-                    : filtered ? "hidden" 
+                    : nonparticipatingMembersFilter ? "hidden" 
                     : "bg-gray-100" } `}>
                 {albumMember.name}
             </span>
@@ -54,13 +54,13 @@ const Track = ({
                 <td className="px-1.5 pt-1.5 pb-2">
                     {languages.map(language => (language.name)).join(', ')}
                 </td>
-                <td className="hidden lg:table-cell px-1.5 pt-1.5 pb-2">
+                <td className="hidden xl:table-cell px-1.5 pt-1.5 pb-2">
                     <div className="flex flex-wrap justify-between gap-1">
                         {filteredMembers}
                     </div>
                 </td>
             </tr>
-            <tr className="lg:hidden">
+            <tr className="xl:hidden">
                 <td colSpan="5" className="px-1.5 pt-1.5 pb-2 border-b-2 border-gray-300">
                     <div className="flex flex-wrap justify-between gap-1">
                         {filteredMembers}
