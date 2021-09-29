@@ -54,13 +54,13 @@ const Track = ({
                 <td className="px-1.5 pt-1.5 pb-2">
                     {languages.map(language => (language.name)).join(', ')}
                 </td>
-                <td className="hidden lg:table-cell px-1.5 pt-1.5 pb-2">
+                <td className="hidden xl:table-cell px-1.5 pt-1.5 pb-2">
                     <div className="flex flex-wrap justify-between gap-1">
                         {filteredMembers}
                     </div>
                 </td>
             </tr>
-            <tr className="lg:hidden">
+            <tr className="xl:hidden">
                 <td colSpan="5" className="px-1.5 pt-1.5 pb-2 border-b-2 border-gray-300">
                     <div className="flex flex-wrap justify-between gap-1">
                         {filteredMembers}

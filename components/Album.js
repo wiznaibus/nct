@@ -76,11 +76,11 @@ const Album = ({
             <table className="table-fixed w-full">
                 <thead className="text-xs text-gray-600 text-left border-b border-gray-400">
                     <tr className="w-full">
-                    <th className="font-light p-1 w-5 lg:w-6">#</th>
-                        <th className="font-light p-1 w-1/2 lg:w-auto">Track</th>
-                        <th className="font-light p-1 w-1/4 lg:w-32 xl:w-40">Artist</th>
-                        <th className="font-light p-1 w-1/4 lg:w-24 xl:w-32">Language</th>
-                        <th className="font-light hidden lg:table-cell p-1 lg:w-1/2">Participating Members</th>
+                        <th className="font-light p-1 w-5 xl:w-6">#</th>
+                        <th className="font-light p-1 w-1/2 xl:w-auto">Track</th>
+                        <th className="font-light p-1 w-1/4 xl:w-24 2xl:w-32">Artist</th>
+                        <th className="font-light p-1 w-1/4 xl:w-20 2xl:w-28">Language</th>
+                        <th className="font-light p-1 hidden xl:table-cell xl:w-1/2">Participating Members</th>
                     </tr>
                 </thead>
                 <tbody>

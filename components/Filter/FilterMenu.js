@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { FilterMenuVisibilityStateContext } from './FilterMenuVisibility';
 import { FilterNonparticipatingMembersStateContext } from './FilterNonparticipatingMembers'
 import { FilterDuplicateTracksStateContext } from './FilterDuplicateTracks';
@@ -7,12 +7,9 @@ import { FilterReleaseTypeContext, FilterUnitContext, FilterLanguageContext, Fil
 import FilterButton from './FilterButton';
 import FilterMenuSection from './FilterMenuSection';
 import { Switch } from '@headlessui/react'
-import { Filter, X } from 'react-feather'
-
-import FilterCheckbox from './FilterCheckbox';
+import { Filter as FilterIcon, X } from 'react-feather'
 
 const FilterMenu = ({
-    hasUnitQuery,
     releaseTypeFilterOnChange,
     unitFilterOnChange,
     languageFilterOnChange,
@@ -32,374 +29,167 @@ const FilterMenu = ({
     const { memberFilter } = useContext(FilterMemberContext);
 
     return (
-        <>
-            <div className="w-full lg:hidden px-4 py-8 fixed bottom-0 bg-gradient-to-t from-light">
-                <div className="container mx-auto flex flex-nowrap justify-end">
-                    <Switch.Group>
-                        <Switch
-                            checked={filterMenuVisibility}
-                            onChange={setFilterMenuVisibility}>
-                        </Switch>
-                        <Switch.Label className="bg-nctu rounded-full px-3 py-2 ml-1 cursor-pointer shadow">
-                            <Filter className="" strokeWidth={2} size={16} />
-                        </Switch.Label>
-                    </Switch.Group>
-                </div>
+        <div className="h-screen overflow-y-scroll overscroll-contain bg-gray-100 lg:bg-transparent">
+            <div className="bg-gray-100 text-sm 2xl:text-base p-6">
+            <div className="lg:hidden">
+                <Switch.Group>
+                    <Switch
+                        checked={filterMenuVisibility}
+                        onChange={setFilterMenuVisibility}>
+                    </Switch>
+                    <Switch.Label>
+                        <span className="cursor-pointer">
+                            <X className="" strokeWidth={2} size={16} />
+                        </span>
+                        <div style={{ width: 9999 + 'px', left: -9999 + 'px' }} className={`overscroll-contain ${filterMenuVisibility ? `absolute -top-0 h-screen w-full overflow-hidden` : `hidden`}`}>
+                        </div>
+                    </Switch.Label>
+                </Switch.Group>
             </div>
-            <div className={`flex flex-row flex-nowrap lg:hidden fixed top-0 right-0 z-30 overscroll-contain ${!filterMenuVisibility && `translate-x-full`
-                } transform transition duration-300 ease-in-out`}>
-                <div className={`bg-gray-100 h-screen w-80 overflow-y-scroll overscroll-contain p-6 shadow-lg text-sm`}>
-                    <Switch.Group>
-                        <Switch
-                            checked={filterMenuVisibility}
-                            onChange={setFilterMenuVisibility}>
-                        </Switch>
-                        <Switch.Label>
-                            <span className="cursor-pointer">
-                                <X className="" strokeWidth={2} size={16} />
-                            </span>
-                            <div style={{ width: 9999 + 'px', left: -9999 + 'px' }} className={`overscroll-contain ${filterMenuVisibility ? `absolute -top-0 h-screen w-full overflow-hidden` : `hidden`}`}>
-                            </div>
-                        </Switch.Label>
-                    </Switch.Group>
-                    <div className="flex flex-row flex-nowrap justify-between items-center mt-1 mb-2 border-b border-gray-400">
-                        <h3 className="title text-2xl"><Filter strokeWidth={2} size={16} /> Filters</h3>
-                    </div>
-                    {/* <div className="w-full grid grid-cols-2 justify-items-stretch gap-x-2">
-                        <div>
-                            <p className="border-b text-xs text-gray-600">Albums</p>
-                            <p className="">{albumCount}</p>
-                        </div>
-                        <div>
-                            <p className="border-b text-xs text-gray-600">Tracks</p>
-                            <p className="">{songCount}</p>
-                        </div>
-                    </div> */}
-
-                    <div className="flex flex-wrap gap-1 mt-1">
-                        {
-                            releaseTypeFilter.filter(releaseType => releaseType.filtered === true).length > 0 &&
-                            <FilterButton
-                                prefix="Release Type: "
-                                type="releaseType"
-                                filter={releaseTypeFilter}
-                                clearFilter={clearFilter}
-                            >
-                                Release Type: {releaseTypeFilter.filter(releaseType => releaseType.filtered === true).length}
-                            </FilterButton>
-                        }
-                        {
-                            unitFilter.filter(unit => unit.filtered === true).length > 0 &&
-                            <FilterButton
-                                prefix="Unit: "
-                                type="unit"
-                                filter={unitFilter}
-                                clearFilter={clearFilter}
-                            >
-                                Unit: {unitFilter.filter(releaseType => releaseType.filtered === true).length}
-                            </FilterButton>
-                        }
-                        {
-                            languageFilter.filter(language => language.filtered === true).length > 0 &&
-                            <FilterButton
-                                prefix="Language: "
-                                type="language"
-                                filter={languageFilter}
-                                clearFilter={clearFilter}
-                            >
-                                Language: {languageFilter.filter(releaseType => releaseType.filtered === true).length}
-                            </FilterButton>
-                        }
-                        {
-                            memberFilter.filter(member => member.filtered === true).length > 0 &&
-                            <FilterButton
-                                prefix="Member: "
-                                type="member"
-                                filter={memberFilter}
-                                clearFilter={clearFilter}
-                            >
-                                Member: {memberFilter.filter(releaseType => releaseType.filtered === true).length}
-                            </FilterButton>
-                        }
-                    </div>
-                    <div className="flex flex-row flex-nowrap gap-x-1 my-3">
-                        <div className="pb-0.5"><span className="bg-nctu py-0.5 px-2.5 rounded-full">{albumCount} Albums</span></div>
-                        <div className="pb-0.5"><span className="bg-nctu py-0.5 px-2.5 rounded-full">{songCount} Tracks</span></div>
-                    </div>
-                    <ul className="mb-2">
-                        <li className="">
-                            <div className="flex flex-wrap gap-x-1 items-baseline mb-1">
-                                <Switch.Group>
-                                    <Switch
-                                        checked={duplicateTracksFilter}
-                                        onChange={setDuplicateTracksFilter}
-                                        className={`${duplicateTracksFilter ? 'bg-nctu' : 'bg-gray-200'
-                                            } relative inline-flex items-center h-5 rounded-full w-10 border`}
-                                    >
-                                        <span className="sr-only">Hide duplicate tracks</span>
-                                        <span
-                                            className={`transform transition ease-in-out duration-200 ${duplicateTracksFilter ? 'translate-x-6' : 'translate-x-1'} inline-block w-3 h-3 transform bg-white rounded-full`}
-                                        />
-                                    </Switch>
-                                    <Switch.Label className="cursor-pointer">Hide duplicate tracks</Switch.Label>
-                                </Switch.Group>
-                            </div>
-                        </li>
-                        <li className="">
-                            <div className="flex flex-wrap gap-x-1 items-baseline mb-1">
-                                <Switch.Group>
-                                    <Switch
-                                        checked={nonparticipatingMembersFilter}
-                                        onChange={setNonparticipatingMembersFilter}
-                                        className={`${nonparticipatingMembersFilter ? 'bg-nctu' : 'bg-gray-200'
-                                            } relative inline-flex items-center h-5 rounded-full w-10 border`}
-                                    >
-                                        <span className="sr-only">Hide non-participating members</span>
-                                        <span
-                                            className={`transform transition ease-in-out duration-200 ${nonparticipatingMembersFilter ? 'translate-x-6' : 'translate-x-1'} inline-block w-3 h-3 transform bg-white rounded-full`}
-                                        />
-                                    </Switch>
-                                    <Switch.Label className="cursor-pointer">Hide non-participating members</Switch.Label>
-                                </Switch.Group>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul className={/* divide-y divide-gray-300 */`border-t border-gray-300 pb-16`}>
-                        <FilterMenuSection
-                            name="Release Type"
-                            type="releaseType"
-                            className={"grid grid-flow-col grid-rows-5"}
-                            filter={releaseTypeFilter}
-                            filterOnChange={releaseTypeFilterOnChange}
-                            clearFilter={clearFilter}
-                            checkboxSize={4}
-                        />
-                        <FilterMenuSection
-                            name="Unit"
-                            type="unit"
-                            className={""}
-                            filter={unitFilter}
-                            filterOnChange={unitFilterOnChange}
-                            clearFilter={clearFilter}
-                            checkboxSize={4}
-                        />
-                        <FilterMenuSection
-                            name="Language"
-                            type="language"
-                            className={""}
-                            filter={languageFilter}
-                            filterOnChange={languageFilterOnChange}
-                            clearFilter={clearFilter}
-                            checkboxSize={4}
-                        />
-                        <FilterMenuSection
-                            name="Member"
-                            type="member"
-                            className={"grid grid-cols-3"}
-                            filter={memberFilter}
-                            filterOnChange={memberFilterOnChange}
-                            clearFilter={clearFilter}
-                            checkboxSize={4}
-                        />
-                    </ul>
-                </div>
-
-            </div>
-
-            <div className={`hidden lg:block px-2 pt-2 h-88 z-10 bg-gray-100 ${filterMenuVisibility && `sticky top-0`} lg:pt-4 lg:px-10`}>
-                <div className="container mx-auto flex flex-row flex-wrap px-1 lg:flex-nowrap lg:px-3">
-                    <div className="w-full lg:mt-0 mb-1 lg:px-3 lg:mb-2">
-                        <div className="flex flex-row flex-nowrap justify-between items-center pb-1 border-b border-gray-400">
-                            <a className="cursor-pointer hover:underline" onClick={() => setFilterMenuVisibility(!filterMenuVisibility)}><h3 className="title text-2xl"><Filter strokeWidth={2} size={16} /> Filters</h3></a>
-                            <div className="flex flex-row flex-nowrap gap-x-1 text-sm">
-                                <div className="pb-0.5"><span className="bg-nctu py-0.5 px-2.5 rounded-full">{albumCount} Albums</span></div>
-                                <div className="pb-0.5"><span className="bg-nctu py-0.5 px-2.5 rounded-full">{songCount} Tracks</span></div>
-                            </div>
-                        </div>
-                        <ul className={/* divide-y divide-gray-300 */`grid grid-cols-3 grid-rows-3`}>
-                            <li className="col-span-2 row-span-2">
-                                <ul className="grid grid-cols-3">
-                                    <FilterMenuSection
-                                        name="Release Type"
-                                        type="releaseType"
-                                        className={"grid grid-flow-col grid-rows-5"}
-                                        filter={releaseTypeFilter}
-                                        filterOnChange={releaseTypeFilterOnChange}
-                                        clearFilter={clearFilter}
-                                    />
-                                    <FilterMenuSection
-                                        name="Unit"
-                                        type="unit"
-                                        className={""}
-                                        filter={unitFilter}
-                                        filterOnChange={unitFilterOnChange}
-                                        clearFilter={clearFilter}
-                                    />
-                                    <FilterMenuSection
-                                        name="Language"
-                                        type="language"
-                                        className={""}
-                                        filter={languageFilter}
-                                        filterOnChange={languageFilterOnChange}
-                                        clearFilter={clearFilter}
-                                    />
-                                </ul>
-                            </li>
-                            <li className="col-span-1 row-span-3">
-                                <ul>
-                                    <FilterMenuSection
-                                        name="Member"
-                                        type="member"
-                                        inline={true}
-                                        className={"grid grid-cols-3"}
-                                        filter={memberFilter}
-                                        filterOnChange={memberFilterOnChange}
-                                        clearFilter={clearFilter}
-                                    />
-                                </ul>
-                            </li>
-                            <li className="col-span-2 self-end">
-                                <ul className="mb-2">
-                                    <li className="">
-                                        <div className="flex flex-wrap gap-x-1 items-baseline mb-1">
-                                            <Switch.Group>
-                                                <Switch
-                                                    checked={duplicateTracksFilter}
-                                                    onChange={setDuplicateTracksFilter}
-                                                    className={`${duplicateTracksFilter ? 'bg-nctu' : 'bg-gray-200'
-                                                        } relative inline-flex items-center h-5 rounded-full w-10 border`}
-                                                >
-                                                    <span className="sr-only">Hide duplicate tracks</span>
-                                                    <span
-                                                        className={`transform transition ease-in-out duration-200 ${duplicateTracksFilter ? 'translate-x-6' : 'translate-x-1'} inline-block w-3 h-3 transform bg-white rounded-full`}
-                                                    />
-                                                </Switch>
-                                                <Switch.Label className="cursor-pointer">Hide duplicate tracks</Switch.Label>
-                                            </Switch.Group>
-                                        </div>
-                                    </li>
-                                    <li className="">
-                                        <div className="flex flex-wrap gap-x-1 items-baseline mb-1">
-                                            <Switch.Group>
-                                                <Switch
-                                                    checked={nonparticipatingMembersFilter}
-                                                    onChange={setNonparticipatingMembersFilter}
-                                                    className={`${nonparticipatingMembersFilter ? 'bg-nctu' : 'bg-gray-200'
-                                                        } relative inline-flex items-center h-5 rounded-full w-10 border`}
-                                                >
-                                                    <span className="sr-only">Hide non-participating members</span>
-                                                    <span
-                                                        className={`transform transition ease-in-out duration-200 ${nonparticipatingMembersFilter ? 'translate-x-6' : 'translate-x-1'} inline-block w-3 h-3 transform bg-white rounded-full`}
-                                                    />
-                                                </Switch>
-                                                <Switch.Label className="cursor-pointer">Hide non-participating members</Switch.Label>
-                                            </Switch.Group>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+            <div className="flex flex-row flex-nowrap justify-start gap-x-1 items-center mt-1 mb-2 border-b border-gray-400">
+                <h3 className="title text-2xl"><FilterIcon strokeWidth={2} size={16} /> Filters</h3>
+                <div className={`${
+                    (
+                        !releaseTypeFilter.filter(releaseType => releaseType.filtered === true).length > 0
+                        && !unitFilter.filter(releaseType => releaseType.filtered === true).length > 0
+                        && !languageFilter.filter(releaseType => releaseType.filtered === true).length > 0
+                        && !memberFilter.filter(releaseType => releaseType.filtered === true).length > 0
+                    )
+                    && `hidden`
+                }`}>
+                    <FilterButton
+                        type="all"
+                        clearFilter={clearFilter}
+                    >
+                        Clear All
+                    </FilterButton>
                 </div>
             </div>
 
-            <div className={`hidden lg:block ${filterMenuVisibility ? `sticky top-88` : `sticky top-0`} px-2 pt-2 pb-1 bg-gray-100 border-b lg:pt-4 lg:px-10`}>
-                <div className="container mx-auto flex flex-row flex-wrap
-                    px-1
-                    lg:flex-nowrap lg:px-3">
-                    <div className="w-full lg:mt-0 mb-1 lg:px-3 lg:mb-2">
-
-                        <div className="flex flex-row flex-nowrap justify-between items-center">
-                            <a className="cursor-pointer hover:underline" onClick={() => setFilterMenuVisibility(!filterMenuVisibility)}><h3 className="title text-2xl"><Filter strokeWidth={2} size={16} /> Filters</h3></a>
-                            <div className="flex flex-row flex-nowrap gap-x-1 text-sm">
-                                <div className="pb-0.5"><span className="bg-nctu py-0.5 px-2.5 rounded-full">{albumCount} Albums</span></div>
-                                <div className="pb-0.5"><span className="bg-nctu py-0.5 px-2.5 rounded-full">{songCount} Tracks</span></div>
-                            </div>
-                        </div>
-
-                        <div className={`flex flex-wrap gap-1 mt-1 pt-3 border-t border-gray-400 ${(
-                            !releaseTypeFilter.filter(releaseType => releaseType.filtered === true).length > 0
-                            && !unitFilter.filter(releaseType => releaseType.filtered === true).length > 0
-                            && !languageFilter.filter(releaseType => releaseType.filtered === true).length > 0
-                            && !memberFilter.filter(releaseType => releaseType.filtered === true).length > 0
-                        )
-                            && `hidden`
-                            }`}>
-                            {/* <FilterButton
-                                prefix="Language: "
-                                type="language"
-                                filter={languageFilter}
-                                clearFilter={clearFilter}
-                            >
-                                Clear All Filters
-                            </FilterButton> */}
-                            {
-                                releaseTypeFilter.filter(releaseType => releaseType.filtered === true).length > 0 &&
-                                <FilterButton
-                                    prefix="Release Type: "
-                                    type="releaseType"
-                                    filter={releaseTypeFilter}
-                                    clearFilter={clearFilter}
-                                >
-                                    {`Release Type: `}
-                                    {/* ({releaseTypeFilter.filter(releaseType => releaseType.filtered === true).length}) */}
-                                    {releaseTypeFilter.find(item => item.filtered === true).name}
-                                    {releaseTypeFilter.filter(item => item.filtered === true).length > 1
-                                        && `, ${releaseTypeFilter.filter(item => item.filtered === true).length - 1} more`}
-                                </FilterButton>
-                            }
-                            {
-                                unitFilter.filter(unit => unit.filtered === true).length > 0 &&
-                                <FilterButton
-                                    prefix="Unit: "
-                                    type="unit"
-                                    filter={unitFilter}
-                                    clearFilter={clearFilter}
-                                >
-                                    {`Unit: `}
-                                    {/* ({unitFilter.filter(releaseType => releaseType.filtered === true).length}) */}
-                                    {unitFilter.find(item => item.filtered === true).name}
-                                    {unitFilter.filter(item => item.filtered === true).length > 1
-                                        && `, ${unitFilter.filter(item => item.filtered === true).length - 1} more`}
-                                </FilterButton>
-                            }
-                            {
-                                languageFilter.filter(language => language.filtered === true).length > 0 &&
-                                <FilterButton
-                                    prefix="Language: "
-                                    type="language"
-                                    filter={languageFilter}
-                                    clearFilter={clearFilter}
-                                >
-                                    {`Language: `}
-                                    {/* ({languageFilter.filter(releaseType => releaseType.filtered === true).length}) */}
-                                    {languageFilter.find(item => item.filtered === true).name}
-                                    {languageFilter.filter(item => item.filtered === true).length > 1
-                                        && `, ${languageFilter.filter(item => item.filtered === true).length - 1} more`}
-                                </FilterButton>
-                            }
-                            {
-                                memberFilter.filter(member => member.filtered === true).length > 0 &&
-                                <FilterButton
-                                    prefix="Member: "
-                                    type="member"
-                                    filter={memberFilter}
-                                    clearFilter={clearFilter}
-                                >
-                                    {`Member: `}
-                                    {/* ({memberFilter.filter(releaseType => releaseType.filtered === true).length}) */}
-                                    {memberFilter.find(item => item.filtered === true).name}
-                                    {memberFilter.filter(item => item.filtered === true).length > 1
-                                        && `, ${memberFilter.filter(item => item.filtered === true).length - 1} more`}
-                                </FilterButton>
-                            }
-                        </div>
-                    </div>
-                </div>
+            <div className="flex flex-wrap gap-y-1 mt-1">
+                {
+                    releaseTypeFilter.filter(releaseType => releaseType.filtered === true).length > 0 &&
+                    <FilterButton
+                        prefix="Release Type: "
+                        type="releaseType"
+                        filter={releaseTypeFilter}
+                        clearFilter={clearFilter}
+                    >
+                        Release Type: {releaseTypeFilter.filter(releaseType => releaseType.filtered === true).length}
+                    </FilterButton>
+                }
+                {
+                    unitFilter.filter(unit => unit.filtered === true).length > 0 &&
+                    <FilterButton
+                        prefix="Unit: "
+                        type="unit"
+                        filter={unitFilter}
+                        clearFilter={clearFilter}
+                    >
+                        Unit: {unitFilter.filter(releaseType => releaseType.filtered === true).length}
+                    </FilterButton>
+                }
+                {
+                    languageFilter.filter(language => language.filtered === true).length > 0 &&
+                    <FilterButton
+                        prefix="Language: "
+                        type="language"
+                        filter={languageFilter}
+                        clearFilter={clearFilter}
+                    >
+                        Language: {languageFilter.filter(releaseType => releaseType.filtered === true).length}
+                    </FilterButton>
+                }
+                {
+                    memberFilter.filter(member => member.filtered === true).length > 0 &&
+                    <FilterButton
+                        prefix="Member: "
+                        type="member"
+                        filter={memberFilter}
+                        clearFilter={clearFilter}
+                    >
+                        Member: {memberFilter.filter(releaseType => releaseType.filtered === true).length}
+                    </FilterButton>
+                }
             </div>
-
-
-        </>
+            <div className="flex flex-row flex-nowrap gap-x-1 my-3">
+                <div className="pb-0.5"><span className="bg-nctu py-0.5 px-2.5 rounded-full">{albumCount} Albums</span></div>
+                <div className="pb-0.5"><span className="bg-nctu py-0.5 px-2.5 rounded-full">{songCount} Tracks</span></div>
+            </div>
+            <ul className="mb-2">
+                <li className="">
+                    <div className="flex flex-wrap gap-x-1 items-baseline mb-1">
+                        <Switch.Group>
+                            <Switch
+                                checked={duplicateTracksFilter}
+                                onChange={setDuplicateTracksFilter}
+                                className={`${duplicateTracksFilter ? 'bg-nctu' : 'bg-gray-200'
+                                    } relative inline-flex items-center h-5 rounded-full w-10 border`}
+                            >
+                                <span className="sr-only">Hide duplicate tracks</span>
+                                <span
+                                    className={`transform transition ease-in-out duration-200 ${duplicateTracksFilter ? 'translate-x-6' : 'translate-x-1'} inline-block w-3 h-3 transform bg-white rounded-full`}
+                                />
+                            </Switch>
+                            <Switch.Label className="cursor-pointer">Hide duplicate tracks</Switch.Label>
+                        </Switch.Group>
+                    </div>
+                </li>
+                <li className="">
+                    <div className="flex flex-wrap gap-x-1 items-baseline mb-1">
+                        <Switch.Group>
+                            <Switch
+                                checked={nonparticipatingMembersFilter}
+                                onChange={setNonparticipatingMembersFilter}
+                                className={`${nonparticipatingMembersFilter ? 'bg-nctu' : 'bg-gray-200'
+                                    } relative inline-flex items-center h-5 rounded-full w-10 border`}
+                            >
+                                <span className="sr-only">Hide non-participating members</span>
+                                <span
+                                    className={`transform transition ease-in-out duration-200 ${nonparticipatingMembersFilter ? 'translate-x-6' : 'translate-x-1'} inline-block w-3 h-3 transform bg-white rounded-full`}
+                                />
+                            </Switch>
+                            <Switch.Label className="cursor-pointer">Hide non-participating members</Switch.Label>
+                        </Switch.Group>
+                    </div>
+                </li>
+            </ul>
+            <ul className="border-t border-gray-300 pb-16 lg:pb-0">
+                <FilterMenuSection
+                    name="Release Type"
+                    type="releaseType"
+                    className={"grid grid-flow-col grid-rows-5"}
+                    filter={releaseTypeFilter}
+                    filterOnChange={releaseTypeFilterOnChange}
+                    clearFilter={clearFilter}
+                />
+                <FilterMenuSection
+                    name="Unit"
+                    type="unit"
+                    className={"grid grid-cols-2"}
+                    filter={unitFilter}
+                    filterOnChange={unitFilterOnChange}
+                    clearFilter={clearFilter}
+                />
+                <FilterMenuSection
+                    name="Language"
+                    type="language"
+                    className={"grid grid-cols-2"}
+                    filter={languageFilter}
+                    filterOnChange={languageFilterOnChange}
+                    clearFilter={clearFilter}
+                />
+                <FilterMenuSection
+                    name="Member"
+                    type="member"
+                    className={"grid grid-cols-3"}
+                    filter={memberFilter}
+                    filterOnChange={memberFilterOnChange}
+                    clearFilter={clearFilter}
+                />
+            </ul>
+            </div>
+        </div>
     );
 }
 

@@ -9,7 +9,6 @@ const FilterMenuSection = ({
     filter,
     filterOnChange,
     clearFilter,
-    checkboxSize,
 }) => {
     return (
         <li className="pt-1 pb-2">
@@ -36,7 +35,7 @@ const FilterMenuSection = ({
                             id={item.id}
                             filtered={item.filtered}
                             filterOnChange={filterOnChange}
-                            checkboxSize={checkboxSize} >
+                        >
                                 {item.name}
                         </FilterCheckbox>
                     ))}

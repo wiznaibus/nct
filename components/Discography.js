@@ -6,16 +6,15 @@ import { Switch } from '@headlessui/react'
 import { Info, X, Search, Filter } from 'react-feather'
 import { useContext, useEffect, useRef, useState } from 'react';
 
-import { FilterMenuVisibilityStateContext } from './Filter/FilterMenuVisibility';
 import { FilterNonparticipatingMembersStateContext } from './Filter/FilterNonparticipatingMembers'
 import { FilterDuplicateTracksStateContext } from './Filter/FilterDuplicateTracks';
 
+import { FilterMenuVisibilityStateContext } from './Filter/FilterMenuVisibility';
 import { FilterReleaseTypeContext, FilterUnitContext, FilterLanguageContext, FilterMemberContext } from './Filter/FilterContexts';
-import FilterMenu from './Filter/FilterMenu';
-import FilterControl from './Filter/FilterControl';
 
-import UnitInformation from './UnitInformation'
-import MemberInformation from './MemberInformation'
+import FilterMenu from './Filter/FilterMenu';
+import FilterHeader from './Filter/FilterHeader';
+import { Filter as FilterIcon } from 'react-feather'
 
 //main discography
 const DISCOGRAPHY_TYPE = 1;
@@ -38,25 +37,116 @@ const Discography = ({
      * Set up meta context (filter menu, nonparticipating members, and duplicate tracks)
      */
     const { filterMenuVisibility, setFilterMenuVisibility } = useContext(FilterMenuVisibilityStateContext);
-    /* useEffect(() => {
-        document.body.classList.toggle('overflow-hidden', filterMenuVisibility);
-    }, [filterMenuVisibility]); */
 
     const { nonparticipatingMembersFilter, setNonparticipatingMembersFilter } = useContext(FilterNonparticipatingMembersStateContext);
     const { duplicateTracksFilter, setDuplicateTracksFilter } = useContext(FilterDuplicateTracksStateContext);
-    const { releaseTypeFilter } = useContext(FilterReleaseTypeContext);
-    const { unitFilter } = useContext(FilterUnitContext);
-    const { languageFilter } = useContext(FilterLanguageContext);
-    const { memberFilter } = useContext(FilterMemberContext);
 
-    //const { value } = useContext(FilterLanguageContext);
+    const { releaseTypeFilter, setReleaseTypeFilter } = useContext(FilterReleaseTypeContext);
+    const { unitFilter, setUnitFilter } = useContext(FilterUnitContext);
+    const { languageFilter, setLanguageFilter } = useContext(FilterLanguageContext);
+    const { memberFilter, setMemberFilter } = useContext(FilterMemberContext);
 
-    //const languageFilterDefaults = useContext(FilterLanguageContext);
-    //const [languageFilter, setLanguageFilter] = languageFilterDefaults;
-    //const [colorValue, setcolorValue] = color;
+    const releaseTypeFilterOnChange = (id) => {
+        const updateReleaseTypeFilter = releaseTypeFilter.map(releaseType => ({
+            "id": releaseType.id,
+            "discographyType": releaseType.discographyType,
+            "name": releaseType.name,
+            "filtered": releaseType.id === id ? !releaseType.filtered : releaseType.filtered
+        }));
+        setReleaseTypeFilter(updateReleaseTypeFilter);
+    }
 
-    //const [releaseTypeFilter, setReleaseTypeFilter] = useState({});
-    //const [unitFilter, setUnitFilter] = useState({});
+    const unitFilterOnChange = (id) => {
+        const updateUnitFilter = unitFilter.map(unit => ({
+            "id": unit.id,
+            "name": unit.name,
+            "filtered": unit.id === id ? !unit.filtered : unit.filtered
+        }));
+        setUnitFilter(updateUnitFilter);
+    };
+
+    const languageFilterOnChange = (id) => {
+        const updateLanguageFilter = languageFilter.map(language => ({
+            "id": language.id,
+            "name": language.name,
+            "filtered": language.id === id ? !language.filtered : language.filtered
+        }));
+        setLanguageFilter(updateLanguageFilter);
+    };
+
+    const memberFilterOnChange = (id) => {
+        const updateMemberFilter = memberFilter.map(member => ({
+            "id": member.id,
+            "name": member.name,
+            "filtered": member.id === id ? !member.filtered : member.filtered
+        }));
+        setMemberFilter(updateMemberFilter);
+    };
+
+    const clearFilter = (type) => {
+        switch (type) {
+            case "releaseType":
+                let updateReleaseTypeFilter = releaseTypeFilter.map(releaseType => ({
+                    "id": releaseType.id,
+                    "discographyType": releaseType.discographyType,
+                    "name": releaseType.name,
+                    "filtered": false
+                }));
+                setReleaseTypeFilter(updateReleaseTypeFilter);
+                break;
+            case "unit":
+                let updateUnitFilter = unitFilter.map(unit => ({
+                    "id": unit.id,
+                    "name": unit.name,
+                    "filtered": false
+                }));
+                setUnitFilter(updateUnitFilter);
+                break;
+            case "language":
+                let updateLanguageFilter = languageFilter.map(language => ({
+                    "id": language.id,
+                    "name": language.name,
+                    "filtered": false
+                }));
+                setLanguageFilter(updateLanguageFilter);
+                break;
+            case "member":
+                let updateMemberFilter = memberFilter.map(member => ({
+                    "id": member.id,
+                    "name": member.name,
+                    "filtered": false
+                }));
+                setMemberFilter(updateMemberFilter);
+                break;
+            default:
+                updateReleaseTypeFilter = releaseTypeFilter.map(releaseType => ({
+                    "id": releaseType.id,
+                    "discographyType": releaseType.discographyType,
+                    "name": releaseType.name,
+                    "filtered": false
+                }));
+                setReleaseTypeFilter(updateReleaseTypeFilter);
+                updateUnitFilter = unitFilter.map(unit => ({
+                    "id": unit.id,
+                    "name": unit.name,
+                    "filtered": false
+                }));
+                setUnitFilter(updateUnitFilter);
+                updateLanguageFilter = languageFilter.map(language => ({
+                    "id": language.id,
+                    "name": language.name,
+                    "filtered": false
+                }));
+                setLanguageFilter(updateLanguageFilter);
+                updateMemberFilter = memberFilter.map(member => ({
+                    "id": member.id,
+                    "name": member.name,
+                    "filtered": false
+                }));
+                setMemberFilter(updateMemberFilter);
+                return;
+        }
+    };
 
     /**
      * Set up language filter controls
@@ -141,7 +231,7 @@ const Discography = ({
                 songCount={unfilteredSongCount}
             /> */}
 
-            <FilterControl
+            {/* <FilterControl
                 hasUnitQuery={hasUnitQuery}
                 hasMemberQuery={hasMemberQuery}
                 currentUnit={currentUnit}
@@ -151,7 +241,7 @@ const Discography = ({
                 releaseTypes={releaseTypes}
                 albumCount={albumCount}
                 songCount={songCount}
-            />
+            /> */}
 
             {/* <SearchMenu
                 hasUnitQuery={hasUnitQuery}
@@ -216,38 +306,93 @@ const Discography = ({
                 </div>
             </div> */}
 
-            <main className={`px-2 py-1 mt-2 lg:px-10`}>
-                <div className="container mx-auto px-1 py-2 lg:px-3">
-                    {
-                        songCount > 0
-                            ? albums.map(album => {
-                                return (
-                                    songs.filter(song => song.album.id === album.id).length > 0
-                                    && <Album
-                                        key={`album-${album.id}`}
-                                        hasMemberQuery={hasMemberQuery}
-                                        hasUnitQuery={hasUnitQuery}
-                                        currentMember={currentMember}
-                                        currentUnit={currentUnit}
-                                        id={album.id}
-                                        title={album.title}
-                                        slug={album.slug}
-                                        releaseDate={album.release_date}
-                                        releaseType={album.release_type}
-                                        coverImage={album.cover_image}
-                                        artists={album.artists}
-                                        members={album.performing_artists}
-                                        songs={songs.filter(song => song.album.id === album.id)}
-                                        languages={album.languages}
-                                        links={album.links}
-                                        filteredLanguages={filteredLanguages}
-                                    />
-                                )
-                            })
-                            : <p className="text-center">No results found</p>
-                    }
+            <div className="lg:hidden w-full px-4 py-8 fixed bottom-0 bg-gradient-to-t from-light">
+                <div className="container mx-auto flex flex-nowrap justify-end">
+                    <Switch.Group>
+                        <Switch
+                            checked={filterMenuVisibility}
+                            onChange={setFilterMenuVisibility}>
+                        </Switch>
+                        <Switch.Label className="bg-nctu rounded-full px-3 py-2 ml-1 cursor-pointer shadow">
+                            <FilterIcon className="" strokeWidth={2} size={16} />
+                        </Switch.Label>
+                    </Switch.Group>
                 </div>
-            </main>
+            </div>
+            <div className={`lg:hidden flex flex-row flex-nowrap fixed top-0 right-0 z-30 ${!filterMenuVisibility && `translate-x-full`
+                } transform transition duration-300 ease-in-out`}>
+                <div className={`w-80 shadow-lg text-sm`}>
+                    <FilterMenu
+                        type="mobile"
+                        releaseTypeFilterOnChange={releaseTypeFilterOnChange}
+                        unitFilterOnChange={unitFilterOnChange}
+                        languageFilterOnChange={languageFilterOnChange}
+                        memberFilterOnChange={memberFilterOnChange}
+                        clearFilter={clearFilter}
+                        albumCount={albumCount}
+                        songCount={songCount}
+                    />
+                </div>
+            </div>
+
+            <FilterHeader
+                clearFilter={clearFilter}
+                albumCount={albumCount}
+                songCount={songCount}
+            />
+
+            <div className="w-full px-2 py-1 mt-2 lg:px-10">
+                <div className="container mx-auto">
+                    <div className="hidden lg:block lg:w-80 2xl:w-96 sticky top-0 float-right">
+                        <FilterMenu
+                            type="desktop"
+                            releaseTypeFilterOnChange={releaseTypeFilterOnChange}
+                            unitFilterOnChange={unitFilterOnChange}
+                            languageFilterOnChange={languageFilterOnChange}
+                            memberFilterOnChange={memberFilterOnChange}
+                            clearFilter={clearFilter}
+                            albumCount={albumCount}
+                            songCount={songCount}
+                        />
+                    </div>
+                    <main className="lg:mr-80 2xl:mr-96">
+                        <div className="px-1 py-2 lg:px-3">
+                            {
+                                songCount > 0
+                                    ? albums.map(album => {
+                                        return (
+                                            songs.filter(song => song.album.id === album.id).length > 0
+                                            && <Album
+                                                key={`album-${album.id}`}
+                                                hasMemberQuery={hasMemberQuery}
+                                                hasUnitQuery={hasUnitQuery}
+                                                currentMember={currentMember}
+                                                currentUnit={currentUnit}
+                                                id={album.id}
+                                                title={album.title}
+                                                slug={album.slug}
+                                                releaseDate={album.release_date}
+                                                releaseType={album.release_type}
+                                                coverImage={album.cover_image}
+                                                artists={album.artists}
+                                                members={album.performing_artists}
+                                                songs={songs.filter(song => song.album.id === album.id)}
+                                                languages={album.languages}
+                                                links={album.links}
+                                                filteredLanguages={filteredLanguages}
+                                            />
+                                        )
+                                    })
+                                    : <div className="container w-full">
+                                        <p className="text-center">No results found</p>
+                                    </div>
+                            }
+                        </div>
+                    </main>
+                </div>
+
+            </div>
+
         </>
     )
 }

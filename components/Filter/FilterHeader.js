@@ -27,14 +27,34 @@ const FilterHeader = ({
                     <div className="w-full lg:mt-0 mb-1 lg:px-3 lg:mb-2">
 
                         <div className="flex flex-row flex-nowrap justify-between items-center">
-                            <a className="cursor-pointer hover:underline" onClick={() => setFilterMenuVisibility(!filterMenuVisibility)}><h3 className="title text-2xl"><Filter strokeWidth={2} size={16} /> Filters</h3></a>
+                            <div className="flex flex-row flex-nowrap gap-x-1">
+                                <a className="cursor-pointer hover:underline" onClick={() => setFilterMenuVisibility(!filterMenuVisibility)}><h3 className="title text-2xl">
+                                    <Filter strokeWidth={2} size={16} /> Filters</h3>
+                                </a>
+                                <div className={`pt-1 ${
+                                    (
+                                        !releaseTypeFilter.filter(releaseType => releaseType.filtered === true).length > 0
+                                        && !unitFilter.filter(releaseType => releaseType.filtered === true).length > 0
+                                        && !languageFilter.filter(releaseType => releaseType.filtered === true).length > 0
+                                        && !memberFilter.filter(releaseType => releaseType.filtered === true).length > 0
+                                    )
+                                    && `hidden`
+                                }`}>
+                                    <FilterButton
+                                        type="all"
+                                        clearFilter={clearFilter}
+                                    >
+                                        Clear All
+                                    </FilterButton>
+                                </div>
+                            </div>
                             <div className="flex flex-row flex-nowrap gap-x-1 text-sm">
                                 <div className="pb-0.5"><span className="bg-nctu py-0.5 px-2.5 rounded-full">{albumCount} Albums</span></div>
                                 <div className="pb-0.5"><span className="bg-nctu py-0.5 px-2.5 rounded-full">{songCount} Tracks</span></div>
                             </div>
                         </div>
 
-                        <div className={`flex flex-wrap gap-1 mt-1 pt-3 border-t border-gray-400 ${
+                        <div className={`flex flex-row flex-wrap gap-y-1 mt-0.5 pt-3 border-t border-gray-400 ${
                             (
                                 !releaseTypeFilter.filter(releaseType => releaseType.filtered === true).length > 0
                                 && !unitFilter.filter(releaseType => releaseType.filtered === true).length > 0
@@ -43,72 +63,56 @@ const FilterHeader = ({
                             )
                             && `hidden`
                         }`}>
-                            {/* <FilterButton
-                                prefix="Language: "
-                                type="language"
-                                filter={languageFilter}
-                                clearFilter={clearFilter}
-                            >
-                                Clear All Filters
-                            </FilterButton> */}
                             {
                                 releaseTypeFilter.filter(releaseType => releaseType.filtered === true).length > 0 &&
                                 <FilterButton
-                                    prefix="Release Type: "
                                     type="releaseType"
                                     filter={releaseTypeFilter}
                                     clearFilter={clearFilter}
                                 >
                                     {`Release Type: `}
-                                    {/* ({releaseTypeFilter.filter(releaseType => releaseType.filtered === true).length}) */}
-                                    {releaseTypeFilter.find(item => item.filtered === true).name}
-                                    {releaseTypeFilter.filter(item => item.filtered === true).length > 1 
-                                        && `, ${releaseTypeFilter.filter(item => item.filtered === true).length - 1} more`}
+                                    {releaseTypeFilter.filter(item => item.filtered === true).slice(0, 2).map(item => item.name).join(", ")}
+                                    {releaseTypeFilter.filter(item => item.filtered === true).length > 2 
+                                        && `, ${releaseTypeFilter.filter(item => item.filtered === true).length - 2} more`}
                                 </FilterButton>
                             }
                             {
                                 unitFilter.filter(unit => unit.filtered === true).length > 0 &&
                                 <FilterButton
-                                    prefix="Unit: "
                                     type="unit"
                                     filter={unitFilter}
                                     clearFilter={clearFilter}
                                 >
                                     {`Unit: `}
-                                    {/* ({unitFilter.filter(releaseType => releaseType.filtered === true).length}) */}
-                                    {unitFilter.find(item => item.filtered === true).name}
-                                    {unitFilter.filter(item => item.filtered === true).length > 1 
-                                        && `, ${unitFilter.filter(item => item.filtered === true).length - 1} more`}
+                                    {unitFilter.filter(item => item.filtered === true).slice(0, 2).map(item => item.name).join(", ")}
+                                    {unitFilter.filter(item => item.filtered === true).length > 2 
+                                        && `, ${unitFilter.filter(item => item.filtered === true).length - 2} more`}
                                 </FilterButton>
                             }
                             {
                                 languageFilter.filter(language => language.filtered === true).length > 0 &&
                                 <FilterButton
-                                    prefix="Language: "
                                     type="language"
                                     filter={languageFilter}
                                     clearFilter={clearFilter}
                                 >
                                     {`Language: `}
-                                    {/* ({languageFilter.filter(releaseType => releaseType.filtered === true).length}) */}
-                                    {languageFilter.find(item => item.filtered === true).name}
-                                    {languageFilter.filter(item => item.filtered === true).length > 1 
-                                        && `, ${languageFilter.filter(item => item.filtered === true).length - 1} more`}
+                                    {languageFilter.filter(item => item.filtered === true).slice(0, 2).map(item => item.name).join(", ")}
+                                    {languageFilter.filter(item => item.filtered === true).length > 2 
+                                        && `, ${languageFilter.filter(item => item.filtered === true).length - 2} more`}
                                 </FilterButton>
                             }
                             {
                                 memberFilter.filter(member => member.filtered === true).length > 0 &&
                                 <FilterButton
-                                    prefix="Member: "
                                     type="member"
                                     filter={memberFilter}
                                     clearFilter={clearFilter}
                                 >
                                     {`Member: `}
-                                    {/* ({memberFilter.filter(releaseType => releaseType.filtered === true).length}) */}
-                                    {memberFilter.find(item => item.filtered === true).name}
-                                    {memberFilter.filter(item => item.filtered === true).length > 1 
-                                        && `, ${memberFilter.filter(item => item.filtered === true).length - 1} more`}
+                                    {memberFilter.filter(item => item.filtered === true).slice(0, 2).map(item => item.name).join(", ")}
+                                    {memberFilter.filter(item => item.filtered === true).length > 2 
+                                        && `, ${memberFilter.filter(item => item.filtered === true).length - 2} more`}
                                 </FilterButton>
                             }
                         </div>
