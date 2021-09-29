@@ -31,6 +31,8 @@ const FilterMenuSection = ({
                 <ul className={className}>
                     {filter.map(item => (
                         <FilterCheckbox 
+                            name={item.name}
+                            type={type}
                             key={`filter-${type}-${item.id}`}
                             id={item.id}
                             filtered={item.filtered}
