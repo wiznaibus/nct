@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nctdiscography.com/sitemap.xml
+Sitemap: http://www.nctdiscography.com/sitemap.xml
