@@ -20,6 +20,7 @@ const FilterCheckbox = ({
                             name === "NCT 127" ? `checked:bg-nct127 checked:text-light`
                             : name === "NCT DREAM" ? `checked:bg-nctdream`
                             : name === "WayV" ? `checked:bg-wayv checked:text-light`
+                            : name === "SuperM" ? `checked:bg-superm`
                             : `checked:bg-nctu`
                         : `checked:bg-nctu`
                     } focus:outline-none align-middle`}
