@@ -1,6 +1,3 @@
-import { FilterMenuVisibilityProvider } from '../components/Filter/FilterMenuVisibility';
-import { FilterNonparticipatingMembersProvider } from '../components/Filter/FilterNonparticipatingMembers'
-import { FilterDuplicateTracksProvider } from '../components/Filter/FilterDuplicateTracks';
 import { FilterReleaseTypeContext, FilterUnitContext, FilterLanguageContext, FilterMemberContext } from '../components/Filter/FilterContexts';
 import Discography from '../components/Discography';
 import { useState } from 'react';
@@ -79,35 +76,6 @@ function Main({
     )
 }
 
-/* export async function getStaticPaths() {
-    const unitsFetch = await fetch(`${process.env.API_URL}/units?[discography_types.id]=${DISCOGRAPHY_TYPE}`);
-    const units = await unitsFetch.json();
-
-    const membersFetch = await fetch(`${process.env.API_URL}/members`);
-    const members = await membersFetch.json();
-
-    const paths = [];
-    paths.push({ params: { filters: [] } });
-
-    //generate paths for members
-    members.map(member => (paths.push({ params: { filters: [member.slug] } })));
-
-    //generate paths for units
-    units.map(unit => {
-        paths.push({ params: { filters: [unit.slug] } });
-        unit.artists.map(artist => {
-            artist.performing_artists.map(member => {
-                paths.push({ params: { filters: [unit.slug, member.slug] } })
-            });
-        });
-    });
-
-    return {
-        paths,
-        fallback: false
-    };
-} */
-
 export async function getStaticProps({ params }) {
 
     let hasMemberQuery = false;
@@ -115,63 +83,12 @@ export async function getStaticProps({ params }) {
     let currentMember = {};
     let currentUnit = {};
 
-    /**
-     * Query the current member and unit
-     */
-    /* if (params.filters) {
-        if (params.filters.length > 1) {
-            const memberFetch = await fetch(`${process.env.API_URL}/members?[slug]=${params.filters[1]}`);
-            currentMember = await memberFetch.json();
-            currentMember = currentMember[0];
-
-            const unitFetch = await fetch(`${process.env.API_URL}/units?[discography_types.id]=${DISCOGRAPHY_TYPE}&[slug]=${params.filters[0]}`);
-            currentUnit = await unitFetch.json();
-            currentUnit = currentUnit[0];
-
-            hasMemberQuery = true;
-            hasUnitQuery = true;
-        } else {
-            //check if query filter is for unit
-            const unitCountFetch = await fetch(`${process.env.API_URL}/units/count?[discography_types.id]=${DISCOGRAPHY_TYPE}&[slug]=${params.filters[0]}`);
-            if (await unitCountFetch.json() > 0) {
-                const unitFetch = await fetch(`${process.env.API_URL}/units?[discography_types.id]=${DISCOGRAPHY_TYPE}&[slug]=${params.filters[0]}`);
-                currentUnit = await unitFetch.json();
-                currentUnit = currentUnit[0];
-                hasUnitQuery = true;
-            }
-            else {
-                const memberFetch = await fetch(`${process.env.API_URL}/members?[slug]=${params.filters[0]}`);
-                currentMember = await memberFetch.json();
-                currentMember = currentMember[0];
-                hasMemberQuery = true;
-            }
-        }
-    } */
-
-
     let memberQuery = `members?_sort=sort_order:ASC&`;
     let unitQuery = `units?[discography_types.id]=${DISCOGRAPHY_TYPE}&_sort=id:ASC&`;
     let releaseTypeQuery = `release-types?[discography_type.id]=${DISCOGRAPHY_TYPE}&_sort=id:ASC&`;
     let languageQuery = `languages?&_sort=id:ASC`;
     let albumQuery = `albums?_sort=release_date:ASC&[release_type.discography_type]=${DISCOGRAPHY_TYPE}&`;
     let songQuery = `songs?_sort=album.release_date:ASC,track_number:ASC&_limit=-1&[album.release_type.discography_type]=${DISCOGRAPHY_TYPE}&`;
-
-    /**
-     * Create query filters based on current member/unit
-     */
-    /* memberQuery += hasUnitQuery ? `[performing_artists.artist.unit]=${currentUnit.id}` : ``;
-    unitQuery += hasMemberQuery ? `[artists.performing_artists.member.id]=${currentMember.id}` : ``;
-    albumQuery += (hasMemberQuery && hasUnitQuery)
-        ? `_where[performing_artists.member.id]=${currentMember.id}&[performing_artists.artist.unit]=${currentUnit.id}`
-        : hasMemberQuery ? `[performing_artists.member.id]=${currentMember.id}`
-            : hasUnitQuery ? `[artists.unit.id]=${currentUnit.id}`
-                : ``;
-    songQuery += (hasMemberQuery && hasUnitQuery)
-        ? `_where[performing_artists.member.id]=${currentMember.id}&[performing_artists.artist.unit]=${currentUnit.id}`
-        : hasMemberQuery ? `[performing_artists.member.id]=${currentMember.id}`
-            : hasUnitQuery ? `[artists.unit.id]=${currentUnit.id}`
-                : ``; */
-
 
     let members = [];
     let units = [];
@@ -196,7 +113,6 @@ export async function getStaticProps({ params }) {
     const songsFetch = await fetch(`${process.env.API_URL}/${songQuery}`);
     songs = await songsFetch.json();
 
-
     return {
         props: {
             hasMemberQuery,
@@ -210,7 +126,7 @@ export async function getStaticProps({ params }) {
             albums,
             songs
         },
-        revalidate: false
+        revalidate: 3600 //One hour in seconds
     }
 }
 
