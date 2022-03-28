@@ -16,10 +16,8 @@ import FilterMenu from './Filter/FilterMenu';
 import FilterHeader from './Filter/FilterHeader';
 import { Filter as FilterIcon } from 'react-feather'
 
-//main discography
-const DISCOGRAPHY_TYPE = 1;
-
 const Discography = ({
+    type = 1,
     hasMemberQuery,
     hasUnitQuery,
     currentMember,
@@ -31,8 +29,6 @@ const Discography = ({
     albums,
     songs
 }) => {
-    //const wrapperRef = useRef(null);
-
     /**
      * Set up meta context (filter menu, nonparticipating members, and duplicate tracks)
      */
@@ -212,99 +208,12 @@ const Discography = ({
     return (
         <>
             <MetaTags
-                hasUnitQuery={hasUnitQuery}
-                hasMemberQuery={hasMemberQuery}
+                pageTitle={type === 1 ? `Full Discography` : `Other Releases`}
                 metaFormattedName={metaFormattedName}
                 metaUrl={metaUrl}
                 albumCount={albumCount}
                 songCount={songCount}
             />
-
-            {/* <DiscographyHeader
-                hasMemberQuery={hasMemberQuery}
-                hasUnitQuery={hasUnitQuery}
-                currentMember={currentMember}
-                currentUnit={currentUnit}
-                members={members}
-                units={units}
-                albumCount={unfilteredAlbumCount}
-                songCount={unfilteredSongCount}
-            /> */}
-
-            {/* <FilterControl
-                hasUnitQuery={hasUnitQuery}
-                hasMemberQuery={hasMemberQuery}
-                currentUnit={currentUnit}
-                currentMember={currentMember}
-                units={units}
-                members={members}
-                releaseTypes={releaseTypes}
-                albumCount={albumCount}
-                songCount={songCount}
-            /> */}
-
-            {/* <SearchMenu
-                hasUnitQuery={hasUnitQuery}
-                hasMemberQuery={hasMemberQuery}
-                currentUnit={currentUnit}
-                currentMember={currentMember}
-                units={units}
-                members={members}
-            /> */}
-
-            {/* <div className={`bg-gray-100 shadow-md fixed bottom-0 left-0 w-full z-30 ${!searchMenuVisibility && `translate-y-full`
-                } transform transition duration-300 ease-in-out px-3 py-2`}>
-                <div className="w-full mt-2 lg:mt-0 mb-4 lg:w-2/3 lg:px-3 lg:mb-2">
-                    <div className="flex flex-nowrap justify-between items-center pb-1 mt-1 mb-3 border-b border-gray-400">
-                        <div className="flex flex-wrap gap-x-2">
-                            <h2 className="title text-2xl"><Search className="" strokeWidth={2} size={16} /> Search</h2>
-                            <Link href={`/discography/`}><a className="flex items-center text-gray-500 hover:text-red-500 bg-white hover:bg-gray-200 rounded-full px-2 py-0.5 text-sm">
-                                <X strokeWidth={2} size={16} />
-                                <span className="text-black">NCT 127</span>
-                            </a></Link>
-                            {hasUnitQuery && <Link href={`/discography/${hasMemberQuery ? currentMember.slug : ''}`}><a className="flex items-center text-gray-500 hover:text-red-500 bg-gray-100 hover:bg-gray-200 rounded-full px-2 py-0.5 text-sm">
-                                <X strokeWidth={2} size={16} />
-                                <span className="text-black">{currentUnit.name}</span>
-                            </a></Link>}
-                            {hasMemberQuery && <Link href={`/discography/${hasUnitQuery ? currentUnit.slug : ''}`}><a className="flex items-center text-gray-500 hover:text-red-500 bg-gray-100 hover:bg-gray-200 rounded-full px-2 py-0.5 text-sm">
-                                <X strokeWidth={2} size={16} />
-                                <span className="text-black">{currentMember.name}</span>
-                            </a></Link>}
-                        </div>
-                        <div className="flex flex-wrap gap-x-1 items-baseline">
-                            <Switch.Group>
-                                <Switch
-                                    checked={searchMenuVisibility}
-                                    onChange={setSearchMenuVisibility}>
-                                </Switch>
-                                <Switch.Label className="">
-                                    <X className="cursor-pointer" strokeWidth={2} size={24} />
-                                    <div style={{ height: 9999 + 'px', top: -9999 + 'px' }} className={`${searchMenuVisibility ? `absolute -left-0 h-screen w-full overflow-hidden` : `hidden`}`}>
-                                    </div>
-                                </Switch.Label>
-                            </Switch.Group>
-                        </div>
-                    </div>
-                    <div className="flex flex-wrap gap-x-1 gap-y-1 mb-3">
-                        {units.map((unit) => (
-                            <Link key={`unitFilter-${unit.slug}`} href={`/discography/${unit.slug}/${hasMemberQuery ? currentMember.slug : ''}`}>
-                                <a className={`cursor-pointer text-sm px-2.5 py-1 rounded-full border border-${unit.primary_color} hover:text-${unit.secondary_color} hover:bg-${unit.primary_color} ${hasUnitQuery
-                                    ? (currentUnit.id === unit.id ? `text-${unit.secondary_color} bg-${unit.primary_color}` : '') : ''} `}>
-                                    {unit.name}</a>
-                            </Link>
-                        ))}
-                    </div>
-                    <div className="flex flex-wrap justify-between gap-x-1 gap-y-1">
-                        {members.map((member) => (
-                            <Link key={`memberFilter-${member.slug}`} href={`/discography${hasUnitQuery ? ('/' + currentUnit.slug) : ''}/${member.slug}`}>
-                                <a className={`cursor-pointer text-sm px-2.5 py-1 rounded-full border border-nctu hover:bg-nctu ${hasMemberQuery
-                                    ? (currentMember.id === member.id ? 'bg-nctu' : '') : ''} `}>
-                                    {member.name}</a>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </div> */}
 
             <div className="lg:hidden w-full px-4 py-8 fixed bottom-0 bg-gradient-to-t from-light">
                 <div className="container mx-auto flex flex-nowrap justify-end">
@@ -356,7 +265,7 @@ const Discography = ({
                         />
                     </div>
                     <main className="lg:mr-80 2xl:mr-96">
-                        <div className="px-1 py-2 lg:px-3">
+                        <div className="flex flex-col px-1 py-2 lg:px-3">
                             {
                                 songCount > 0
                                     ? albums.map(album => {
