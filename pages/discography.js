@@ -58,6 +58,7 @@ function Main({
                     <FilterLanguageContext.Provider value={languageFilterProvider}>
                         <FilterMemberContext.Provider value={memberFilterProvider}>
                             <Discography
+                                type={DISCOGRAPHY_TYPE}
                                 hasMemberQuery={hasMemberQuery}
                                 hasUnitQuery={hasUnitQuery}
                                 currentMember={currentMember}

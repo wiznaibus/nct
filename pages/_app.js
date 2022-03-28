@@ -55,10 +55,12 @@ const MyApp = ({ Component, pageProps, router }) => {
           </div>
         </Providers>
       </div>
-      <footer className="pb-12 flex flex-nowrap gap-x-1 justify-center text-sm bottom-0">Made with love 💚 by
-        <Link href="https://twitter.com/wiznaibus" passHref={true}>
-          <a target="_blank" rel="noreferrer noopener" className="text-nct127 underline hover:text-gray-700">wiznaibus</a>
-        </Link>
+      <footer className="pb-12 bottom-0 text-center">
+        <p className="text-sm">
+          Made with love 💚 by <Link href="https://twitter.com/wiznaibus" passHref={true}>
+            <a target="_blank" rel="noreferrer noopener" className="text-nct127 underline hover:text-gray-700">wiznaibus</a>
+          </Link>
+        </p>
       </footer>
     </>
   )
