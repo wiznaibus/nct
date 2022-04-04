@@ -10,7 +10,7 @@ import { FilterNonparticipatingMembersStateContext } from './Filter/FilterNonpar
 import { FilterDuplicateTracksStateContext } from './Filter/FilterDuplicateTracks';
 
 import { FilterMenuVisibilityStateContext } from './Filter/FilterMenuVisibility';
-import { FilterReleaseTypeContext, FilterUnitContext, FilterLanguageContext, FilterMemberContext } from './Filter/FilterContexts';
+import { SortContext, FilterReleaseTypeContext, FilterUnitContext, FilterLanguageContext, FilterMemberContext } from './Filter/FilterContexts';
 
 import FilterMenu from './Filter/FilterMenu';
 import FilterHeader from './Filter/FilterHeader';
@@ -37,10 +37,19 @@ const Discography = ({
     const { nonparticipatingMembersFilter, setNonparticipatingMembersFilter } = useContext(FilterNonparticipatingMembersStateContext);
     const { duplicateTracksFilter, setDuplicateTracksFilter } = useContext(FilterDuplicateTracksStateContext);
 
+    const { sort, setSort } = useContext(SortContext);
     const { releaseTypeFilter, setReleaseTypeFilter } = useContext(FilterReleaseTypeContext);
     const { unitFilter, setUnitFilter } = useContext(FilterUnitContext);
     const { languageFilter, setLanguageFilter } = useContext(FilterLanguageContext);
     const { memberFilter, setMemberFilter } = useContext(FilterMemberContext);
+
+    const sortOnChange = (sortType) => {
+        const updateSort = sort.map(option => ({
+            "type": option.type,
+            "ascending": option.type === sortType.type ? !option.ascending : option.ascending
+        }));
+        setSort(updateSort);
+    };
 
     const releaseTypeFilterOnChange = (id) => {
         const updateReleaseTypeFilter = releaseTypeFilter.map(releaseType => ({
@@ -50,7 +59,7 @@ const Discography = ({
             "filtered": releaseType.id === id ? !releaseType.filtered : releaseType.filtered
         }));
         setReleaseTypeFilter(updateReleaseTypeFilter);
-    }
+    };
 
     const unitFilterOnChange = (id) => {
         const updateUnitFilter = unitFilter.map(unit => ({
@@ -233,6 +242,7 @@ const Discography = ({
                 <div className={`w-80 shadow-lg text-sm`}>
                     <FilterMenu
                         type="mobile"
+                        sortOnChange={sortOnChange}
                         releaseTypeFilterOnChange={releaseTypeFilterOnChange}
                         unitFilterOnChange={unitFilterOnChange}
                         languageFilterOnChange={languageFilterOnChange}
@@ -245,6 +255,7 @@ const Discography = ({
             </div>
 
             <FilterHeader
+                sortOnChange={sortOnChange}
                 clearFilter={clearFilter}
                 albumCount={albumCount}
                 songCount={songCount}
@@ -255,6 +266,7 @@ const Discography = ({
                     <div className="hidden lg:block lg:w-80 2xl:w-96 sticky top-0 float-right">
                         <FilterMenu
                             type="desktop"
+                            sortOnChange={sortOnChange}
                             releaseTypeFilterOnChange={releaseTypeFilterOnChange}
                             unitFilterOnChange={unitFilterOnChange}
                             languageFilterOnChange={languageFilterOnChange}
@@ -265,7 +277,7 @@ const Discography = ({
                         />
                     </div>
                     <main className="lg:mr-80 2xl:mr-96">
-                        <div className="flex flex-col px-1 py-2 lg:px-3">
+                        <div className={`flex ${sort[0].ascending ? `flex-col` : `flex-col-reverse`} px-1 py-2 lg:px-3`}>
                             {
                                 songCount > 0
                                     ? albums.map(album => {
