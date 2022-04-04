@@ -1,4 +1,4 @@
-import { FilterReleaseTypeContext, FilterUnitContext, FilterLanguageContext, FilterMemberContext } from '../components/Filter/FilterContexts';
+import { SortContext, FilterReleaseTypeContext, FilterUnitContext, FilterLanguageContext, FilterMemberContext } from '../components/Filter/FilterContexts';
 import Discography from '../components/Discography';
 import { useState } from 'react';
 
@@ -17,6 +17,10 @@ function Main({
     albums,
     songs
 }) {
+    const sortDefaults = [{
+        "type": "Release Date",
+        "ascending": true
+    }];
     const releaseTypeFilterDefaults = releaseTypes.map(releaseType => ({
         "id": releaseType.id,
         "discographyType": releaseType.discography_type.id,
@@ -39,6 +43,9 @@ function Main({
         "filtered": false
     }));
 
+    const [sort, setSort] = useState(sortDefaults);
+    const sortProvider = { sort, setSort };
+
     const [releaseTypeFilter, setReleaseTypeFilter] = useState(releaseTypeFilterDefaults);
     const releaseTypeFilterProvider = { releaseTypeFilter, setReleaseTypeFilter };
 
@@ -53,26 +60,28 @@ function Main({
 
     return (
         <>
-            <FilterReleaseTypeContext.Provider value={releaseTypeFilterProvider}>
-                <FilterUnitContext.Provider value={unitFilterProvider}>
-                    <FilterLanguageContext.Provider value={languageFilterProvider}>
-                        <FilterMemberContext.Provider value={memberFilterProvider}>
-                            <Discography
-                                type={DISCOGRAPHY_TYPE}
-                                hasMemberQuery={hasMemberQuery}
-                                hasUnitQuery={hasUnitQuery}
-                                currentMember={currentMember}
-                                currentUnit={currentUnit}
-                                units={units}
-                                members={members}
-                                releaseTypes={releaseTypes}
-                                languages={languages}
-                                albums={albums}
-                                songs={songs} />
-                        </FilterMemberContext.Provider>
-                    </FilterLanguageContext.Provider>
-                </FilterUnitContext.Provider>
-            </FilterReleaseTypeContext.Provider>
+            <SortContext.Provider value={sortProvider}>
+                <FilterReleaseTypeContext.Provider value={releaseTypeFilterProvider}>
+                    <FilterUnitContext.Provider value={unitFilterProvider}>
+                        <FilterLanguageContext.Provider value={languageFilterProvider}>
+                            <FilterMemberContext.Provider value={memberFilterProvider}>
+                                <Discography
+                                    type={DISCOGRAPHY_TYPE}
+                                    hasMemberQuery={hasMemberQuery}
+                                    hasUnitQuery={hasUnitQuery}
+                                    currentMember={currentMember}
+                                    currentUnit={currentUnit}
+                                    units={units}
+                                    members={members}
+                                    releaseTypes={releaseTypes}
+                                    languages={languages}
+                                    albums={albums}
+                                    songs={songs} />
+                            </FilterMemberContext.Provider>
+                        </FilterLanguageContext.Provider>
+                    </FilterUnitContext.Provider>
+                </FilterReleaseTypeContext.Provider>
+            </SortContext.Provider>
         </>
     )
 }

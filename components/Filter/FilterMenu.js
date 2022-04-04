@@ -2,14 +2,15 @@ import { useContext } from 'react';
 import { FilterMenuVisibilityStateContext } from './FilterMenuVisibility';
 import { FilterNonparticipatingMembersStateContext } from './FilterNonparticipatingMembers'
 import { FilterDuplicateTracksStateContext } from './FilterDuplicateTracks';
-import { FilterReleaseTypeContext, FilterUnitContext, FilterLanguageContext, FilterMemberContext } from './FilterContexts';
+import { SortContext, FilterReleaseTypeContext, FilterUnitContext, FilterLanguageContext, FilterMemberContext } from './FilterContexts';
 
 import FilterButton from './FilterButton';
 import FilterMenuSection from './FilterMenuSection';
 import { Switch } from '@headlessui/react'
-import { Filter as FilterIcon, X } from 'react-feather'
+import { Filter as FilterIcon, X, ChevronDown, ChevronUp } from 'react-feather'
 
 const FilterMenu = ({
+    sortOnChange,
     releaseTypeFilterOnChange,
     unitFilterOnChange,
     languageFilterOnChange,
@@ -23,6 +24,7 @@ const FilterMenu = ({
     const { nonparticipatingMembersFilter, setNonparticipatingMembersFilter } = useContext(FilterNonparticipatingMembersStateContext);
     const { duplicateTracksFilter, setDuplicateTracksFilter } = useContext(FilterDuplicateTracksStateContext);
 
+    const { sort } = useContext(SortContext);
     const { releaseTypeFilter } = useContext(FilterReleaseTypeContext);
     const { unitFilter } = useContext(FilterUnitContext);
     const { languageFilter } = useContext(FilterLanguageContext);
@@ -46,6 +48,21 @@ const FilterMenu = ({
                     </Switch.Label>
                 </Switch.Group>
             </div>
+
+
+            <div className="flex flex-row flex-nowrap justify-start gap-x-1 items-center mt-1 mb-2 border-gray-400">
+                {
+                    sort.map( sortType => (
+                        <a
+                            key={`sort-${sortType.type}`}
+                            className="cursor-pointer hover:underline"
+                            onClick={() => sortOnChange(sortType)}>
+                                <h3 className="title text-2xl">{sortType.ascending ? <ChevronDown strokeWidth={2} size={16} /> : <ChevronUp strokeWidth={2} size={16} />} Sort</h3>
+                            </a>
+                    ))
+                }
+            </div>
+
             <div className="flex flex-row flex-nowrap justify-start gap-x-1 items-center mt-1 mb-2 border-b border-gray-400">
                 <h3 className="title text-2xl"><FilterIcon strokeWidth={2} size={16} /> Filters</h3>
                 <div className={`${
