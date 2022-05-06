@@ -27,7 +27,8 @@ const Discography = ({
     releaseTypes,
     languages,
     albums,
-    songs
+    songs,
+    children
 }) => {
     /**
      * Set up meta context (filter menu, nonparticipating members, and duplicate tracks)
@@ -277,6 +278,7 @@ const Discography = ({
                         />
                     </div>
                     <main className="lg:mr-80 2xl:mr-96">
+                        {children}
                         <div className={`flex ${sort[0].ascending ? `flex-col` : `flex-col-reverse`} px-1 py-2 lg:px-3`}>
                             {
                                 songCount > 0

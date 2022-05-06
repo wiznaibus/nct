@@ -10,7 +10,7 @@ const Header = () => {
                             <h1 className="title text-black font-medium text-2xl lowercase sm:text-4xl lg:px-3">NCT Discography</h1>
                         </a>
                     </Link>
-                    <div className="flex flex-row gap-1 font-normal text-base sm:text-xl">
+                    <div className="flex flex-row gap-2 font-normal text-base sm:text-xl">
                         {/* <div className="flex flex-nowrap items-center">
                             <h1 className="text-black pr-1">Profiles</h1>
                             <span className="bg-black text-white text-xs rounded-full px-1 py-0.5 mr-2">Soon!</span>
@@ -20,10 +20,15 @@ const Header = () => {
                                 <h1 className="text-black pr-1">Discography</h1>
                             </a>
                         </Link>
-                        <div className="flex flex-nowrap items-center">
+                        <Link href="/other">
+                            <a className="hover:underline">
+                                <h1 className="text-black pr-1">Other Releases</h1>
+                            </a>
+                        </Link>
+                        {/* <div className="flex flex-nowrap items-center">
                             <h1 className="hover:underline text-black px-1">Other Releases</h1>
                             <span className="bg-nctdream text-black shadow text-xs rounded-full px-1 py-0.5 mr-2">Soon!</span>
-                        </div>
+                        </div> */}
                         <Link href="/about">
                             <a className="hover:underline">
                                 <h1 className="text-black pr-1">About</h1>
