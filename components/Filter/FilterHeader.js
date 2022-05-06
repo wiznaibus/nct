@@ -19,7 +19,7 @@ const FilterHeader = ({
 
     return (
         <>
-            <div className="lg:hidden sticky top-0 z-0 px-2 pt-2 pb-1 bg-gray-100 border-b
+            <div className="lg:hidden sticky top-0 z-0 px-2 pt-2 pb-1 bg-gray-100 dark:bg-gray-600 border-b border-gray-200 dark:border-gray-800 dark:border-opacity-50
                 lg:pt-4 lg:px-10">
                 <div className="container mx-auto flex flex-row flex-wrap
                     px-1
@@ -49,12 +49,12 @@ const FilterHeader = ({
                                 </div>
                             </div>
                             <div className="flex flex-row flex-nowrap gap-x-1 text-sm">
-                                <div className="pb-0.5"><span className="bg-nctu py-0.5 px-2.5 rounded-full">{albumCount} Albums</span></div>
-                                <div className="pb-0.5"><span className="bg-nctu py-0.5 px-2.5 rounded-full">{songCount} Tracks</span></div>
+                                <div className="pb-0.5"><span className="bg-nctu dark:bg-nct127 py-0.5 px-2.5 rounded-full">{albumCount} Albums</span></div>
+                                <div className="pb-0.5"><span className="bg-nctu dark:bg-nct127 py-0.5 px-2.5 rounded-full">{songCount} Tracks</span></div>
                             </div>
                         </div>
 
-                        <div className={`flex flex-row flex-wrap gap-y-1 mt-0.5 pt-3 border-t border-gray-400 ${
+                        <div className={`flex flex-row flex-wrap gap-y-1 mt-0.5 pt-3 border-t border-gray-400 dark:border-gray-900 ${
                             (
                                 !releaseTypeFilter.filter(releaseType => releaseType.filtered === true).length > 0
                                 && !unitFilter.filter(releaseType => releaseType.filtered === true).length > 0

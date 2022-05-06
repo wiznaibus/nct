@@ -5,9 +5,10 @@ import Link from 'next/link'
 import { FilterMenuVisibilityProvider } from '../components/Filter/FilterMenuVisibility';
 import { FilterNonparticipatingMembersProvider } from '../components/Filter/FilterNonparticipatingMembers'
 import { FilterDuplicateTracksProvider } from '../components/Filter/FilterDuplicateTracks';
+import { ThemeProvider } from 'next-themes';
 
 const combineProviders = (providers) => providers.reduce(
-  (Combined, Provider) => ({children}) => (
+  (Combined, Provider) => ({ children }) => (
     <Combined>
       <Provider>
         {children}
@@ -47,21 +48,30 @@ const MyApp = ({ Component, pageProps, router }) => {
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4L2GDDSWMN"></script>
         <script src="/gtag.js"></script>"
       </Head>
-      <div className="flex-grow">
-        <Header />
-        <Providers>
-          <div className="flex flex-col flex-wrap flex-grow">
-            <Component {...pageProps} />
-          </div>
-        </Providers>
-      </div>
-      <footer className="pb-12 bottom-0 text-center">
-        <p className="text-sm">
-          Made with love 💚 by <Link href="https://twitter.com/wiznaibus" passHref={true}>
-            <a target="_blank" rel="noreferrer noopener" className="text-nct127 underline hover:text-gray-700">wiznaibus</a>
-          </Link>
-        </p>
-      </footer>
+      <ThemeProvider 
+        attribute="class"
+        defaultTheme="system"
+        themes={["light", "dark"]}
+        enableSystem={true}
+        enableColorScheme={true}
+        storageKey="theme"
+      >
+        <div className="flex-grow">
+          <Header />
+          <Providers>
+            <div className="flex flex-col flex-wrap flex-grow">
+              <Component {...pageProps} />
+            </div>
+          </Providers>
+        </div>
+        <footer className="pb-12 bottom-0 text-center">
+          <p className="text-sm">
+            Made with love 💚 by <Link href="https://twitter.com/wiznaibus" passHref={true}>
+              <a target="_blank" rel="noreferrer noopener" className="text-nct127 dark:text-nctu underline hover:text-gray-700 dark:hover:text-white">wiznaibus</a>
+            </Link>
+          </p>
+        </footer>
+      </ThemeProvider>
     </>
   )
 };

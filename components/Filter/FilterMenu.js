@@ -31,8 +31,8 @@ const FilterMenu = ({
     const { memberFilter } = useContext(FilterMemberContext);
 
     return (
-        <div className="h-screen overflow-y-auto overscroll-contain bg-gray-100 lg:bg-transparent">
-            <div className="bg-gray-100 text-sm 2xl:text-base p-6">
+        <div className="h-screen overflow-y-auto overscroll-contain bg-gray-100 dark:bg-gray-600 lg:bg-transparent lg:dark:bg-transparent">
+            <div className="bg-gray-100 dark:bg-gray-600 text-sm 2xl:text-base p-6">
             <div className="lg:hidden">
                 <Switch.Group>
                     <Switch
@@ -50,7 +50,7 @@ const FilterMenu = ({
             </div>
 
 
-            <div className="flex flex-row flex-nowrap justify-start gap-x-1 items-center mt-1 mb-2 border-gray-400">
+            <div className="flex flex-row flex-nowrap justify-start gap-x-1 items-center mt-1 mb-2 border-gray-400 dark:border-gray-900">
                 {
                     sort.map( sortType => (
                         <a
@@ -63,7 +63,7 @@ const FilterMenu = ({
                 }
             </div>
 
-            <div className="flex flex-row flex-nowrap justify-start gap-x-1 items-center mt-1 mb-2 border-b border-gray-400">
+            <div className="flex flex-row flex-nowrap justify-start gap-x-1 items-center mt-1 mb-2 border-b border-gray-400 dark:border-gray-900">
                 <h3 className="title text-2xl"><FilterIcon strokeWidth={2} size={16} /> Filters</h3>
                 <div className={`${
                     (
@@ -130,8 +130,8 @@ const FilterMenu = ({
                 }
             </div>
             <div className="flex flex-row flex-nowrap gap-x-1 my-3">
-                <div className="pb-0.5"><span className="bg-nctu py-0.5 px-2.5 rounded-full">{albumCount} Albums</span></div>
-                <div className="pb-0.5"><span className="bg-nctu py-0.5 px-2.5 rounded-full">{songCount} Tracks</span></div>
+                <div className="pb-0.5"><span className="bg-nctu dark:bg-nct127 py-0.5 px-2.5 rounded-full">{albumCount} Albums</span></div>
+                <div className="pb-0.5"><span className="bg-nctu dark:bg-nct127 py-0.5 px-2.5 rounded-full">{songCount} Tracks</span></div>
             </div>
             <ul className="mb-2">
                 <li className="">
@@ -140,8 +140,8 @@ const FilterMenu = ({
                             <Switch
                                 checked={duplicateTracksFilter}
                                 onChange={setDuplicateTracksFilter}
-                                className={`${duplicateTracksFilter ? 'bg-nctu' : 'bg-gray-200'
-                                    } relative inline-flex items-center h-5 rounded-full w-10 border`}
+                                className={`${duplicateTracksFilter ? 'bg-nctu dark:bg-nct127' : 'bg-gray-200 dark:bg-gray-500'
+                                    } relative inline-flex items-center h-5 rounded-full w-10`}
                             >
                                 <span className="sr-only">Hide duplicate tracks</span>
                                 <span
@@ -158,8 +158,8 @@ const FilterMenu = ({
                             <Switch
                                 checked={nonparticipatingMembersFilter}
                                 onChange={setNonparticipatingMembersFilter}
-                                className={`${nonparticipatingMembersFilter ? 'bg-nctu' : 'bg-gray-200'
-                                    } relative inline-flex items-center h-5 rounded-full w-10 border`}
+                                className={`${nonparticipatingMembersFilter ? 'bg-nctu dark:bg-nct127' : 'bg-gray-200 dark:bg-gray-500'
+                                    } relative inline-flex items-center h-5 rounded-full w-10`}
                             >
                                 <span className="sr-only">Hide non-participating members</span>
                                 <span
@@ -171,7 +171,7 @@ const FilterMenu = ({
                     </div>
                 </li>
             </ul>
-            <ul className="border-t border-gray-300 pb-16 lg:pb-0">
+            <ul className="border-t border-gray-300 dark:border-gray-800 pb-16 lg:pb-0">
                 <FilterMenuSection
                     name="Release Type"
                     type="releaseType"

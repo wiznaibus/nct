@@ -1,13 +1,9 @@
 import Link from 'next/link'
 import Track from './Track';
 import { useContext } from 'react';
-import { FilterDuplicateTracksStateContext } from './Filter/FilterDuplicateTracks'
+import { FilterDuplicateTracksStateContext } from './Filter/FilterDuplicateTracks';
 
 const Album = ({
-    hasMemberQuery,
-    hasUnitQuery,
-    currentMember,
-    currentUnit,
     id,
     title,
     slug,
@@ -58,23 +54,23 @@ const Album = ({
         <div className="container mx-auto lg:px-3 mb-10 lg:mb-12 lg:pt-6">
             <div className="flex flex-nowrap items-start justify-between mb-6">
                 <div className="flex flex-col">
-                    <h3 className="title text-black font-medium text-3xl mb-2">{title}</h3>
+                    <h3 className="title text-black dark:text-white font-medium text-3xl mb-2">{title}</h3>
                     <p>Release Date: {releaseDate.replace(/-/g, '/')}</p>
                     <p>Type: {releaseType.name}</p>
                     <div className="flex flex-wrap gap-1 mt-2">
                         {links && links.map((link) => (
                             <Link key={`album-${id}-link-${link.id}`} href={link.url} passHref={true}>
-                                <a target="_blank" rel="noopener noreferrer" className="text-sm px-2 py-1.5 rounded-full border border-nctu hover:bg-nctu">
+                                <a target="_blank" rel="noopener noreferrer" className="text-sm px-2 py-1.5 rounded-full border border-nctu hover:bg-nctu dark:border-nct127 dark:hover:bg-nct127">
                                     {link.link_type.name}
                                 </a>
                             </Link>
                         ))}
                     </div>
                 </div>
-                <img className="h-24 w-24 p-px border border-black" src={coverImage} alt={`${title} album cover`} />
+                <img className="h-24 w-24 p-px dark:bg-black border border-black dark:border-white" src={coverImage} alt={`${title} album cover`} />
             </div>
             <table className="table-fixed w-full">
-                <thead className="text-xs text-gray-600 text-left border-b border-gray-400">
+                <thead className="text-xs text-gray-600 dark:text-gray-300 text-left border-b border-gray-400 dark:border-black">
                     <tr className="w-full">
                         <th className="font-light p-1 w-5 xl:w-6">#</th>
                         <th className="font-light p-1 w-1/2 xl:w-auto">Track</th>
