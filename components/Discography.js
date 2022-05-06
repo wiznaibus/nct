@@ -1,9 +1,6 @@
 import MetaTags from './MetaTags';
-import DiscographyHeader from "./DiscographyHeader";
-import Album from "./Album"
-import Link from 'next/link';
-import { Switch } from '@headlessui/react'
-import { Info, X, Search, Filter } from 'react-feather'
+import Album from './Album';
+import { Switch } from '@headlessui/react';
 import { useContext, useEffect, useRef, useState } from 'react';
 
 import { FilterNonparticipatingMembersStateContext } from './Filter/FilterNonparticipatingMembers'
@@ -225,14 +222,14 @@ const Discography = ({
                 songCount={songCount}
             />
 
-            <div className="lg:hidden w-full px-4 py-8 fixed bottom-0 bg-gradient-to-t from-light">
+            <div className="lg:hidden w-full px-4 py-8 fixed bottom-0 bg-gradient-to-t from-light dark:from-gray-800">
                 <div className="container mx-auto flex flex-nowrap justify-end">
                     <Switch.Group>
                         <Switch
                             checked={filterMenuVisibility}
                             onChange={setFilterMenuVisibility}>
                         </Switch>
-                        <Switch.Label className="bg-nctu rounded-full px-3 py-2 ml-1 cursor-pointer shadow">
+                        <Switch.Label className="bg-nctu dark:bg-nct127 rounded-full px-3 py-2 ml-1 cursor-pointer shadow">
                             <FilterIcon className="" strokeWidth={2} size={16} />
                         </Switch.Label>
                     </Switch.Group>

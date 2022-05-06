@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
@@ -10,7 +10,7 @@ class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head />
-                <body className="flex flex-col h-screen overflow-x-hidden overscroll-contain font-light bg-light text-gray-800">
+                <body className="flex flex-col h-screen overflow-x-hidden overscroll-contain font-light bg-light dark:bg-gray-700 text-gray-800 dark:text-light">
                     <Main />
                     <NextScript />
                 </body>
