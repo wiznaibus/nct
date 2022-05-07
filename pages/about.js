@@ -1,7 +1,21 @@
-import Link from 'next/link'
-import Head from 'next/head'
+import Link from 'next/link';
+import Head from 'next/head';
+
+import { useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
 
 function Home() {
+    const [ mounted, setMounted ] = useState(false);
+    const { resolvedTheme } = useTheme();
+
+    useEffect(() => {
+        setMounted(true)
+    }, []);
+
+    if (!mounted) {
+        return null
+    }
+
     return (
         <>
             <Head>
@@ -22,12 +36,33 @@ function Home() {
                             <p>This website is a discography project for the K-pop group NCT. It was designed to quickly and conveniently show what albums and songs each member participated in with the ability to search and filter results.</p>
                         </div>
                         <div className="mb-6">
+                            <h2 className="title text-black dark:text-white font-medium text-3xl mb-2">Media</h2>
+                            <p>
+                                <ul>
+                                    <li><Link href="https://www.envimedia.co/a-guide-to-nct-discography/" passHref={true}>
+                                        <a className="text-nct127 dark:text-nctu underline hover:text-gray-700 dark:hover:text-white" target="_blank">EnVi Media - A GUIDE TO “NCT DISCOGRAPHY”</a>
+                                    </Link></li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div className="mb-6">
                             <h2 className="title text-black dark:text-white font-medium text-3xl mb-2">Thanks to</h2>
                             <p>
                                 <ul>
-                                    <li><Link href="https://discord.com/invite/nct" passHref={true}><a className="text-nct127 dark:text-nctu underline hover:text-gray-700 dark:hover:text-white" target="_blank">NCTcord</a></Link> - Lots of suggestions, testing, data corrections, and moral support 💚</li>
-                                    <li><Link href="https://www.reddit.com/r/NCT/" passHref={true}><a className="text-nct127 dark:text-nctu underline hover:text-gray-700 dark:hover:text-white" target="_blank">/r/NCT</a></Link> - Referencing information</li>
-                                    <li><Link href="https://open.spotify.com/playlist/4YXrOk9EWh0ieYC7vScoOm" passHref={true}><a className="text-nct127 dark:text-nctu underline hover:text-gray-700 dark:hover:text-white" target="_blank">NCT full discography</a></Link> - Referencing information</li>
+                                    <li>
+                                        <Link href="https://discord.com/invite/nct" passHref={true}>
+                                            <a className="text-nct127 dark:text-nctu underline hover:text-gray-700 dark:hover:text-white" target="_blank">NCTcord</a>
+                                        </Link> - Lots of suggestions, testing, data corrections, and moral support 💚</li>
+                                    <li>
+                                        <Link href="https://www.reddit.com/r/NCT/" passHref={true}>
+                                            <a className="text-nct127 dark:text-nctu underline hover:text-gray-700 dark:hover:text-white" target="_blank">/r/NCT</a>
+                                        </Link> - Referencing information
+                                    </li>
+                                    <li>
+                                        <Link href="https://open.spotify.com/playlist/4YXrOk9EWh0ieYC7vScoOm" passHref={true}>
+                                            <a className="text-nct127 dark:text-nctu underline hover:text-gray-700 dark:hover:text-white" target="_blank">NCT full discography</a>
+                                        </Link> - Referencing information
+                                    </li>
                                 </ul>
                             </p>
                         </div>
@@ -37,7 +72,11 @@ function Home() {
                         </div>
                     </div>
                     <div className="w-full lg:w-1/2 mb-10">
-                        <img className="p-px border dark:bg-black border-black dark:border-white" src="https://assets.nctdiscography.com/preview_907384fe22.png" alt="NCT group image" />
+                        {
+                            resolvedTheme === "light"
+                            ? <img className="p-px border border-black" src="https://assets.nctdiscography.com/preview_907384fe22.png" alt="NCT group image" />
+                            : <img className="p-px border dark:bg-black dark:border-white" src="https://assets.nctdiscography.com/preview_dark_46beaf12d6.png" alt="NCT group image" />
+                        }
                     </div>
 
                 </div>

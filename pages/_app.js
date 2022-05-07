@@ -1,9 +1,9 @@
-import '../styles/globals.css'
-import Head from 'next/head'
-import Header from '../components/Header'
-import Link from 'next/link'
+import '../styles/globals.css';
+import Head from 'next/head';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { FilterMenuVisibilityProvider } from '../components/Filter/FilterMenuVisibility';
-import { FilterNonparticipatingMembersProvider } from '../components/Filter/FilterNonparticipatingMembers'
+import { FilterNonparticipatingMembersProvider } from '../components/Filter/FilterNonparticipatingMembers';
 import { FilterDuplicateTracksProvider } from '../components/Filter/FilterDuplicateTracks';
 import { ThemeProvider } from 'next-themes';
 
@@ -48,7 +48,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4L2GDDSWMN"></script>
         <script src="/gtag.js"></script>"
       </Head>
-      <ThemeProvider 
+      <ThemeProvider
         attribute="class"
         defaultTheme="system"
         themes={["light", "dark"]}
@@ -56,21 +56,17 @@ const MyApp = ({ Component, pageProps, router }) => {
         enableColorScheme={true}
         storageKey="theme"
       >
-        <div className="flex-grow">
-          <Header />
-          <Providers>
-            <div className="flex flex-col flex-wrap flex-grow">
-              <Component {...pageProps} />
-            </div>
-          </Providers>
+        <div className="flex flex-col h-screen">
+          <div className="flex-grow">
+            <Header />
+            <Providers>
+              <div className="flex flex-col flex-wrap flex-grow">
+                <Component {...pageProps} />
+              </div>
+            </Providers>
+          </div>
+          <Footer />
         </div>
-        <footer className="pb-12 bottom-0 text-center">
-          <p className="text-sm">
-            Made with love 💚 by <Link href="https://twitter.com/wiznaibus" passHref={true}>
-              <a target="_blank" rel="noreferrer noopener" className="text-nct127 dark:text-nctu underline hover:text-gray-700 dark:hover:text-white">wiznaibus</a>
-            </Link>
-          </p>
-        </footer>
       </ThemeProvider>
     </>
   )
