@@ -39,7 +39,7 @@ function Home() {
                             <h2 className="title text-black dark:text-white font-medium text-3xl mb-2">Media</h2>
                             <p>
                                 <ul>
-                                    <li><Link href="https://www.envimedia.co/a-guide-to-nct-discography/">
+                                    <li><Link href="https://www.envimedia.co/a-guide-to-nct-discography/" passHref={true}>
                                         <a className="text-nct127 dark:text-nctu underline hover:text-gray-700 dark:hover:text-white" target="_blank">EnVi Media - A GUIDE TO “NCT DISCOGRAPHY”</a>
                                     </Link></li>
                                 </ul>
