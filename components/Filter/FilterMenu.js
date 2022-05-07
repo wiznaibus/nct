@@ -57,14 +57,18 @@ const FilterMenu = ({
                             key={`sort-${sortType.type}`}
                             className="cursor-pointer hover:underline"
                             onClick={() => sortOnChange(sortType)}>
-                                <h3 className="title text-2xl">{sortType.ascending ? <ChevronDown strokeWidth={2} size={16} /> : <ChevronUp strokeWidth={2} size={16} />} Sort</h3>
+                                <h3 className="title text-2xl">
+                                    {sortType.ascending ? <ChevronDown strokeWidth={2} size={16} /> : <ChevronUp strokeWidth={2} size={16} />} Sort
+                                </h3>
                             </a>
                     ))
                 }
             </div>
 
             <div className="flex flex-row flex-nowrap justify-start gap-x-1 items-center mt-1 mb-2 border-b border-gray-400 dark:border-gray-900">
-                <h3 className="title text-2xl"><FilterIcon strokeWidth={2} size={16} /> Filters</h3>
+                <h3 className="title text-2xl">
+                    <FilterIcon strokeWidth={2} size={16} /> Filters
+                </h3>
                 <div className={`${
                     (
                         !releaseTypeFilter.filter(releaseType => releaseType.filtered === true).length > 0

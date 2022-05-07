@@ -28,8 +28,10 @@ const FilterHeader = ({
 
                         <div className="flex flex-row flex-nowrap justify-between items-center">
                             <div className="flex flex-row flex-nowrap gap-x-1">
-                                <a className="cursor-pointer hover:underline" onClick={() => setFilterMenuVisibility(!filterMenuVisibility)}><h3 className="title text-2xl">
-                                    <Filter strokeWidth={2} size={16} /> Filters</h3>
+                                <a className="cursor-pointer hover:underline" onClick={() => setFilterMenuVisibility(!filterMenuVisibility)}>
+                                    <h3 className="title text-2xl">
+                                        <Filter strokeWidth={2} size={16} /> Filters
+                                    </h3>
                                 </a>
                                 <div className={`pt-1 ${
                                     (
