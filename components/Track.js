@@ -43,10 +43,10 @@ const Track = ({
     return (
         <>
             <tr className="border-b border-gray-200 dark:border-gray-800 dark:border-opacity-50">
-                <td className="px-1.5 pt-1.5 pb-2">
+                <td className="px-1 pt-1.5 pb-2">
                     {trackNumber}
                 </td>
-                <td className="px-1.5 pt-1.5 pb-2">
+                <td className="px-1 pt-1.5 pb-2">
                     {title}
                     {links && links.map(link => (
                     <div key={`song-${id}-link-${link.id}`} className="inline-block ml-1">
@@ -56,20 +56,20 @@ const Track = ({
                     </div>
                 ))}
                 </td>
-                <td className="px-1.5 pt-1.5 pb-2">
+                <td className="px-1 pt-1.5 pb-2">
                     {artists.map(artist => (artist.name)).join(', ')}
                 </td>
-                <td className="px-1.5 pt-1.5 pb-2">
+                <td className="px-1 pt-1.5 pb-2">
                     {languages.map(language => (language.name)).join(', ')}
                 </td>
-                <td className="hidden xl:table-cell px-1.5 pt-1.5 pb-2">
+                <td className="hidden xl:table-cell px-1 pt-1.5 pb-2">
                     <div className="flex flex-wrap justify-between gap-1">
                         {filteredMembers}
                     </div>
                 </td>
             </tr>
             <tr className="xl:hidden">
-                <td colSpan="5" className="px-1.5 pt-1.5 pb-2 border-b-2 border-gray-300 dark:border-gray-800 dark:border-opacity-50">
+                <td colSpan="5" className="px-1 pt-1.5 pb-2 border-b-2 border-gray-300 dark:border-gray-800 dark:border-opacity-50">
                     <div className="flex flex-wrap justify-between gap-1">
                         {filteredMembers}
                     </div>

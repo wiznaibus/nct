@@ -51,10 +51,10 @@ const Album = ({
      : `https://assets.nctdiscography.com/thumbnail_990638d681.png`
 
     return (
-        <div className="container mx-auto lg:px-3 mb-10 lg:mb-12 lg:pt-6">
+        <section className="container mx-auto mb-10 lg:mb-12 lg:pt-6">
             <div className="flex flex-nowrap items-start justify-between mb-6">
                 <div className="flex flex-col">
-                    <h3 className="title text-black dark:text-white font-medium text-3xl mb-2">{title}</h3>
+                    <h2 className="title text-black dark:text-white font-medium text-3xl mb-2">{title}</h2>
                     <p>Release Date: {releaseDate.replace(/-/g, '/')}</p>
                     <p>Type: {releaseType.name}</p>
                     <div className="flex flex-wrap gap-1 mt-2">
@@ -74,26 +74,14 @@ const Album = ({
                     <tr className="w-full">
                         <th className="font-light p-1 w-5 xl:w-6">#</th>
                         <th className="font-light p-1 w-1/2 xl:w-auto">Track</th>
-                        <th className="font-light p-1 w-1/4 xl:w-24 2xl:w-32">Artist</th>
-                        <th className="font-light p-1 w-1/4 xl:w-20 2xl:w-28">Language</th>
-                        <th className="font-light p-1 hidden xl:table-cell xl:w-1/2">Participating Members</th>
+                        <th className="font-light p-1 w-1/4 xl:w-28 2xl:w-32">Artist</th>
+                        <th className="font-light p-1 w-1/4 xl:w-24 2xl:w-28">Language</th>
+                        <th className="font-light p-1 hidden xl:table-cell xl:w-5/12 2xl:w-1/2">Participating Members</th>
                     </tr>
                 </thead>
                 <tbody>
                     {songs.map((song) => {
                         return (
-                            /* (
-                                (
-                                    ((hasUnitQuery && hasMemberQuery) && song.performing_artists.filter(member => (
-                                        member.artist.unit === currentUnit.id && member.member === currentMember.id)).length > 0) ||
-                                    ((hasUnitQuery && !hasMemberQuery) && song.artists.filter(artist => 
-                                        artist.unit === currentUnit.id).length > 0) ||
-                                    ((!hasUnitQuery && hasMemberQuery) && song.performing_artists.filter(member => 
-                                        member.member === currentMember.id).length > 0) ||
-                                    (!hasUnitQuery && !hasMemberQuery)
-                                )
-                            )
-                            && */
                              <Track
                                 key={`album-${id}-song-${song.id}`}
                                 albumId={id}
@@ -105,12 +93,13 @@ const Album = ({
                                 albumMembers={participatingMembers}
                                 trackMembers={song.performing_artists}
                                 languages={song.languages}
-                                links={song.links} />
+                                links={song.links}
+                            />
                         )
                     })}
                 </tbody>
             </table>
-        </div>
+        </section>
     );
 };
 
