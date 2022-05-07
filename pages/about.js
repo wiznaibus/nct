@@ -32,7 +32,7 @@ function Home() {
                 <div className="container mx-auto flex flex-col-reverse lg:flex-row px-1 py-2 lg:px-3">
                     <div className="w-full lg:w-1/2 mb-6 lg:px-2">
                         <div className="mb-6">
-                            <h2 className="title text-black dark:text-white font-medium text-3xl mb-2">About</h2>
+                            <h1 className="title text-black dark:text-white font-medium text-3xl mb-2">About</h1>
                             <p>This website is a discography project for the K-pop group NCT. It was designed to quickly and conveniently show what albums and songs each member participated in with the ability to search and filter results.</p>
                         </div>
                         <div className="mb-6">
