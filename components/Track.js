@@ -40,6 +40,9 @@ const Track = ({
         return filteredMembers;
     });
 
+    artists = artists.sort((a,b) => (a.slug > b.slug) ? 1 : ((b.slug > a.slug) ? -1 : 0));
+    languages = languages.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
+
     return (
         <>
             <tr className="border-b border-gray-200 dark:border-gray-800 dark:border-opacity-50">
