@@ -87,6 +87,7 @@ const Album = ({
                                 albumId={id}
                                 id={song.id}
                                 trackNumber={song.track_number}
+                                isTitle={song.title_track}
                                 title={song.title}
                                 slug={song.slug}
                                 artists={song.artists}
