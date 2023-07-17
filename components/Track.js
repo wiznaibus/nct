@@ -7,6 +7,7 @@ const Track = ({
     albumId,
     id,
     trackNumber,
+    isTitle,
     title,
     slug,
     artists,
@@ -49,7 +50,7 @@ const Track = ({
                 <td className="px-1 pt-1.5 pb-2">
                     {trackNumber}
                 </td>
-                <td className="px-1 pt-1.5 pb-2">
+                <td className={`px-1 pt-1.5 pb-2 ${isTitle && `font-bold`}`}>
                     {title}
                     {links && links.map(link => (
                     <div key={`song-${id}-link-${link.id}`} className="inline-block ml-1">
